@@ -1313,7 +1313,11 @@ header .ag-header-nav-btn {
 .ag-masthead .ag-masthead-title {
   margin: auto 0;
   width: 90%;
-  max-width: 1016px;
+  max-width: 1062px;
+}
+
+.ag-masthead .ag-masthead-title .typing-txt {
+  color: #60b2f3;
 }
 
 .ag-masthead .ag-masthead-scroll-link {

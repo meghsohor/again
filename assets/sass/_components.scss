@@ -257,7 +257,11 @@ header {
     .ag-masthead-title {
         margin: auto 0;
         width: 90%;
-        max-width: 1016px;
+        max-width: 1062px;
+
+        .typing-txt {
+            color: $secondary_color;
+        }
     }
 
     .ag-masthead-scroll-link {
