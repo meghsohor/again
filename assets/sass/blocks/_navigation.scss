@@ -1,0 +1,19 @@
+.tm-c-navigation {
+    position: absolute;
+    top: 20px;
+    right: 10%;
+
+  .tm-c-navigation--pages {
+    list-style: none;
+    font-family: 'Brady Bunch Remastered';
+
+    .tm-c-navigation--pages-link {
+      color: white;
+      font-size: 30px;
+      text-decoration: none;
+      background: url('/assets/img/border.svg') no-repeat center bottom;
+      padding-bottom: 10px;
+    }
+  }
+
+}

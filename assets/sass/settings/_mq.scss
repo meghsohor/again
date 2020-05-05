@@ -1,0 +1,11 @@
+// Settings: MQ
+
+// Tarmac default media queries
+$tm-mq-mobile: 767px;
+$tm-mq-tablet: 1024px;
+$tm-mq-desktop: 1440px;
+$tm-mq-classes: (
+  'sd': $tm-mq-desktop,
+  't': $tm-mq-tablet,
+  'm': $tm-mq-mobile
+);

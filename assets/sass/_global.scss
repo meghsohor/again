@@ -1,0 +1,266 @@
+/*-----------------------------------------------
+    General Styling
+-----------------------------------------------*/
+* {
+  &,
+  &::after,
+  &::bemaxe {
+    box-sizing: border-box;
+  }
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+    position: relative;
+    color: #333;
+    font-size: 16px;
+    font-family: $font_gilroy;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: geometricPrecision;
+}
+
+a,
+button,
+.btn {
+  cursor: pointer;
+}
+
+*:focus {
+  outline: 0;
+  box-shadow: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+a {
+    text-decoration: none;
+}
+
+b,
+strong {
+  font-weight: bold;
+}
+
+/*-----------------------------------------------
+    Typography
+-----------------------------------------------*/
+
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4,
+h5, .h5,
+h6, .h6 {
+    font-weight: bold;
+    line-height: 125%;
+    margin-top: 0;
+}
+
+h1, .h1 {
+    font-size: 48.83px;
+
+    @include mq-min-small {
+        font-size: 50.64px;
+    }
+    @include mq-min-mobile {
+        font-size: 57.43px;
+    }
+    @include mq-min-tablet {
+        font-size: 62.35px;
+    }
+    @include mq-min-tablet-landscape {
+        font-size: 70.38px;
+    }
+    @include mq-min-desktop {
+        font-size: 76.3px;
+    }
+}
+
+h2, .h2 {
+    font-size: 39.06px;
+
+    @include mq-min-small {
+        font-size: 40.50px;
+    }
+    @include mq-min-mobile {
+        font-size: 45.95px;
+    }
+    @include mq-min-tablet {
+        font-size: 49.88px;
+    }
+    @include mq-min-tablet-landscape {
+        font-size: 56.28px;
+    }
+    @include mq-min-desktop {
+        font-size: 61px;
+    }
+}
+
+h3, .h3 {
+    font-size: 31.25px;
+
+    @include mq-min-small {
+        font-size: 32.41px;
+    }
+    @include mq-min-mobile {
+        font-size: 36.76px;
+    }
+    @include mq-min-tablet {
+        font-size: 39.90px;
+    }
+    @include mq-min-tablet-landscape {
+        font-size: 45.02px;
+    }
+    @include mq-min-desktop {
+        font-size: 48.8px;
+    }
+}
+
+h4, .h4 {
+    font-size: 25px;
+
+    @include mq-min-small {
+        font-size: 25.92px;
+    }
+    @include mq-min-mobile {
+        font-size: 29.40px;
+    }
+    @include mq-min-tablet {
+        font-size: 31.92px;
+    }
+    @include mq-min-tablet-landscape {
+        font-size: 36.01px;
+    }
+    @include mq-min-desktop {
+        font-size: 39.1px;
+    }
+}
+
+h5, .h5 {
+    font-size: 20px;
+
+    @include mq-min-small {
+        font-size: 20.74px;
+    }
+    @include mq-min-mobile {
+        font-size: 23.52px;
+    }
+    @include mq-min-tablet {
+        font-size: 25.54px;
+    }
+    @include mq-min-tablet-landscape {
+        font-size: 28.81px;
+    }
+    @include mq-min-desktop {
+        font-size: 31.3px;
+    }
+}
+
+h6, .h6 {
+    font-size: 18px;
+
+    @include mq-min-small {
+        font-size: 18.46px;
+    }
+    @include mq-min-mobile {
+        font-size: 20.19px;
+    }
+    @include mq-min-tablet {
+        font-size: 21.45px;
+    }
+    @include mq-min-tablet-landscape {
+        font-size: 23.48px;
+    }
+    @include mq-min-desktop {
+        font-size: 25px;
+    }
+}
+
+p {
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 140%;
+
+    @include mq-min-small {
+        font-size: 16.26px;
+    }
+    @include mq-min-mobile {
+        font-size: 17.25px;
+    }
+    @include mq-min-tablet {
+        font-size: 17.97px;
+    }
+    @include mq-min-tablet-landscape {
+        font-size: 19.13px;
+    }
+    @include mq-min-desktop {
+        font-size: 20px;
+    }
+}
+
+small, .small {
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 140%;
+
+    @include mq-min-small {
+        font-size: 14.13px;
+    }
+    @include mq-min-mobile {
+        font-size: 14.63px;
+    }
+    @include mq-min-tablet {
+        font-size: 14.98px;
+    }
+    @include mq-min-tablet-landscape {
+        font-size: 15.57px;
+    }
+    @include mq-min-desktop {
+        font-size: 16px;
+    }
+}
+
+.micro {
+    font-weight: 800;
+    font-size: 12px;
+    line-height: 140%;
+
+    @include mq-min-small {
+        font-size: 12.05px;
+    }
+    @include mq-min-mobile {
+        font-size: 12.25px;
+    }
+    @include mq-min-tablet {
+        font-size: 12.39px;
+    }
+    @include mq-min-tablet-landscape {
+        font-size: 12.63px;
+    }
+    @include mq-min-desktop {
+        font-size: 12.8px;
+    }
+}
+
+
+.ag-outline-white-btn {
+    padding: 15px 25px;
+    border: 1px solid #FFFFFF;
+    border-radius: 95px;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 140%;
+    color: $white_color;
+    transition: all 0.25s ease;
+
+    &.active, &:active, &:hover, &:focus {
+        color: $primary_color;
+        background-color: $white_color;
+    }
+}

@@ -1,0 +1,33 @@
+// Utility: Text alignment
+
+.#{$prefix}-u-align-left {
+  text-align: left !important;
+}
+
+.#{$prefix}-u-align-right {
+  text-align: right !important;
+}
+
+.#{$prefix}-u-align-center {
+  text-align: center !important;
+}
+
+.#{$prefix}-u-align-top {
+  vertical-align: top !important;
+}
+
+.#{$prefix}-u-align-bottom {
+  vertical-align: bottom !important;
+}
+
+.#{$prefix}-u-align-middle {
+  vertical-align: middle !important;
+}
+
+.#{$prefix}-u-align-text-top {
+  vertical-align: text-top !important;
+}
+
+.#{$prefix}-u-align-text-bottom {
+  vertical-align: text-bottom !important;
+}

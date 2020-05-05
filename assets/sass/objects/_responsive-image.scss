@@ -1,0 +1,34 @@
+// Object: Responsive image
+
+/*
+ * Pattern
+ *
+    <div class="tm-o-responsive-image [ tm-o-responsive-image--1x1 | tm-o-responsive-image--16x9 ]">
+      <img src="..." />
+    </div>
+ *
+ */
+
+.#{$prefix}-o-responsive-image {
+  position: relative;
+  height: 0;
+  overflow: hidden;
+
+  img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.#{$prefix}-o-responsive-image--1x1 {
+  padding-bottom: 100%;
+}
+
+.#{$prefix}-o-responsive-image--4x3 {
+  padding-bottom: 3 / 4 * 100%;
+}
+
+.#{$prefix}-o-responsive-image--16x9 {
+  padding-bottom: 9 / 16 * 100%;
+}

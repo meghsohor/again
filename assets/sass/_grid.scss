@@ -1,0 +1,21 @@
+/*-----------------------------------------------
+    Container
+-----------------------------------------------*/
+
+.ag-container {
+    width: 80%;
+    margin: 0 auto;
+    
+    @include mq-min-tablet {
+        width: 90%;
+    }
+
+    @include mq-min-tablet-landscape {
+        width: 90%;
+    }
+
+    @include mq-min-desktop {
+        width: 90%;
+        max-width: 1400px;
+    }
+}

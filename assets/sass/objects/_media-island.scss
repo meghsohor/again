@@ -1,0 +1,40 @@
+// Object: Media island
+
+/*
+ * Pattern
+ *
+    <div class="tm-o-media-island">
+      <img src="">
+      <div class="tm-o-media-island__icon--[position]">
+        [Icon]
+      </div>
+    </div>
+ *
+ */
+
+.#{$prefix}-o-media-island {
+  position: relative;
+}
+
+@each $position in top-left, top-right, bottom-left, bottom-right {
+  .#{$prefix}-o-media-island__icon--#{$position} {
+    position: absolute;
+
+    $y: null;
+    $x: null;
+    @if str-index($position, top) {
+      $y: top;
+    } @else {
+      $y: bottom;
+    }
+
+    @if str-index($position, left) {
+      $x: left;
+    } @else {
+      $x: right;
+    }
+
+    #{$y}: $tm-spacing-unit;
+    #{$x}: $tm-spacing-unit;
+  }
+}

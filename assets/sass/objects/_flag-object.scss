@@ -1,0 +1,44 @@
+// Object: Flag object
+
+/*
+ * Pattern
+ *
+    <div class="tm-o-flag">
+      <div class="tm-o-flag__img">
+        <img src="..." />
+      </div>
+      <div class="tm-o-flag__body">
+        <p>Some example content</p>
+      </div>
+    </div>
+ *
+ */
+
+.#{$prefix}-o-flag {
+  display: table;
+  width: 100%;
+}
+
+.#{$prefix}-o-flag__img,
+.#{$prefix}-o-flag__body {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.#{$prefix}-o-flag__img {
+  padding-right: $tm-spacing-unit;
+
+  > img {
+    display: block;
+    max-width: none;
+  }
+}
+
+.#{$prefix}-o-flag__body {
+  width: 100%;
+
+  &,
+  > :last-child {
+    margin-bottom: 0;
+  }
+}
