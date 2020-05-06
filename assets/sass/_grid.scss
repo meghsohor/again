@@ -19,3 +19,44 @@
         max-width: 1400px;
     }
 }
+
+/*-----------------------------------------------
+    Grid
+-----------------------------------------------*/
+.ag-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+
+    [class*="ag-col"] {
+        position: relative;
+        width: 100%;
+        min-height: 1px;
+
+        &.ag-col-md-6 {
+            @include mq-min-tablet-landscape {
+                width: calc(50% - 40.5px);
+            }
+
+            @include mq-min-desktop {
+                width: calc(50% - 44.5px);
+            }
+        }
+
+        &.ag-col-sm-6 {
+            @include mq-min-tablet {
+                width: calc(50% - 31.5px);
+            }
+
+            @include mq-min-tablet-landscape {
+                width: calc(50% - 40.5px);
+            }
+
+            @include mq-min-desktop {
+                width: calc(50% - 44.5px);
+            }
+        }
+    }
+
+}

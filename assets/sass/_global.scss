@@ -3,8 +3,8 @@
 -----------------------------------------------*/
 * {
   &,
-  &::after,
-  &::bemaxe {
+  &:after,
+  &:before {
     box-sizing: border-box;
   }
 }
@@ -16,7 +16,7 @@ body {
 
 body {
     position: relative;
-    color: #333;
+    color: $default-text-color;
     font-size: 16px;
     font-family: $font_gilroy;
     -webkit-font-smoothing: antialiased;
@@ -186,6 +186,7 @@ p {
     font-weight: normal;
     font-size: 16px;
     line-height: 140%;
+    margin-top: 0;
 
     @include mq-min-small {
         font-size: 16.26px;
@@ -203,11 +204,54 @@ p {
         font-size: 20px;
     }
 }
+.copy-link {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 140%;
+    color: $primary_color;
 
+    @include mq-min-small {
+        font-size: 16.26px;
+    }
+    @include mq-min-mobile {
+        font-size: 17.25px;
+    }
+    @include mq-min-tablet {
+        font-size: 17.97px;
+    }
+    @include mq-min-tablet-landscape {
+        font-size: 19.13px;
+    }
+    @include mq-min-desktop {
+        font-size: 20px;
+    }
+}
 small, .small {
     font-weight: normal;
     font-size: 14px;
     line-height: 140%;
+
+    @include mq-min-small {
+        font-size: 14.13px;
+    }
+    @include mq-min-mobile {
+        font-size: 14.63px;
+    }
+    @include mq-min-tablet {
+        font-size: 14.98px;
+    }
+    @include mq-min-tablet-landscape {
+        font-size: 15.57px;
+    }
+    @include mq-min-desktop {
+        font-size: 16px;
+    }
+}
+.small-link {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 140%;
+    color: $primary_color;
 
     @include mq-min-small {
         font-size: 14.13px;
@@ -249,6 +293,11 @@ small, .small {
 }
 
 
+
+/*-----------------------------------------------
+    Buttons
+-----------------------------------------------*/
+
 .ag-outline-white-btn {
     padding: 15px 25px;
     border: 1px solid #FFFFFF;
@@ -263,4 +312,12 @@ small, .small {
         color: $primary_color;
         background-color: $white_color;
     }
+}
+
+
+/*-----------------------------------------------
+    Links
+-----------------------------------------------*/
+.link-underline {
+    border-bottom: 1px solid $pale_blue;
 }
