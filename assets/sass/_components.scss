@@ -1,25 +1,106 @@
 /*-----------------------------------------------
+    Page Loader
+-----------------------------------------------*/
+.ag-loader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9999;
+    background-color: #FFF;
+    transform: scaleY(0);
+    transform-origin: center top;
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.6s;
+
+    &:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: #EFF7FE;
+        transform: translateY(0);
+        transform-origin: center;
+        transition: all 0.8s cubic-bezier(0.97, 0, 1, 1);
+    } 
+
+    span {
+        width: 180px;
+        height: 180px;
+        font-size: 150px;
+        font-weight: 600;
+        line-height: 160px;
+        color: #FFFFFF;
+        text-align: center;
+        background-color: rgba($brand_blue, 0.1);
+        border-radius: 15px;
+    }
+}
+
+body.loading {
+    overflow: hidden;
+
+    .ag-loader {
+        transform: scaleY(1);
+
+        &:after {
+            transform: translateY(100%);
+        }
+    }
+
+    .ag-masthead {
+        padding-top: 30px;
+    }
+}
+
+
+/*-----------------------------------------------
     Header section
 -----------------------------------------------*/
+body.sticky-header {
+
+    header {
+        position: fixed;
+        background-color: $primary_color;
+
+        &:not(.open-menu) {
+            padding: 10px 0;
+        }
+    }
+}
+
+body.no-scroll {
+    overflow: hidden;
+}
+
 header {
     position: absolute;
     width: 100%;
     z-index: 1;
     display: flex;
     align-items: stretch;
+    padding-top: 32px;
+    transition: padding 0.25s ease;
+
+    @include mq-min-tablet {
+        padding-top: 40px;
+    }
+    @include mq-min-tablet-landscape{
+        padding-top: 64px;
+    }
 
     .ag-container {
         display: flex;
         align-items: center;
-        padding-top: 60px;
 
         @include mq-max-tablet-landscape {
             flex-wrap: wrap;
-            align-items: flex-start;
-            padding-top: 40px;
-        }
-        @include mq-max-tablet {
-            padding-top: 32px;
+            align-items: center;
         }
 
         .ag-logo {
@@ -113,7 +194,7 @@ header {
             position: relative;
             padding: 0;
             width: 32px;
-            height: 26px;
+            height: 45px;
             transform: rotate(0deg);
             background: none;
             border: none;
@@ -128,7 +209,7 @@ header {
                     background-color: $primary_color;
                 }
                 span:nth-child(1) {
-                    top: 10px;
+                    top: 14px;
                     width: 0%;
                     left: 50%;
                 }
@@ -142,7 +223,7 @@ header {
                 }
 
                 span:nth-child(4) {
-                    top: 10px;
+                    top: 14px;
                     width: 0%;
                     left: 50%;
                 }
@@ -160,15 +241,15 @@ header {
                 transition: .25s ease-in-out;
 
                 &:nth-child(1) {
-                    top: 0px;
+                    top: 4px;
                 }
 
                 &:nth-child(2), &:nth-child(3) {
-                    top: 10px;
+                    top: 14px;
                 }
 
                 &:nth-child(4) {
-                    top: 20px;
+                    top: 24px;
                 }
             }
         }
@@ -193,6 +274,12 @@ header {
 
         &:before {
             transform: scaleX(1);
+        }
+
+        @include mq-max-tablet-landscape {
+            .ag-container {
+                align-items: start;
+            }
         }
 
 
@@ -247,6 +334,8 @@ header {
 .ag-masthead {
     display: flex;
     align-items: stretch;
+    padding-top: 0;
+    transition: 0.4s ease-out 0.8s;
 
     .ag-container {
         display: flex;
@@ -258,6 +347,16 @@ header {
         margin: auto 0;
         width: 90%;
         max-width: 1062px;
+
+        @include mq-max-desktop {
+            font-size: 62.35px;
+        }
+        @include mq-max-tablet-landscape {
+            font-size: 57.43px;
+        }
+        @include mq-max-tablet {
+            font-size: 38px;
+        }
 
         .typing-txt {
             color: $secondary_color;
@@ -314,6 +413,7 @@ header {
 .who-we-are {
     padding-top: 64px;
     padding-bottom: 64px;
+    overflow-x: hidden;
 
     @include mq-min-tablet {
         padding-top: 80px;
@@ -330,9 +430,36 @@ header {
         padding-bottom: 128px;
     }
 
+    .section-heading {
+        margin: 0;
+
+        @include mq-max-tablet-landscape {
+            margin-bottom: 48px;
+        }
+        @include mq-max-tablet {
+            margin-bottom: 32px;
+        }
+    }
+
     .who-we-are-banner {
         position: relative;
         overflow: hidden;
+        margin-top: 48px;
+        margin-bottom: 48px;
+
+        @include mq-min-tablet {
+            margin-top: 64px;
+            margin-bottom: 64px;
+        }
+
+        @include mq-min-tablet-landscape {
+            margin-top: 80px;
+            margin-bottom: 80px;
+        }
+        @include mq-min-desktop {
+            margin-top: 112px;
+            margin-bottom: 112px;
+        }
 
         .who-we-are-banner-heading {
             color: $white_color;
@@ -387,6 +514,72 @@ header {
                 width: 441px;
                 height: 441px;
             }
+        }
+    }
+}
+
+.ag-carousel {
+    .ag-carousel-items {
+        display: flex;
+        margin-bottom: 48px;
+
+        @include mq-min-tablet-landscape {
+            margin-bottom: 80px;
+        }
+
+        @include mq-min-desktop {
+            margin-bottom: 112px;
+        }
+
+        .ag-carousel-item {
+            flex: 0 0 100%;
+
+            @include mq-min-tablet {
+                max-width: calc(50% - 26.5px);
+                margin-left: 51px;
+            }
+
+            @include mq-min-tablet-landscape {
+                max-width: calc(33.33% - 44px);
+                margin-left: 65px;
+            }
+
+            @include mq-min-desktop {
+                max-width: calc(30% - 40px);
+                margin-left: 81px;
+            }
+
+            &:first-child {
+                margin-left: 0;
+            }
+
+            .ag-carousel-item-logo {
+                display: block;
+                margin-bottom: 32px;
+            }
+
+            p {
+                margin-bottom: 24px;
+
+                @include mq-min-tablet {
+                    margin-bottom: 28px;
+                }
+            }
+        }
+    }
+
+    .ag-carousel-marker-wrapper {
+        position: relative;
+        height: 3px;
+        background-color: rgba($primary_color, 0.1);
+
+        .ag-carousel-marker {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 25%;
+            background-color: $secondary_color;
         }
     }
 }
@@ -751,8 +944,335 @@ header {
                     writing-mode: unset;
                     padding: 0 5px 0 10px;
                     align-self: flex-end;
-                    margin-top: 10px;
+                    margin-top: 13px;
                 }
+            }
+        }
+    }
+
+    .feature-list-container {
+
+        .feature-list-item {
+            margin-top: 48px;
+
+            @include mq-min-tablet {
+                margin-top: 64px;
+            }
+
+            @include mq-min-tablet-landscape {
+                margin-top: 80px;
+            }
+
+            @include mq-min-desktop {
+                margin-top: 112px;
+            }
+
+            .feature-list-item-title {
+                margin-bottom: 28px;
+
+                .feature-list-item-index {
+                    padding-right: 10px;
+                    color: $brand_blue;
+                }
+            }
+
+            &:nth-child(2) .feature-list-item-index {
+                color: $brand_pink;
+            }
+            &:nth-child(3) .feature-list-item-index {
+                color: $brand_purple;
+            }
+            &:nth-child(4) .feature-list-item-index {
+                color: $brand_green;
+            }
+
+            .feature-list-item-details, .feature-list-item-service-title {
+                margin-bottom: 24px;
+            }
+
+            .feature-list-item-service-title {
+                @include mq-min-tablet-landscape {
+                    margin-top: 15px;
+                }
+            }
+        }
+    }
+}
+
+
+/*-----------------------------------------------
+    How We Think Section
+-----------------------------------------------*/
+.how-we-think {
+
+    .section-heading {
+        margin-bottom: 16px;
+
+        @include mq-min-tablet-landscape {
+            margin-bottom: 24px;
+        }
+
+        @include mq-min-desktop {
+            margin-bottom: 56px;
+        }
+    }
+}
+
+.rotate-banner {
+    overflow: hidden;
+    margin-bottom: 64px;
+
+    @include mq-min-tablet {
+        margin-bottom: 80px;
+    }
+
+    @include mq-min-tablet-landscape {
+        margin-bottom: 96px;
+    }
+
+    @include mq-min-desktop {
+        margin-bottom: 160px;
+    }
+
+    .rotate-banner-text {
+        font-size: 49.57px;
+        line-height: 1;
+        font-weight: 600;
+        color: #EFF7FE;
+        white-space: nowrap;
+        padding: 0 15px;
+        animation: rotateBanner 3s linear 0s infinite;
+
+        @include mq-min-tablet {
+            font-size: 54.72px;
+        }
+        @include mq-min-tablet-landscape {
+            font-size: 72.97px;
+        }
+        @include mq-min-desktop {
+            font-size: 102px;
+        }
+    }
+}
+
+@keyframes rotateBanner {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-66.6666%); 
+    }
+}
+
+
+.single-post-item {
+    display: block;
+    margin-top: 32px;
+
+    .single-post-item-thumbnail {
+        display: flex;
+        overflow: hidden;
+    }
+
+    .single-post-item-title {
+        margin-bottom: 0;
+    }
+
+
+    @include mq-min-tablet {
+        margin-top: 48px;
+    }
+
+    @include mq-min-tablet-landscape {
+        margin-top: 56px;
+
+        .single-post-item-thumbnail {
+            
+            img {
+                transform-origin: 50% 50%;
+                transition: transform .6s;
+            }
+        }
+
+        &:hover {
+            .single-post-item-thumbnail img {
+                transform: scale(1.2);
+            }
+        }
+    } 
+
+    @include mq-min-desktop {
+        padding-bottom: 28px;
+
+        &:after {
+            display: block;
+            height: 19px;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            content: url('../img/news-post-arrow.svg');
+            opacity: 0;
+            transform: translateX(-100%);
+            transition: all 0.5s ease;
+        }
+
+        &:hover {
+            &:after {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+    }
+
+    .single-post-item-category-date {
+        margin-top: 12px;
+        margin-bottom: 8px;
+
+        @include mq-min-tablet {
+            margin-top: 28px;
+            margin-bottom: 12px;
+        }
+
+        span {
+            display: inline-block;
+        }
+    }
+}
+
+
+/*-----------------------------------------------
+    Know More Section
+-----------------------------------------------*/
+.know-more {
+    padding-top: 64px;
+    padding-bottom: 64px;
+
+    @include mq-min-tablet {
+        padding-top: 80px;
+        padding-bottom: 80px;
+    }
+    @include mq-min-tablet-landscape {
+        padding-top: 96px;
+        padding-bottom: 96px;
+    }
+
+    @include mq-min-desktop {
+        padding-top: 160px;
+        padding-bottom: 160px;
+    }
+
+    .section-heading {
+        margin-bottom: 48px;
+
+        @include mq-min-tablet {
+            margin-bottom: 64px;
+        }
+        @include mq-min-tablet-landscape {
+            margin-bottom: 80px;
+        }
+
+        @include mq-min-desktop {
+            margin-bottom: 112px;
+        }
+    }
+}
+
+.collapsible-section {
+    
+    @include mq-min-tablet {
+        max-width: 690px;
+    }
+
+    .collapsible-item {
+        margin-bottom: 24px;
+        padding-bottom: 24px;
+        border-bottom: 1px solid rgba(30, 51, 86, 0.15);
+
+        .collapsible-item-header {
+            display: flex;
+            cursor: pointer;
+
+            &:before {
+                content: '';
+                display: inline-block;
+                margin-right: 13px;
+                width: 24px;
+                height: 24px;
+                background-image: url('../img/plus.svg');
+                background-size: contain;
+                background-position: center;
+                background-repeat: no-repeat;
+            }
+        }
+
+        .collapsible-item-content {
+            padding-top: 0px;
+            max-height: 0;
+            opacity: 0;
+            transition: all 0.25s ease;
+            pointer-events: none;
+
+            &:before {
+                content: '';
+                display: block;
+                height: 0;
+                transition: all 0.5s ease;
+                pointer-events: none;
+            }
+        }
+
+        &.open {
+            .collapsible-item-header:before {
+                background-image: url('../img/minus.svg');
+            }
+
+            .collapsible-item-content {
+                max-height: 1000px;
+                opacity: 1;
+                pointer-events: all;
+
+                &:before {
+                    height: 48px;
+
+                    @include mq-min-tablet-landscape {
+                        height: 56px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+/*-----------------------------------------------
+    Contact Us Section
+-----------------------------------------------*/
+
+.contact-us {
+    padding-top: 64px;
+    padding-bottom: 128px;
+
+    @include mq-min-tablet {
+        padding-top: 80px;
+        padding-bottom: 160px;
+    }
+    @include mq-min-tablet-landscape {
+        padding-top: 96px;
+        padding-bottom: 192px;
+    }
+
+    @include mq-min-desktop {
+        padding-top: 160px;
+        padding-bottom: 320px;
+    }
+
+    .ag-form {
+
+        .ag-btn {
+            margin-top: 48px;
+
+            @include mq-min-tablet-landscape{
+                margin-top: 56px;
             }
         }
     }

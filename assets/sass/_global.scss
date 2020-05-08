@@ -22,7 +22,9 @@ body {
     -webkit-font-smoothing: antialiased;
     text-rendering: geometricPrecision;
 }
-
+button, input, optgroup, select, textarea {
+    font-family: $font_gilroy;
+}
 a,
 button,
 .btn {
@@ -182,7 +184,7 @@ h6, .h6 {
     }
 }
 
-p {
+p, .copy {
     font-weight: normal;
     font-size: 16px;
     line-height: 140%;
@@ -270,6 +272,24 @@ small, .small {
     }
 }
 
+.small-list {
+    font-weight: normal;
+    font-size: 14.13px;
+    line-height: 170%;
+    @include mq-min-mobile {
+        font-size: 14.63px;
+    }
+    @include mq-min-tablet {
+        font-size: 14.98px;
+    }
+    @include mq-min-tablet-landscape {
+        font-size: 15.57px;
+    }
+    @include mq-min-desktop {
+        font-size: 16px;
+    }
+}
+
 .micro {
     font-weight: 800;
     font-size: 12px;
@@ -297,11 +317,41 @@ small, .small {
 /*-----------------------------------------------
     Buttons
 -----------------------------------------------*/
+.ag-btn {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 140%;
+    padding: 15px 25px;
+    border: 0 none;
+
+    @include mq-min-small {
+        font-size: 14.13px;
+    }
+    @include mq-min-mobile {
+        font-size: 14.63px;
+    }
+    @include mq-min-tablet {
+        font-size: 14.98px;
+    }
+    @include mq-min-tablet-landscape {
+        font-size: 15.57px;
+    }
+    @include mq-min-desktop {
+        font-size: 16px;
+    }
+
+    &:active, &.active {
+        color: $white_color;
+        background-color: $btn_active_color;
+    }
+}
+
+.ag-btn-round {
+    border-radius: 95px;
+}
 
 .ag-outline-white-btn {
-    padding: 15px 25px;
     border: 1px solid #FFFFFF;
-    border-radius: 95px;
     font-weight: 600;
     font-size: 16px;
     line-height: 140%;
@@ -314,10 +364,87 @@ small, .small {
     }
 }
 
+.ag-btn-info {
+    color: $white_color;
+    background-color: $secondary_color;
+}
+
 
 /*-----------------------------------------------
     Links
 -----------------------------------------------*/
 .link-underline {
-    border-bottom: 1px solid $pale_blue;
+    position: relative;
+    padding: 0 2px;
+    display: inline-block;
+
+    &:before {
+        content: '';
+        position: absolute;
+        top: 100%;
+        left: 2px;
+        height: 1px;
+        width: calc(100% - 2px);
+        background-color: $pale_blue;
+        transform: scaleX(1);
+        transform-origin: left center;
+        transition: all 0.25s ease;
+    }
+    
+    &:hover:before {
+        transform: scaleX(0);
+    }
+
+    &:focus, &:active {
+        color: $primary_color;
+        background-color: $pale_blue;
+
+        &:before {
+            display: none;
+        }
+    }
+}
+
+/*-----------------------------------------------
+    Form
+-----------------------------------------------*/
+.ag-form {
+
+    .ag-form-group {
+        display: block;
+        margin-bottom: 28px;
+
+        label {
+            display: block;
+            margin-bottom: 12px;
+        }
+
+        .ag-form-input {
+            display: block;
+            width: 100%;
+            padding: 12px 24px;
+            color: $primary_color;
+            background-color: $white_color;
+            border: 2px solid #D4D9E1;
+            font-weight: normal;
+            font-size: 16px;
+            line-height: 140%;
+
+            @include mq-min-small {
+                font-size: 16.26px;
+            }
+            @include mq-min-mobile {
+                font-size: 17.25px;
+            }
+            @include mq-min-tablet {
+                font-size: 17.97px;
+            }
+            @include mq-min-tablet-landscape {
+                font-size: 19.13px;
+            }
+            @include mq-min-desktop {
+                font-size: 20px;
+            }
+        }
+    }
 }

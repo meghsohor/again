@@ -15,7 +15,10 @@
 
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
-<body>
+<body class="loading">
+    <div class="ag-loader">
+        <span>a</span>
+    </div>
     <header>
         <div class="ag-container">
             <a href="javascript:void(0)" class="ag-logo">
@@ -25,13 +28,13 @@
             <nav class="ag-nav">
                 <ul class="ag-nav-menu">
                     <li>
-                        <a href="javascript:void(0)" class="ag-nav-link">Who we are</a>
+                        <a href="javascript:void(0)" class="ag-nav-link" data-target="who-we-are">Who we are</a>
                     </li>
                     <li>
-                        <a href="javascript:void(0)" class="ag-nav-link">What we do</a>
+                        <a href="javascript:void(0)" class="ag-nav-link" data-target="what-we-do">What we do</a>
                     </li>
                     <li>
-                        <a href="javascript:void(0)" class="ag-nav-link">How we think</a>
+                        <a href="javascript:void(0)" class="ag-nav-link" data-target="how-we-think">How we think</a>
                     </li>
                 </ul>
                 <a href="javascript:void(0)" class="ag-header-nav-btn">Let’s work together</a>
@@ -49,7 +52,7 @@
         <div class="ag-container">
             <h1 class="ag-masthead-title">Unleash Recurring Growth Through <span class="typing-txt">Deeper Experiences</span></h1>
 
-            <a href="javascript:void(0)" class="ag-masthead-scroll-link">Find out how</a>
+            <a href="javascript:void(0)" class="ag-masthead-scroll-link" data-target="who-we-are">Find out how</a>
         </div>
     </section>
 
@@ -57,7 +60,7 @@
         <div class="ag-container">
             <div class="ag-row">
                 <div class="ag-col-md-6">
-                    <h3 class="text-primary">Is your brand ready for recurring growth?</h3>
+                    <h3 class="text-primary section-heading">Is your brand ready for recurring growth?</h3>
                 </div>
                 <div class="ag-col-md-6">
                     <p>Understanding your customers is key to creating experiences that deliver returns, again and again.</p>
@@ -74,32 +77,41 @@
                 <span class="who-we-are-banner-rect"></span>
             </div>
 
-            <div class="clients-carousel">
-                <div class="clients-carousel-item">
-                    <img class="clients-carousel-item-logo" src="assets/img/hearst.svg" alt="Hearst Magazine">
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard
-                    dummy text ever since the 1500s</p>
-                    <span class="small-link">Firstname Lastname, Job Title</span>
+            <div class="ag-carousel">
+                <div class="ag-carousel-items">
+                    <div class="ag-carousel-item">
+                        <img class="ag-carousel-item-logo" src="assets/img/hearst.svg" alt="Hearst Magazine">
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+                            industry's standard
+                            dummy text ever since the 1500s</p>
+                        <span class="small-link">Firstname Lastname, Job Title</span>
+                    </div>
+                
+                    <div class="ag-carousel-item">
+                        <img class="ag-carousel-item-logo" src="assets/img/shelter.svg" alt="Shelter">
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+                            industry's standard
+                            dummy text ever since the 1500s</p>
+                        <span class="small-link">Firstname Lastname, Job Title</span>
+                    </div>
+                
+                    <div class="ag-carousel-item">
+                        <img class="ag-carousel-item-logo" src="assets/img/wsj.svg" alt="Wall Street Journal">
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+                            industry's standard
+                            dummy text ever since the 1500s</p>
+                        <span class="small-link">Firstname Lastname, Job Title</span>
+                    </div>
+                    <div class="ag-carousel-item">
+                        <img class="ag-carousel-item-logo" src="assets/img/118mc.svg" alt="118mc">
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+                            industry's standard
+                            dummy text ever since the 1500s</p>
+                        <span class="small-link">Firstname Lastname, Job Title</span>
+                    </div>
                 </div>
-
-                <div class="clients-carousel-item">
-                    <img class="clients-carousel-item-logo" src="assets/img/shelter.svg" alt="Shelter">
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard
-                    dummy text ever since the 1500s</p>
-                    <span class="small-link">Firstname Lastname, Job Title</span>
-                </div>
-
-                <div class="clients-carousel-item">
-                    <img class="clients-carousel-item-logo" src="assets/img/wsj.svg" alt="Wall Street Journal">
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard
-                    dummy text ever since the 1500s</p>
-                    <span class="small-link">Firstname Lastname, Job Title</span>
-                </div>
-                <div class="clients-carousel-item">
-                    <img class="clients-carousel-item-logo" src="assets/img/118mc.svg" alt="118mc">
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard
-                    dummy text ever since the 1500s</p>
-                    <span class="small-link">Firstname Lastname, Job Title</span>
+                <div class="ag-carousel-marker-wrapper">
+                    <span class="ag-carousel-marker"></span>
                 </div>
             </div>
         </div>
@@ -181,25 +193,25 @@
             <div class="feature-list-container">
                 <div class="ag-row feature-list-item">
                     <div class="ag-col-md-6">
-                        <h5 class="text-primary">
+                        <h5 class="text-primary feature-list-item-title">
                             <span class="feature-list-item-index">1</span>
                             Data & Insights
                             </h5>
-                            <p>We despise assumptions. We want to know for certain. We dive deep into consumer psychology and research, delivering ROI
+                            <p class="feature-list-item-details">We despise assumptions. We want to know for certain. We dive deep into consumer psychology and research, delivering ROI
                             from the get-go, kicking off with experimental forecasting which ties directly into your bottom line.</p>
                     </div>
                     <div class="ag-col-md-6">
-                        <p class="small-link">Service examples</p>
+                        <p class="small-link feature-list-item-service-title">Service examples</p>
                         <div class="ag-row">
                             <div class="ag-col-sm-6">
-                                <ul>
+                                <ul class="list-unstyled small-list">
                                     <li>Objectives Alignment</li>
                                     <li>Consumer Insights</li>
                                     <li>Qualitative Analysis</li>
                                 </ul>
                             </div>
                             <div class="ag-col-sm-6">
-                                <ul>
+                                <ul class="list-unstyled small-list">
                                     <li>Quantitative Research</li>
                                     <li>Analysis User</li>
                                     <li>Heuristics</li>
@@ -211,25 +223,25 @@
 
                 <div class="ag-row feature-list-item">
                     <div class="ag-col-md-6">
-                        <h5 class="text-primary">
+                        <h5 class="text-primary feature-list-item-title">
                             <span class="feature-list-item-index">2</span>
                             Strategy & UX
                         </h5>
-                        <p>Collaboration = success. We work with you to go from actionable insights to a strategic roadmap. A meaningful approach
+                        <p class="feature-list-item-details">Collaboration = success. We work with you to go from actionable insights to a strategic roadmap. A meaningful approach
                         which whch helps inform a long-term commercial strategy.</p>
                     </div>
                     <div class="ag-col-md-6">
-                        <p class="small-link">Service examples</p>
+                        <p class="small-link feature-list-item-service-title">Service examples</p>
                         <div class="ag-row">
                             <div class="ag-col-sm-6">
-                                <ul>
+                                <ul class="list-unstyled small-list">
                                     <li>Opportunity Identification</li>
                                     <li>Prioritization</li>
                                     <li>Strategy Ideation</li>
                                 </ul>
                             </div>
                             <div class="ag-col-sm-6">
-                                <ul>
+                                <ul class="list-unstyled small-list">
                                     <li>UX Strategy</li>
                                     <li>UX design</li>
                                 </ul>
@@ -240,25 +252,25 @@
 
                 <div class="ag-row feature-list-item">
                     <div class="ag-col-md-6">
-                        <h5 class="text-primary">
+                        <h5 class="text-primary feature-list-item-title">
                             <span class="feature-list-item-index">3</span>
                             Creative & Build
                         </h5>
-                        <p>Pushing boundaries, rejecting shortcuts and refusing to take the easy way, that's how we roll. We craft transformative
+                        <p class="feature-list-item-details">Pushing boundaries, rejecting shortcuts and refusing to take the easy way, that's how we roll. We craft transformative
                         experiences which not only delight your customers but crucially: they convert.</p>
                     </div>
                     <div class="ag-col-md-6">
-                        <p class="small-link">Service examples</p>
+                        <p class="small-link feature-list-item-service-title">Service examples</p>
                         <div class="ag-row">
                             <div class="ag-col-sm-6">
-                                <ul>
+                                <ul class="list-unstyled small-list">
                                     <li>Interaction </li>
                                     <li>Design UI</li>
                                     <li>Design Copywriting</li>
                                 </ul>
                             </div>
                             <div class="ag-col-sm-6">
-                                <ul>
+                                <ul class="list-unstyled small-list">
                                     <li>Coding</li>
                                     <li>Implementation</li>
                                     <li>QA</li>
@@ -270,31 +282,172 @@
 
                 <div class="ag-row feature-list-item">
                     <div class="ag-col-md-6">
-                        <h5 class="text-primary">
+                        <h5 class="text-primary feature-list-item-title">
                             <span class="feature-list-item-index">3</span>
                             Experiment & Learn
                         </h5>
-                        <p>Our mantra is simple: we succeed when you do. We're always learning and collaborating, feeding our insights into the
+                        <p class="feature-list-item-details">Our mantra is simple: we succeed when you do. We're always learning and collaborating, feeding our insights into the
                         entire customer lifecycle - and your entire business.</p>
                     </div>
                     <div class="ag-col-md-6">
-                        <p class="small-link">Service examples</p>
+                        <p class="small-link feature-list-item-service-title">Service examples</p>
                         <div class="ag-row">
                             <div class="ag-col-sm-6">
-                                <ul>
+                                <ul class="list-unstyled small-list">
                                     <li>Personalization</li>
                                     <li>Experimentation</li>
                                     <li>Insight Generation</li>
                                 </ul>
                             </div>
                             <div class="ag-col-sm-6">
-                                <ul>
+                                <ul class="list-unstyled small-list">
                                     <li>Commercial Modelling</li>
                                     <li>Performance Measurement</li>
                                 </ul>
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="how-we-think" class="how-we-think">
+        <div class="rotate-banner">
+            <div class="rotate-banner-text">see what’s on our mind see what’s on</div>
+        </div>
+
+        <div class="ag-container">
+            <h3 class="text-primary section-heading">See what’s on our mind...</h3>
+
+            <div class="ag-row">
+                <div class="ag-col-sm-6">
+                    <a href="javascript:void(0)" class="single-post-item">
+                        <div class="single-post-item-thumbnail">
+                            <img src="assets/img/post-thumbnail.jpg" alt="Again Blog Post">
+                        </div>
+                        <div class="small text-default single-post-item-category-date">
+                            <span>Customer Experience</span> | <span>July 26</span>
+                        </div>
+                        <h6 class="text-primary single-post-item-title">Latest news article headline.</h6>
+                    </a>
+                </div>
+                <div class="ag-col-sm-6">
+                    <a href="javascript:void(0)" class="single-post-item">
+                        <div class="single-post-item-thumbnail">
+                            <img src="assets/img/post-thumbnail.jpg" alt="Again Blog Post">
+                        </div>
+                        <div class="small text-default single-post-item-category-date">
+                            <span>Customer Experience</span> | <span>July 26</span>
+                        </div>
+                        <h6 class="text-primary single-post-item-title">Latest news article headline.</h6>
+                    </a>
+                </div>
+                <div class="ag-col-sm-6">
+                    <a href="javascript:void(0)" class="single-post-item">
+                        <div class="single-post-item-thumbnail">
+                            <img src="assets/img/post-thumbnail.jpg" alt="Again Blog Post">
+                        </div>
+                        <div class="small text-default single-post-item-category-date">
+                            <span>Customer Experience</span> | <span>July 26</span>
+                        </div>
+                        <h6 class="text-primary single-post-item-title">Latest news article headline.</h6>
+                    </a>
+                </div>
+                <div class="ag-col-sm-6">
+                    <a href="javascript:void(0)" class="single-post-item">
+                        <div class="single-post-item-thumbnail">
+                            <img src="assets/img/post-thumbnail.jpg" alt="Again Blog Post">
+                        </div>
+                        <div class="small text-default single-post-item-category-date">
+                            <span>Customer Experience</span> | <span>July 26</span>
+                        </div>
+                        <h6 class="text-primary single-post-item-title">Latest news article headline.</h6>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <section class="know-more">
+        <div class="ag-container">
+            <h3 class="text-primary section-heading">Curious to know more?</h3>
+
+            <div class="collapsible-section">
+                <div class="collapsible-item open">
+                    <div class="collapsible-item-header copy-link">Question that a user may have, maximum character count of 85</div>
+                    <div class="collapsible-item-content copy">
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard
+                        dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen
+                        book. It has survived not only.
+                    </div>
+                </div>
+                <div class="collapsible-item">
+                    <div class="collapsible-item-header copy-link">Question that a user may have, maximum character count of 85</div>
+                    <div class="collapsible-item-content copy">
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
+                        standard
+                        dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type
+                        specimen
+                        book. It has survived not only.
+                    </div>
+                </div>
+                <div class="collapsible-item">
+                    <div class="collapsible-item-header copy-link">Question that a user may have, maximum character count of 85</div>
+                    <div class="collapsible-item-content copy">
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
+                        standard
+                        dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type
+                        specimen
+                        book. It has survived not only.
+                    </div>
+                </div>
+                <div class="collapsible-item">
+                    <div class="collapsible-item-header copy-link">Question that a user may have, maximum character count of 85</div>
+                    <div class="collapsible-item-content copy">
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
+                        standard
+                        dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type
+                        specimen
+                        book. It has survived not only.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-us bg-primary">
+        <div class="ag-container">
+            <h3 class="text-white">Let’s work together</h3>
+            <div class="ag-row">
+                <div class="ag-col-md-6">
+                    <a class="copy-link text-white link-external d-block mb-2" href="mailto:hello@weareagain.com">hello@weareagain.com</a>
+                    <a class="copy-link text-white link-external d-block mb-2" href="https://g.page/WeWork-145-City-Road?share" target="_blank" rel="noopener">Again, WeWork, 145 City Rd, London, EC1V 1AZ</a>
+                    <a class="h6 text-white link-external d-block" href="tel:+442072534133">+44 207 253 4133</a>
+                </div>
+                <div class="ag-col-md-6 ag-col-sm-6">
+                    <form class="ag-form">
+                        <div class="ag-form-group">
+                            <label class="text-white small-link">Full name</label>
+                            <input class="ag-form-input" type="text">
+                        </div>
+                        <div class="ag-form-group">
+                            <label class="text-white small-link">Email address</label>
+                            <input class="ag-form-input" type="email">
+                        </div>
+                        <div class="ag-form-group">
+                            <label class="text-white small-link">Contact number</label>
+                            <input class="ag-form-input" type="tel">
+                        </div>
+                        <div class="ag-form-group m-0">
+                            <label class="text-white small-link">Tell us a little about your problem</label>
+                            <textarea class="ag-form-input" rows="6"></textarea>
+                        </div>
+                        <div class="text-right">
+                            <button class="ag-btn ag-btn-round ag-btn-info" type="submit">Submit & Send</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>

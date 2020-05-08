@@ -9,7 +9,9 @@
 .text-primary {
     color: $primary_color;
 }
-
+.text-default {
+    color: $default-text-color;
+}
 .text-pale-blue {
     color: $pale_blue;
 }
@@ -23,6 +25,10 @@
     background-color: $primary_color;
 }
 
+/*----- Margin --------*/
+.d-block {
+    display: block;
+}
 /*----- Margin --------*/
 .m-0 {
     margin: 0 !important;
@@ -40,9 +46,24 @@
     margin-right: 0 !important;
 }
 
+.mb-2 {
+    margin-bottom: 2rem;
+}
+
 
 
 /*----- Text-Align --------*/
 .text-center {
     text-align: center !important;
+}
+.text-right {
+    text-align: right;
+}
+
+
+/*----- Lists --------*/
+.list-unstyled {
+    margin: 0;
+    padding: 0;
+    list-style: none;
 }
