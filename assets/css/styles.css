@@ -542,6 +542,7 @@ body {
   font-family: "Gilroy", sans-serif;
   -webkit-font-smoothing: antialiased;
   text-rendering: geometricPrecision;
+  overflow-x: hidden;
 }
 
 button, input, optgroup, select, textarea {
@@ -1113,6 +1114,17 @@ small, .small {
   display: none;
 }
 
+.link-external {
+  position: relative;
+  display: inline-block;
+}
+
+.link-external:after {
+  margin-left: 10.5px;
+  font-family: IcoFont !important;
+  content: "\ef1f";
+}
+
 /*-----------------------------------------------
     Form
 -----------------------------------------------*/
@@ -1393,6 +1405,24 @@ body.loading .ag-loader:after {
 
 body.loading .ag-masthead {
   padding-top: 30px;
+}
+
+/*-----------------------------------------------
+    Cursor
+-----------------------------------------------*/
+.cursor {
+  pointer-events: none;
+}
+
+.cursor .cursor-ball {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+
+.cursor .cursor-ball circle {
+  fill: #E86DBD;
 }
 
 /*-----------------------------------------------
@@ -1740,8 +1770,8 @@ header .ag-header-nav-btn {
       -ms-flex-align: stretch;
           align-items: stretch;
   padding-top: 0;
-  -webkit-transition: 0.4s ease-out 0.8s;
-  transition: 0.4s ease-out 0.8s;
+  -webkit-transition: padding 0.4s ease-out 0.8s;
+  transition: padding 0.4s ease-out 0.8s;
 }
 
 .ag-masthead .ag-container {
@@ -1755,6 +1785,19 @@ header .ag-header-nav-btn {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  padding-top: 82px;
+}
+
+@media (min-width: 1024px) {
+  .ag-masthead .ag-container {
+    padding-top: 140px;
+  }
+}
+
+@media (min-width: 768px) {
+  .ag-masthead .ag-container {
+    padding-top: 100px;
+  }
 }
 
 .ag-masthead .ag-masthead-title {
@@ -1959,23 +2002,24 @@ header .ag-header-nav-btn {
 .who-we-are .who-we-are-banner .who-we-are-banner-rect {
   position: absolute;
   top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  left: 0;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
   width: 204px;
   height: 204px;
   border-radius: 50%;
   background: #E86DBD;
   mix-blend-mode: lighten;
   opacity: 0.75;
-  -webkit-transition: 0.25s ease-in-out;
-  transition: 0.25s ease-in-out;
 }
 
 @media (min-width: 768px) {
   .who-we-are .who-we-are-banner .who-we-are-banner-rect {
     width: 217.35px;
     height: 217.35px;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
   }
 }
 
@@ -2942,6 +2986,22 @@ header .ag-header-nav-btn {
   .contact-us {
     padding-top: 160px;
     padding-bottom: 320px;
+  }
+}
+
+.contact-us .ag-form {
+  margin-top: 48px;
+}
+
+@media (min-width: 768px) {
+  .contact-us .ag-form {
+    margin-top: 64px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .contact-us .ag-form {
+    margin-top: 0px;
   }
 }
 

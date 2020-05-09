@@ -21,6 +21,7 @@ body {
     font-family: $font_gilroy;
     -webkit-font-smoothing: antialiased;
     text-rendering: geometricPrecision;
+    overflow-x: hidden;
 }
 button, input, optgroup, select, textarea {
     font-family: $font_gilroy;
@@ -402,6 +403,17 @@ small, .small {
         &:before {
             display: none;
         }
+    }
+}
+
+.link-external {
+    position: relative;
+    display: inline-block;
+
+    &:after {
+        margin-left: 10.5px;
+        font-family: IcoFont!important;
+        content: "\ef1f";
     }
 }
 

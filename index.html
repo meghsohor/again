@@ -13,12 +13,27 @@
     <meta property="og:url" content="http://localhost:4000/" />
     <meta property="og:site_name" content="Document" />
 
+    <link rel="stylesheet" href="assets/icofont/icofont.min.css">
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body class="loading">
     <div class="ag-loader">
         <span>a</span>
     </div>
+
+    <div class="cursor">
+        <div class="cursor-ball cursor-ball-big">
+            <svg height="30" width="30">
+                <circle cx="15" cy="15" r="8" stroke-width="0"></circle>
+            </svg>
+        </div>
+        <div class="cursor-ball cursor-ball-small">
+            <svg height="10" width="10">
+                <circle cx="5" cy="5" r="4" stroke-width="0"></circle>
+            </svg>
+        </div>
+    </div>
+
     <header>
         <div class="ag-container">
             <a href="javascript:void(0)" class="ag-logo">
@@ -28,16 +43,16 @@
             <nav class="ag-nav">
                 <ul class="ag-nav-menu">
                     <li>
-                        <a href="javascript:void(0)" class="ag-nav-link" data-target="who-we-are">Who we are</a>
+                        <a href="javascript:void(0)" class="ag-nav-link hoverable" data-target="who-we-are">Who we are</a>
                     </li>
                     <li>
-                        <a href="javascript:void(0)" class="ag-nav-link" data-target="what-we-do">What we do</a>
+                        <a href="javascript:void(0)" class="ag-nav-link hoverable" data-target="what-we-do">What we do</a>
                     </li>
                     <li>
-                        <a href="javascript:void(0)" class="ag-nav-link" data-target="how-we-think">How we think</a>
+                        <a href="javascript:void(0)" class="ag-nav-link hoverable" data-target="how-we-think">How we think</a>
                     </li>
                 </ul>
-                <a href="javascript:void(0)" class="ag-header-nav-btn">Let’s work together</a>
+                <a href="javascript:void(0)" class="ag-header-nav-btn hoverable">Let’s work together</a>
             </nav>
             <button type="button" class="ag-menu-toggler sr-only">Toggle Menu
                 <span></span>
@@ -50,9 +65,14 @@
 
     <section class="ag-masthead full-view-height text-white bg-primary">
         <div class="ag-container">
-            <h1 class="ag-masthead-title">Unleash Recurring Growth Through <span class="typing-txt">Deeper Experiences</span></h1>
+            <h1 class="ag-masthead-title">Unleash Recurring Growth Through 
+                <span class="typing-txt hoverable" 
+                        data-period="2000"
+                        data-rotate='[ "Deeper Experiences", "Igniting Curiosity", "Strategic Thinking", "Challenging Convention"]'>
+                </span>
+            </h1>
 
-            <a href="javascript:void(0)" class="ag-masthead-scroll-link" data-target="who-we-are">Find out how</a>
+            <a href="javascript:void(0)" class="ag-masthead-scroll-link hoverable" data-target="who-we-are">Find out how</a>
         </div>
     </section>
 
@@ -67,7 +87,7 @@
                     <p>That's where we come in. We specialise in experience optimisation for brands with recurring revenue models, helping you obtain predictable, stable revenue.</p>
                     <p>We partner with curious and ambitious brands that want to experiment and optimise to unlock their
                     recurring revenue potential.</p>
-                    <a class="copy-link link-underline" href="javascript:void(0)">Ready to go deeper?</a>
+                    <a class="copy-link link-underline hoverable" href="javascript:void(0)">Ready to go deeper?</a>
                 </div>
             </div>
 
@@ -127,7 +147,7 @@
             <div class="evolve-section-text-area">
                 <h3 class="text-white">Evolve to innovate</h3>
                 <p class="text-pale-blue">We’ve been in the game for a long time. 17 years in fact. If that’s taught us one thing,
-                    it’s what to do when confronted with a challenge: <a class="text-pale-blue copy-link link-underline"
+                    it’s what to do when confronted with a challenge: <a class="text-pale-blue copy-link link-underline link-external hoverable"
                         href="javascript:void(0)">evolve to meet it</a></p>
                 <p class="text-pale-blue">We understand customers today crave deeper experiences and brands yearn for predictable
                     and stable revenue streams. </p>
@@ -324,7 +344,7 @@
                 <div class="ag-col-sm-6">
                     <a href="javascript:void(0)" class="single-post-item">
                         <div class="single-post-item-thumbnail">
-                            <img src="assets/img/post-thumbnail.jpg" alt="Again Blog Post">
+                            <img src="assets/img/post-thumbnail-1.jpg" alt="Again Blog Post">
                         </div>
                         <div class="small text-default single-post-item-category-date">
                             <span>Customer Experience</span> | <span>July 26</span>
@@ -335,7 +355,7 @@
                 <div class="ag-col-sm-6">
                     <a href="javascript:void(0)" class="single-post-item">
                         <div class="single-post-item-thumbnail">
-                            <img src="assets/img/post-thumbnail.jpg" alt="Again Blog Post">
+                            <img src="assets/img/post-thumbnail-2.jpg" alt="Again Blog Post">
                         </div>
                         <div class="small text-default single-post-item-category-date">
                             <span>Customer Experience</span> | <span>July 26</span>
@@ -346,7 +366,7 @@
                 <div class="ag-col-sm-6">
                     <a href="javascript:void(0)" class="single-post-item">
                         <div class="single-post-item-thumbnail">
-                            <img src="assets/img/post-thumbnail.jpg" alt="Again Blog Post">
+                            <img src="assets/img/post-thumbnail-3.jpg" alt="Again Blog Post">
                         </div>
                         <div class="small text-default single-post-item-category-date">
                             <span>Customer Experience</span> | <span>July 26</span>
@@ -357,7 +377,7 @@
                 <div class="ag-col-sm-6">
                     <a href="javascript:void(0)" class="single-post-item">
                         <div class="single-post-item-thumbnail">
-                            <img src="assets/img/post-thumbnail.jpg" alt="Again Blog Post">
+                            <img src="assets/img/post-thumbnail-4.jpg" alt="Again Blog Post">
                         </div>
                         <div class="small text-default single-post-item-category-date">
                             <span>Customer Experience</span> | <span>July 26</span>
@@ -422,9 +442,10 @@
             <h3 class="text-white">Let’s work together</h3>
             <div class="ag-row">
                 <div class="ag-col-md-6">
-                    <a class="copy-link text-white link-external d-block mb-2" href="mailto:hello@weareagain.com">hello@weareagain.com</a>
-                    <a class="copy-link text-white link-external d-block mb-2" href="https://g.page/WeWork-145-City-Road?share" target="_blank" rel="noopener">Again, WeWork, 145 City Rd, London, EC1V 1AZ</a>
-                    <a class="h6 text-white link-external d-block" href="tel:+442072534133">+44 207 253 4133</a>
+                    <div><a class="copy-link text-white link-external mb-2 hoverable" href="mailto:hello@weareagain.com">hello@weareagain.com</a></div>
+                    <div><a class="copy-link text-white link-external mb-2 hoverable" href="https://g.page/WeWork-145-City-Road?share"
+                        target="_blank" rel="noopener">Again, WeWork, 145 City Rd, London, EC1V 1AZ</a></div>
+                    <div><a class="h6 text-white link-external hoverable" href="tel:+442072534133">+44 207 253 4133</a></div>
                 </div>
                 <div class="ag-col-md-6 ag-col-sm-6">
                     <form class="ag-form">
@@ -445,7 +466,7 @@
                             <textarea class="ag-form-input" rows="6"></textarea>
                         </div>
                         <div class="text-right">
-                            <button class="ag-btn ag-btn-round ag-btn-info" type="submit">Submit & Send</button>
+                            <button class="ag-btn ag-btn-round ag-btn-info hoverable" type="submit">Submit & Send</button>
                         </div>
                     </form>
                 </div>
@@ -454,6 +475,8 @@
     </section>
 
     <script src="assets/js/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenMax.min.js"></script>
+    
     <script src="assets/js/scripts.js"></script>
 </body>
 </html>

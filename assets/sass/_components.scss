@@ -58,6 +58,23 @@ body.loading {
     }
 }
 
+/*-----------------------------------------------
+    Cursor
+-----------------------------------------------*/
+.cursor {
+    pointer-events: none;
+
+    .cursor-ball {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 2;
+
+        circle {
+            fill: $brand_pink;
+        }
+    }
+}
 
 /*-----------------------------------------------
     Header section
@@ -335,12 +352,20 @@ header {
     display: flex;
     align-items: stretch;
     padding-top: 0;
-    transition: 0.4s ease-out 0.8s;
+    transition: padding 0.4s ease-out 0.8s;
 
     .ag-container {
         display: flex;
         flex-direction: column;
         justify-content: center;
+        padding-top: 82px;
+
+        @include mq-min-tablet-landscape {
+            padding-top: 140px;
+        }
+        @include mq-min-tablet {
+            padding-top: 100px;
+        }
     }
 
     .ag-masthead-title {
@@ -490,19 +515,20 @@ header {
         .who-we-are-banner-rect {
             position: absolute;
             top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+            left:0;
+            transform: translateY(-50%);
             width: 204px;
             height: 204px;
             border-radius: 50%;
             background: #E86DBD;
             mix-blend-mode: lighten;
             opacity: 0.75;
-            transition: 0.25s ease-in-out;
 
             @include mq-min-tablet {
                 width: 217.35px;
                 height: 217.35px;
+                left:50%;
+                transform: translate(-50%, -50%);
             }
 
             @include mq-min-tablet-landscape {
@@ -1267,6 +1293,14 @@ header {
     }
 
     .ag-form {
+        margin-top: 48px;
+
+        @include mq-min-tablet {
+            margin-top: 64px;
+        }
+        @include mq-min-tablet-landscape {
+            margin-top: 0px;
+        }
 
         .ag-btn {
             margin-top: 48px;
