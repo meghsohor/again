@@ -97,8 +97,10 @@ body.no-scroll {
 
 header {
     position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    z-index: 1;
+    z-index: 3;
     display: flex;
     align-items: stretch;
     padding-top: 32px;
@@ -348,7 +350,15 @@ header {
 /*-----------------------------------------------
     Masthead Section
 -----------------------------------------------*/
+body {
+    padding-top: 100vh;
+}
+
 .ag-masthead {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
     display: flex;
     align-items: stretch;
     padding-top: 0;
@@ -370,8 +380,8 @@ header {
 
     .ag-masthead-title {
         margin: auto 0;
-        width: 90%;
-        max-width: 1062px;
+        /* width: 90%;
+        max-width: 1062px; */
 
         @include mq-max-desktop {
             font-size: 62.35px;
@@ -524,11 +534,14 @@ header {
             mix-blend-mode: lighten;
             opacity: 0.75;
 
+            @include mq-max-tablet {
+                left:50% !important;
+                transform: translate(-50%, -50%) !important;
+            }
+
             @include mq-min-tablet {
                 width: 217.35px;
                 height: 217.35px;
-                left:50%;
-                transform: translate(-50%, -50%);
             }
 
             @include mq-min-tablet-landscape {
@@ -739,6 +752,57 @@ header {
     }
 }
 
+/*-----------------------------------------------
+    Dark Mode
+-----------------------------------------------*/
+body {
+    transition: all 0.5s ease-in-out;
+
+    .bg-white {
+        transition: all 0.5s ease-in-out;
+    }
+}
+body.dark {
+    color: $white_color;
+    background-color: $primary_color;
+    transition: all 0.5s ease-in-out;
+
+    * {
+        color: $white_color;
+    }
+
+    .bg-white {
+        background-color: $primary_color;
+        transition: all 0.5s ease-in-out;
+    }
+
+    .ag-carousel .ag-carousel-marker-wrapper {
+        background-color: rgba($white_color, 0.1);
+
+        .ag-carousel-marker {
+            background-color: $white_color;
+        }
+    }
+
+    .what-we-do .feature-grid-container .feature-grid .feature-grid-item .feature-grid-item-content {
+        * {
+            color: $default-text-color;
+        }
+
+        .copy-link {
+            color: $primary_color;
+        }
+    }
+}
+
+body:not(.dark) {
+    .evolve-section {
+
+        .section-title {
+            color: $primary_color;
+        }
+    }
+}
 /*-----------------------------------------------
     What We So Section
 -----------------------------------------------*/

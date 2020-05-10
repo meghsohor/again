@@ -24,10 +24,20 @@
 .bg-primary {
     background-color: $primary_color;
 }
+.bg-white {
+    background-color: $white_color;
+}
 
-/*----- Margin --------*/
+/*----- Display --------*/
 .d-block {
     display: block;
+}
+
+.md-block {
+
+    @include mq-min-tablet-landscape {
+        display: block;
+    }
 }
 /*----- Margin --------*/
 .m-0 {
@@ -66,4 +76,15 @@
     margin: 0;
     padding: 0;
     list-style: none;
+}
+
+
+/*----- Positions --------*/
+.pos-rel {
+    position: relative;
+}
+
+/*----- Z-Index --------*/
+.z-2 {
+    z-index: 2;
 }

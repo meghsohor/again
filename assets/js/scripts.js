@@ -1,3 +1,21 @@
+//Debounce Function
+function debounce(func, wait, immediate) {
+    var timeout;
+    return function () {
+        var context = this, args = arguments;
+        var later = function () {
+            timeout = null;
+            if (!immediate) func.apply(context, args);
+        };
+        var callNow = immediate && !timeout;
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+        if (callNow) func.apply(context, args);
+    };
+};
+
+
+
 $(window).on('load', function () {
     setTimeout(function () {
         $('body').removeClass('loading');
@@ -11,6 +29,7 @@ $(document).ready(function () {
     scrollToFn();
     mouseHoverEffectFn();
     whoWeAreBannerRadialAnimation();
+    switchDarkmodeFn();
 
 });
 
@@ -95,8 +114,6 @@ function scrollToFn () {
         }
     });
 }
-
-
 
 
 /*----------------- Text Rotate animation ------------------*/
@@ -215,19 +232,41 @@ function mouseHoverEffectFn () {
 
 
 function whoWeAreBannerRadialAnimation () {
-    $(window).on('resize scroll', function () {
-        if ($(window).width() < 768) {
-            return;
-        }
-        var elementTop = $('.who-we-are-banner').offset().top;
-        var elementBottom = elementTop + $('.who-we-are-banner').outerHeight();
-        var viewportTop = $(window).scrollTop();
-        var viewportBottom = viewportTop + $(window).height();
+    $(window).on('resize scroll', 
+        debounce(function () {
+            if ($(window).width() < 768) {
+                return;
+            }
+            var elementTop = $('.who-we-are-banner').offset().top;
+            var elementBottom = elementTop + $('.who-we-are-banner').outerHeight();
+            var viewportTop = $(window).scrollTop();
+            var viewportBottom = viewportTop + $(window).height();
 
-        console.log((viewportBottom - elementTop) * 100 / $('.who-we-are-banner').outerHeight());
-        console.log((($('.who-we-are-banner-rect').outerWidth()) * 100 / $('.who-we-are-banner').outerWidth()));
+            var moveTo = (viewportBottom - elementTop) * 100 / $('.who-we-are-banner').outerHeight() - (($('.who-we-are-banner-rect').outerWidth()) * 100 / $('.who-we-are-banner').outerWidth());
+            $('.who-we-are-banner-rect').css('left', moveTo / 1.75 + '%')
+        }, 10, true)
+    );
+}
 
-        var moveTo = (viewportBottom - elementTop) * 100 / $('.who-we-are-banner').outerHeight() - (($('.who-we-are-banner-rect').outerWidth()) * 100 / $('.who-we-are-banner').outerWidth());
-        $('.who-we-are-banner-rect').css('left', moveTo / 2 + '%')
-    });
+function switchDarkmodeFn () {
+    $(window).on('resize scroll', 
+        debounce(function () {
+            var $element = $('.color-transition');
+            var $window = $(window);
+
+            var startAt = $window.scrollTop() + $window.height();
+            var endAt = $element.offset().top + ($element.height() / 1.5);
+
+            var isVisible = startAt > $element.offset().top + ($element.height() / 4);
+            var isPast = $window.scrollTop() < endAt;
+
+            if (isVisible && isPast) {
+                $('body').addClass('dark');
+            } else {
+                $('body').removeClass('dark');
+            }
+            /* console.log(isVisible);
+            console.log(isPast); */
+        }, 10, true)
+    );
 }

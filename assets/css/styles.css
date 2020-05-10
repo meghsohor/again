@@ -1287,9 +1287,19 @@ small, .small {
   background-color: #1E3356;
 }
 
-/*----- Margin --------*/
+.bg-white {
+  background-color: #FFFFFF;
+}
+
+/*----- Display --------*/
 .d-block {
   display: block;
+}
+
+@media (min-width: 1024px) {
+  .md-block {
+    display: block;
+  }
 }
 
 /*----- Margin --------*/
@@ -1331,6 +1341,16 @@ small, .small {
   margin: 0;
   padding: 0;
   list-style: none;
+}
+
+/*----- Positions --------*/
+.pos-rel {
+  position: relative;
+}
+
+/*----- Z-Index --------*/
+.z-2 {
+  z-index: 2;
 }
 
 /*-----------------------------------------------
@@ -1443,8 +1463,10 @@ body.no-scroll {
 
 header {
   position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  z-index: 1;
+  z-index: 3;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1762,7 +1784,15 @@ header .ag-header-nav-btn {
 /*-----------------------------------------------
     Masthead Section
 -----------------------------------------------*/
+body {
+  padding-top: 100vh;
+}
+
 .ag-masthead {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1802,8 +1832,8 @@ header .ag-header-nav-btn {
 
 .ag-masthead .ag-masthead-title {
   margin: auto 0;
-  width: 90%;
-  max-width: 1062px;
+  /* width: 90%;
+        max-width: 1062px; */
 }
 
 @media (max-width: 1439.8px) {
@@ -2013,13 +2043,18 @@ header .ag-header-nav-btn {
   opacity: 0.75;
 }
 
+@media (max-width: 767.8px) {
+  .who-we-are .who-we-are-banner .who-we-are-banner-rect {
+    left: 50% !important;
+    -webkit-transform: translate(-50%, -50%) !important;
+            transform: translate(-50%, -50%) !important;
+  }
+}
+
 @media (min-width: 768px) {
   .who-we-are .who-we-are-banner .who-we-are-banner-rect {
     width: 217.35px;
     height: 217.35px;
-    left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-            transform: translate(-50%, -50%);
   }
 }
 
@@ -2306,6 +2341,56 @@ header .ag-header-nav-btn {
   .evolve-section .evolve-section-text-area h3 {
     margin-bottom: 112px;
   }
+}
+
+/*-----------------------------------------------
+    Dark Mode
+-----------------------------------------------*/
+body {
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+body .bg-white {
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+body.dark {
+  color: #FFFFFF;
+  background-color: #1E3356;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+body.dark * {
+  color: #FFFFFF;
+}
+
+body.dark .bg-white {
+  background-color: #1E3356;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+body.dark .ag-carousel .ag-carousel-marker-wrapper {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+body.dark .ag-carousel .ag-carousel-marker-wrapper .ag-carousel-marker {
+  background-color: #FFFFFF;
+}
+
+body.dark .what-we-do .feature-grid-container .feature-grid .feature-grid-item .feature-grid-item-content * {
+  color: #516689;
+}
+
+body.dark .what-we-do .feature-grid-container .feature-grid .feature-grid-item .feature-grid-item-content .copy-link {
+  color: #1E3356;
+}
+
+body:not(.dark) .evolve-section .section-title {
+  color: #1E3356;
 }
 
 /*-----------------------------------------------
