@@ -18,6 +18,9 @@
 .text-white {
     color: $white_color;
 }
+.text-pink {
+    color: $brand_pink;
+}
 
 
 /*----- Background Color --------*/
@@ -68,6 +71,9 @@
 }
 .text-right {
     text-align: right;
+}
+.text-upper {
+    text-transform: uppercase;
 }
 
 

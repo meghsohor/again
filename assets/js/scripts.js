@@ -30,6 +30,7 @@ $(document).ready(function () {
     mouseHoverEffectFn();
     whoWeAreBannerRadialAnimation();
     switchDarkmodeFn();
+    dragScrollFn();
 
 });
 
@@ -180,19 +181,18 @@ function mouseHoverEffectFn () {
     if ($(window).width() < 1024) {
         return;
     }
+
     /* const $bigBall = document.querySelector('.cursor__ball--big');
     const $smallBall = document.querySelector('.cursor__ball--small');
     const $hoverables = document.querySelectorAll('.hoverable'); */
-
-    const $bigBall = $('.cursor-ball-big');
-    const $smallBall = $('.cursor-ball-small');
+    var $bigBall = $('.cursor-ball-big');
+    var $smallBall = $('.cursor-ball-small');
 
     // Listeners
     //document.body.addEventListener('mousemove', onMouseMove);
     $('body').on('mousemove', onMouseMove);
     $('.hoverable').on('mouseenter', onMouseHover);
     $('.hoverable').on('mouseleave', onMouseHoverOut);
-
     /* for (let i = 0; i < $hoverables.length; i++) {
         $hoverables[i].addEventListener('mouseenter', onMouseHover);
         $hoverables[i].addEventListener('mouseleave', onMouseHoverOut);
@@ -201,25 +201,26 @@ function mouseHoverEffectFn () {
     // Move the cursor
     function onMouseMove(e) {
         TweenMax.to($bigBall, .4, {
-            x: e.pageX - 15,
-            y: e.pageY - 15
+            x: e.clientX - 15,
+            y: e.clientY - 15,
+            transformOrigin: 'center',
         })
         TweenMax.to($smallBall, .1, {
-            x: e.pageX - 5,
-            y: e.pageY - 7
+            x: e.clientX - 5,
+            y: e.clientY - 7
         })
     }
 
     // Hover an element
     function onMouseHover(e) {
-        var lineHieght = $(e.target).css('line-height');
-        var scaleTo = +lineHieght.substring(0, lineHieght.length - 2);
+        var lineHeight = $(e.target).css('line-height');
+        var scaleTo = +lineHeight.substring(0, lineHeight.length - 2);
         //$bigBall.style.mixBlendMode = 'multiply';
         $bigBall.css('mixBlendMode', 'multiply');
         TweenMax.to($bigBall, .3, {
-            //scale: 6
+            //scale: 6,
             scale: scaleTo / 10,
-        })
+        });
     }
     function onMouseHoverOut() {
         //$bigBall.style.mixBlendMode = '';
@@ -242,7 +243,7 @@ function whoWeAreBannerRadialAnimation () {
             var viewportTop = $(window).scrollTop();
             var viewportBottom = viewportTop + $(window).height();
 
-            var moveTo = (viewportBottom - elementTop) * 100 / $('.who-we-are-banner').outerHeight() - (($('.who-we-are-banner-rect').outerWidth()) * 100 / $('.who-we-are-banner').outerWidth());
+            var moveTo = (viewportBottom - elementTop) * 100 / $('.who-we-are-banner').height() - (($('.who-we-are-banner-rect').outerWidth()) * 100 / $('.who-we-are-banner').outerWidth());
             $('.who-we-are-banner-rect').css('left', moveTo / 1.75 + '%')
         }, 10, true)
     );
@@ -269,4 +270,77 @@ function switchDarkmodeFn () {
             console.log(isPast); */
         }, 10, true)
     );
+}
+
+function dragScrollFn () {
+    var sliderParent = '.ag-carousel'; 
+    var slider = '.ag-carousel-items'; 
+    var sliderIndicator = '.ag-carousel-marker';
+    var isMouseDown = false;
+    var startX;
+    var scrollLeft;
+
+    $(sliderIndicator).width(Math.floor($(sliderIndicator).parent().width() / $(slider).children().length));
+    $(window).on('resize', function () {
+        $(sliderIndicator).width(Math.floor($(sliderIndicator).parent().width() / $(slider).children().length));
+    });
+
+
+    $(sliderParent).on('mousedown', function (e) {
+        isMouseDown = true;
+        startX = e.pageX - $(slider)[0].offsetLeft;
+        scrollLeft = $(slider)[0].scrollLeft;
+    });
+
+    $(sliderParent).on('mouseup', function () {
+        isMouseDown = false;
+    });
+    $(sliderParent).on('mouseleave', function () {
+        isMouseDown = false;
+        $('.ag-carousel-cursor.fixed').css('visibility', 'hidden');
+    });
+
+    $(sliderParent).on('mouseenter', function (e) {
+        setTimeout(function() {
+            $('.ag-carousel-cursor.fixed').css('visibility', 'visible');
+        }, 200)
+    });
+
+    $(sliderParent).on('mousemove', function (e) {
+        var carouselCursor = $('.ag-carousel-cursor.fixed');
+        TweenMax.to(carouselCursor, .2, {
+            x: e.clientX - carouselCursor.width() / 2,
+            y: e.clientY - carouselCursor.height() / 2
+        })
+
+        if (!isMouseDown)
+            return;
+
+        //Sliding Begins
+        e.preventDefault();
+        var x = e.pageX - $(slider)[0].offsetLeft
+        var walk = (x - startX)
+        $(slider)[0].scrollLeft = scrollLeft - walk;
+
+        //Moving the SLider marker
+        var sliderScrollLeft = $(slider)[0].scrollLeft;
+        var sliderWidth = $(slider).width();
+        var sliderScrolWidth = $(slider)[0].scrollWidth;
+        var sliderMovedPercentage = Math.ceil(sliderScrollLeft * 100 / (sliderScrolWidth - sliderWidth));
+        
+        var markerPosition = ($(sliderIndicator).parent().width() - $(sliderIndicator).width()) * sliderMovedPercentage / 100;
+        $(sliderIndicator).css('transform', 'translateX(' + markerPosition +'px)');
+
+        $(window).on('resize', function () {
+            sliderScrollLeft = $(slider)[0].scrollLeft;
+            sliderWidth = $(slider).width();
+            sliderScrolWidth = $(slider)[0].scrollWidth;
+            sliderMovedPercentage = Math.ceil(sliderScrollLeft * 100 / (sliderScrolWidth - sliderWidth));
+
+            markerPosition = ($(sliderIndicator).parent().width() - $(sliderIndicator).width()) * sliderMovedPercentage / 100;
+            $(sliderIndicator).css('transform', 'translateX(' + markerPosition + 'px)');
+        });
+    });
+
+
 }
