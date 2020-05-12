@@ -279,10 +279,19 @@ function dragScrollFn () {
     var isMouseDown = false;
     var startX;
     var scrollLeft;
+    var paddingLeft = $('.ag-container').offset().left;
 
     $(sliderIndicator).width(Math.floor($(sliderIndicator).parent().width() / $(slider).children().length));
     $(window).on('resize', function () {
         $(sliderIndicator).width(Math.floor($(sliderIndicator).parent().width() / $(slider).children().length));
+    });
+
+    //Setting the left-padding 
+    $(slider).css('padding-left', paddingLeft + 'px');
+    $(window).on('resize', function () {
+        //Setting the left-padding 
+        paddingLeft = $('.ag-container').offset().left;
+        $(slider).css('padding-left', paddingLeft + 'px');
     });
 
 
@@ -290,20 +299,25 @@ function dragScrollFn () {
         isMouseDown = true;
         startX = e.pageX - $(slider)[0].offsetLeft;
         scrollLeft = $(slider)[0].scrollLeft;
+        $(this).css('cursor', 'grabbing');
     });
 
     $(sliderParent).on('mouseup', function () {
         isMouseDown = false;
+        $(this).css('cursor', '');
     });
     $(sliderParent).on('mouseleave', function () {
         isMouseDown = false;
         $('.ag-carousel-cursor.fixed').css('visibility', 'hidden');
+        $('.cursor').css('display', 'block');
+        $(this).css('cursor', '');
     });
 
     $(sliderParent).on('mouseenter', function (e) {
         setTimeout(function() {
             $('.ag-carousel-cursor.fixed').css('visibility', 'visible');
-        }, 200)
+        }, 200);
+        $('.cursor').css('display', 'none');
     });
 
     $(sliderParent).on('mousemove', function (e) {
@@ -313,32 +327,47 @@ function dragScrollFn () {
             y: e.clientY - carouselCursor.height() / 2
         })
 
-        if (!isMouseDown)
+        if (!isMouseDown) {
             return;
+        }
 
         //Sliding Begins
         e.preventDefault();
-        var x = e.pageX - $(slider)[0].offsetLeft
-        var walk = (x - startX)
-        $(slider)[0].scrollLeft = scrollLeft - walk;
+        var x = e.pageX - $(slider)[0].offsetLeft;
+        var walk = (x - startX);
 
-        //Moving the SLider marker
-        var sliderScrollLeft = $(slider)[0].scrollLeft;
+        var sliderScrollLeft;
         var sliderWidth = $(slider).width();
         var sliderScrolWidth = $(slider)[0].scrollWidth;
-        var sliderMovedPercentage = Math.ceil(sliderScrollLeft * 100 / (sliderScrolWidth - sliderWidth));
-        
-        var markerPosition = ($(sliderIndicator).parent().width() - $(sliderIndicator).width()) * sliderMovedPercentage / 100;
-        $(sliderIndicator).css('transform', 'translateX(' + markerPosition +'px)');
+        var sliderMovedPercentage;
+        var markerPosition;
+
+
+        TweenMax.to($(slider), .7, {
+            scrollLeft: scrollLeft - walk,
+            ease: Sine.easeOut,
+            onUpdate: function () {
+                //Moving the SLider marker
+                sliderScrollLeft = $(slider)[0].scrollLeft;
+                sliderMovedPercentage = Math.ceil(sliderScrollLeft * 100 / (sliderScrolWidth - (sliderWidth + paddingLeft)));
+                markerPosition = ($(sliderIndicator).parent().width() - $(sliderIndicator).width()) * sliderMovedPercentage / 100;
+                TweenMax.to($(sliderIndicator), .2, {
+                    x: markerPosition,
+                    ease: Sine.easeOut
+                });
+            }
+        });
+
 
         $(window).on('resize', function () {
+            //Moving the SLider marker on Screen resize
             sliderScrollLeft = $(slider)[0].scrollLeft;
-            sliderWidth = $(slider).width();
-            sliderScrolWidth = $(slider)[0].scrollWidth;
-            sliderMovedPercentage = Math.ceil(sliderScrollLeft * 100 / (sliderScrolWidth - sliderWidth));
-
+            sliderMovedPercentage = Math.ceil(sliderScrollLeft * 100 / (sliderScrolWidth - (sliderWidth + paddingLeft)));
             markerPosition = ($(sliderIndicator).parent().width() - $(sliderIndicator).width()) * sliderMovedPercentage / 100;
-            $(sliderIndicator).css('transform', 'translateX(' + markerPosition + 'px)');
+            TweenMax.to($(sliderIndicator), .2, {
+                x: markerPosition,
+                ease: Sine.easeOut
+            });
         });
     });
 

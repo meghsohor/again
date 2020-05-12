@@ -549,6 +549,7 @@ body {
 
 .ag-carousel {
     position: relative;
+    cursor: grab;
 
     .ag-carousel-cursor {
         width: 150px;
@@ -589,6 +590,7 @@ body {
         display: flex;
         align-items: stretch;
         margin-bottom: 48px;
+        padding-left: 5rem;
         user-select: none;
         overflow: hidden;
         transform: translateX(0);
@@ -646,6 +648,9 @@ body {
     }
 
     .ag-carousel-marker-wrapper {
+        width: 90%;
+        max-width: 1400px;
+        margin: 0 auto;
         position: relative;
         height: 3px;
         background-color: rgba($primary_color, 0.1);
@@ -701,7 +706,6 @@ body {
             justify-content: center;
             width: 372px;
             height: 372px;
-            background: linear-gradient(180deg, #28436c 0%, rgba(40, 67, 108, 0.2) 100%);
             border-radius: 50%;
 
             @include mq-min-tablet {
@@ -725,7 +729,6 @@ body {
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                background: $primary_color;
                 border-radius: 50%;
 
                 @include mq-min-tablet {
@@ -809,6 +812,13 @@ body.dark {
         color: $white_color;
     }
 
+    .dark-visible {
+        display: block;
+    }
+    .dark-hidden {
+        display: none;
+    }
+
     .bg-white {
         background-color: $primary_color;
         transition: all 0.5s ease-in-out;
@@ -831,6 +841,13 @@ body.dark {
             color: $primary_color;
         }
     }
+
+    .evolve-section .evolve-section-logo-area .evolve-section-logo-container {
+        background: linear-gradient(180deg, #28436c 0%, rgba(40, 67, 108, 0.2) 100%);
+    }
+    .evolve-section .evolve-section-logo-area .evolve-section-logo-container .evolve-section-logo {
+        background: $primary_color;
+    }
 }
 
 body:not(.dark) {
@@ -839,6 +856,13 @@ body:not(.dark) {
         .section-title {
             color: $primary_color;
         }
+    }
+
+    .dark-visible {
+        display: none;
+    }
+    .dark-hidden {
+        display: block;
     }
 }
 /*-----------------------------------------------
@@ -1163,15 +1187,20 @@ body:not(.dark) {
     }
 
     .rotate-banner-text {
-        font-size: 49.57px;
+        //font-size: 49.57px;
+        font-size: calc(49.57px + (102 - 49.57) * ((100vw - 320px) / (1750 - 320)));
         line-height: 1;
         font-weight: 600;
         color: #EFF7FE;
         white-space: nowrap;
+        display: inline-block;
+        width: 18ch;
         padding: 0 15px;
-        animation: rotateBanner 3s linear 0s infinite;
+        text-shadow: 18ch 0 currentColor,
+                    calc(18ch * 2) 0 currentColor;
+        animation: marquee 5s linear infinite;
 
-        @include mq-min-tablet {
+        /* @include mq-min-tablet {
             font-size: 54.72px;
         }
         @include mq-min-tablet-landscape {
@@ -1179,17 +1208,13 @@ body:not(.dark) {
         }
         @include mq-min-desktop {
             font-size: 102px;
-        }
+        } */
     }
 }
 
-@keyframes rotateBanner {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(-66.6666%); 
-    }
+@keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
 }
 
 
