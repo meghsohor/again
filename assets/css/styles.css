@@ -1141,6 +1141,10 @@ small, .small {
   }
 }
 
+.d-none {
+  display: none !important;
+}
+
 /*----- Margin --------*/
 .m-0 {
   margin: 0 !important;
@@ -1649,25 +1653,26 @@ body {
 }
 
 .ag-masthead .bg-radial {
-  height: 70vw;
+  background: linear-gradient(145deg, #26406B 0%, #1E3356 100%);
 }
 
 .ag-masthead .bg-radial svg {
+  height: 182%;
   position: absolute;
-}
-
-.ag-masthead .bg-radial svg.svgdark {
-  top: -15%;
-  left: -10%;
-  z-index: 1;
-  -webkit-animation: radialRotation 20s ease-in-out 2s infinite;
-          animation: radialRotation 20s ease-in-out 2s infinite;
+  -webkit-animation: radialRotation 20s ease-in-out infinite;
+          animation: radialRotation 20s ease-in-out infinite;
 }
 
 .ag-masthead .bg-radial svg.svglight {
-  top: 0;
-  right: -10%;
-  z-index: 2;
+  top: -98%;
+  left: -4%;
+}
+
+.ag-masthead .bg-radial svg.svgdark {
+  right: -61%;
+  top: -8%;
+  -webkit-filter: invert(1);
+          filter: invert(1);
   -webkit-animation: radialRotation 20s ease-in-out infinite;
           animation: radialRotation 20s ease-in-out infinite;
 }
@@ -1980,6 +1985,7 @@ body {
   top: 0;
   left: 0;
   z-index: 11;
+  opacity: 0;
 }
 
 .ag-carousel .ag-carousel-cursor.initial {
@@ -1993,6 +1999,10 @@ body {
 
 .ag-carousel:hover .ag-carousel-cursor.initial {
   opacity: 0;
+}
+
+.ag-carousel:hover .ag-carousel-cursor.fixed {
+  opacity: 1;
 }
 
 .ag-carousel .ag-carousel-items {
@@ -2183,10 +2193,10 @@ body {
 
 @media (min-width: 1440px) {
   .evolve-section .evolve-section-logo-area .bg-radial {
-    height: calc(100% + 419px);
-    width: calc(100% + 419px);
-    top: -210px;
-    left: -210px;
+    height: calc(100% + 416px);
+    width: calc(100% + 416px);
+    top: -208px;
+    left: -208px;
   }
 }
 

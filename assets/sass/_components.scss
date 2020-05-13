@@ -366,21 +366,21 @@ body {
     transition: padding 0.4s ease-out 0.8s;
 
     .bg-radial {
-        height: 70vw;
+        background: linear-gradient(145deg, $midnight_blue_color 0%,$primary_color 100%);
 
         svg {
+            height: 182%;
             position: absolute;
+            animation: radialRotation 20s ease-in-out infinite;
 
-            &.svgdark {
-                top: -15%;
-                left: -10%;
-                z-index: 1;
-                animation: radialRotation 20s ease-in-out 2s infinite;
-            }
             &.svglight {
-                top: 0;
-                right: -10%;
-                z-index: 2;
+                top: -98%;
+                left: -4%;
+            }
+            &.svgdark {
+                right: -61%;
+                top: -8%;
+                filter: invert(1);
                 animation: radialRotation 20s ease-in-out infinite;
             }
         }
@@ -601,6 +601,7 @@ body {
             top: 0;
             left: 0;
             z-index: 11;
+            opacity: 0;
         }
 
         &.initial {
@@ -615,6 +616,9 @@ body {
     &:hover {
         .ag-carousel-cursor.initial {
             opacity: 0;
+        }
+        .ag-carousel-cursor.fixed {
+            opacity: 1;
         }
     }
 
@@ -746,10 +750,10 @@ body {
                 left: -167px;
             }
             @include mq-min-desktop {
-                    height: calc(100% + 419px);
-                    width: calc(100% + 419px);
-                    top: -210px;
-                    left: -210px;
+                height: calc(100% + 416px);
+                width: calc(100% + 416px);
+                top: -208px;
+                left: -208px;
             }
         }
 
