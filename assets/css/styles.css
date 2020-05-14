@@ -886,6 +886,15 @@ small, .small {
   background-color: #7D8CA6;
 }
 
+.ag-btn:disabled, .ag-btn.disabled {
+  opacity: 0.1;
+  cursor: not-allowed;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
 .ag-btn-round {
   border-radius: 95px;
 }
@@ -983,6 +992,13 @@ small, .small {
   font-weight: normal;
   font-size: 16px;
   line-height: 140%;
+  -webkit-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
+}
+
+.ag-form .ag-form-group .ag-form-input:focus {
+  -webkit-box-shadow: 0px 0px 1px 3px rgba(96, 178, 243, 0.5);
+          box-shadow: 0px 0px 1px 3px rgba(96, 178, 243, 0.5);
 }
 
 @media (min-width: 320px) {
@@ -1013,6 +1029,23 @@ small, .small {
   .ag-form .ag-form-group .ag-form-input {
     font-size: 20px;
   }
+}
+
+.ag-form .ag-form-group .error-msg {
+  color: #F35858;
+  font-weight: 600;
+  font-size: calc(14px + (16 - 14) * ((100vw - 320px) / (1750 - 320)));
+  display: block;
+  margin-top: 8px;
+}
+
+.ag-form .ag-form-group.has-error .ag-form-input {
+  border-color: #F35858;
+}
+
+.ag-form .ag-form-group.has-error .ag-form-input:focus {
+  -webkit-box-shadow: 0px 0px 1px 3px rgba(243, 88, 88, 0.5);
+          box-shadow: 0px 0px 1px 3px rgba(243, 88, 88, 0.5);
 }
 
 /*-----------------------------------------------
@@ -1285,11 +1318,27 @@ body.loading .ag-masthead {
   position: fixed;
   top: 0;
   left: 0;
+  background-color: #E86DBD;
+  border-radius: 50%;
   z-index: 10;
+  -webkit-transition: width 0.25s ease-in-out, height 0.25s ease-in-out;
+  transition: width 0.25s ease-in-out, height 0.25s ease-in-out;
 }
 
-.cursor .cursor-ball circle {
-  fill: #E86DBD;
+@media (max-width: 1023.8px) {
+  .cursor .cursor-ball {
+    display: none;
+  }
+}
+
+.cursor .cursor-ball[class*="big"] {
+  width: 30px;
+  height: 30px;
+}
+
+.cursor .cursor-ball[class*="small"] {
+  width: 15px;
+  height: 15px;
 }
 
 /*-----------------------------------------------
@@ -1297,11 +1346,42 @@ body.loading .ag-masthead {
 -----------------------------------------------*/
 body.sticky-header header {
   position: fixed;
-  background-color: #1E3356;
+  background-color: #FFFFFF;
+}
+
+body.sticky-header header .ag-logo {
+  height: 58px;
+}
+
+body.sticky-header header .ag-logo .ag-logo-primary {
+  display: block;
+}
+
+body.sticky-header header .ag-logo .ag-logo-white {
+  display: none;
+}
+
+body.sticky-header header .ag-nav .ag-nav-menu .ag-nav-link {
+  color: #26406B;
+}
+
+body.sticky-header header .ag-header-nav-btn {
+  color: #26406B;
+  border-color: currentColor;
+}
+
+body.sticky-header header .ag-menu-toggler span {
+  background: #26406B;
 }
 
 body.sticky-header header:not(.open-menu) {
   padding: 10px 0;
+}
+
+@media (min-width: 1024px) {
+  body.sticky-header header:not(.open-menu) {
+    height: 100px;
+  }
 }
 
 body.no-scroll {
@@ -1369,13 +1449,13 @@ header .ag-container .ag-logo {
 
 @media (max-width: 1023.8px) {
   header .ag-container .ag-logo {
-    height: 60px;
+    height: 60px !important;
   }
 }
 
 @media (max-width: 767.8px) {
   header .ag-container .ag-logo {
-    height: 50px;
+    height: 50px !important;
   }
 }
 
@@ -1416,6 +1496,7 @@ header .ag-container .ag-nav .ag-nav-menu {
 }
 
 header .ag-container .ag-nav .ag-nav-menu .ag-nav-link {
+  display: block;
   color: #FFFFFF;
   font-weight: 600;
   font-size: 16px;
@@ -1652,29 +1733,49 @@ body {
   transition: padding 0.4s ease-out 0.8s;
 }
 
-.ag-masthead .bg-radial {
-  background: linear-gradient(145deg, #26406B 0%, #1E3356 100%);
-}
-
-.ag-masthead .bg-radial svg {
-  height: 182%;
+.ag-masthead .ag-masthead-video-wrapper {
   position: absolute;
-  -webkit-animation: radialRotation 20s ease-in-out infinite;
-          animation: radialRotation 20s ease-in-out infinite;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  background-image: url("../img/masthead-bg.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
-.ag-masthead .bg-radial svg.svglight {
-  top: -98%;
-  left: -4%;
+.ag-masthead .ag-masthead-video-wrapper iframe {
+  width: 100vw;
+  height: 56.25vw;
+  /* Given a 16:9 aspect ratio, 9/16*100 = 56.25 */
+  min-height: 112vh;
+  min-width: 189.77vh;
+  /* Given a 16:9 aspect ratio, 16/9*100 = 177.77 */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
 }
 
-.ag-masthead .bg-radial svg.svgdark {
-  right: -61%;
-  top: -8%;
-  -webkit-filter: invert(1);
-          filter: invert(1);
-  -webkit-animation: radialRotation 20s ease-in-out infinite;
-          animation: radialRotation 20s ease-in-out infinite;
+.ag-masthead .ag-masthead-video-wrapper .ag-masthead-video-overlay {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: #1E3356;
+  mix-blend-mode: color;
+}
+
+.ag-masthead .ag-masthead-video-wrapper .ag-masthead-video-overlay2 {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: #26406B;
+  mix-blend-mode: multiply;
+  opacity: 0.8;
 }
 
 .ag-masthead .ag-container {
@@ -1685,6 +1786,9 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -2814,6 +2918,11 @@ body:not(.dark) .dark-hidden {
   display: inline-block;
   width: 18ch;
   padding: 0 15px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  cursor: default;
   text-shadow: 18ch 0 currentColor, calc(18ch * 2) 0 currentColor;
   -webkit-animation: marquee 5s linear infinite;
           animation: marquee 5s linear infinite;
@@ -3066,6 +3175,11 @@ body:not(.dark) .dark-hidden {
   height: 758px;
   left: 3px;
   top: -31px;
+}
+
+.contact-us .bg-radial svg {
+  -webkit-filter: invert(1);
+          filter: invert(1);
 }
 
 @media (min-width: 768px) {

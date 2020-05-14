@@ -27,6 +27,7 @@ $(document).ready(function () {
     collapsibleToggleFn();
     sticyHeaderFn();
     scrollToFn();
+    setFullViewHeight();
     mouseHoverEffectFn();
     whoWeAreBannerRadialAnimation();
     switchDarkmodeFn();
@@ -106,13 +107,21 @@ function sticyHeaderFn() {
 }
 
 function scrollToFn () {
-    $('.ag-nav-link, .ag-masthead-scroll-link').on('click', function () {
+    $('[data-target]').on('click', function () {
         var target = $(this).data('target');
         if (target !== undefined) {
             $('html, body').animate({
                 scrollTop: $("#" + target).offset().top
             }, 2000);
         }
+    });
+}
+
+function setFullViewHeight () {
+    //Some browsers/devices can't read 100vh property.
+    $('.full-view-height').css('height', $(window).outerHeight());
+    $(window).resize(function () {
+        $('.full-view-height').css('height', $(window).outerHeight());
     });
 }
 
@@ -201,8 +210,8 @@ function mouseHoverEffectFn () {
     // Move the cursor
     function onMouseMove(e) {
         TweenMax.to($bigBall, .4, {
-            x: e.clientX - 15,
-            y: e.clientY - 15,
+            x: e.clientX - $bigBall.width() / 2,
+            y: e.clientY - $bigBall.height() / 2,
             transformOrigin: 'center',
         })
         TweenMax.to($smallBall, .1, {
@@ -213,41 +222,56 @@ function mouseHoverEffectFn () {
 
     // Hover an element
     function onMouseHover(e) {
-        var lineHeight = $(e.target).css('line-height');
-        var scaleTo = +lineHeight.substring(0, lineHeight.length - 2);
-        //$bigBall.style.mixBlendMode = 'multiply';
-        $bigBall.css('mixBlendMode', 'multiply');
+        var target = e.target;
+        var isButton = target.nodeName.toLowerCase() === 'button';
+        var targetHeight = isButton ? $(target).outerHeight() : $(target).css('line-height');
+        targetHeight = isButton ? targetHeight : targetHeight.substring(0, targetHeight.length - 2);
+        var scaleTo = isButton ? (targetHeight * 1.1) : (targetHeight * 2);
+        $bigBall.css('mixBlendMode', 'lighten');
+        if (target.nodeName.toLowerCase() === 'img') {
+            $bigBall.css('width', '100px');
+            $bigBall.css('height', '100px');
+        } else {
+            $bigBall.css('width', scaleTo + 'px');
+            $bigBall.css('height', scaleTo + 'px');
+        }
+        $smallBall.css('opacity', '0');
         TweenMax.to($bigBall, .3, {
             //scale: 6,
-            scale: scaleTo / 10,
+            //scale: scaleTo / 10,
         });
     }
-    function onMouseHoverOut() {
+    function onMouseHoverOut(e) {
         //$bigBall.style.mixBlendMode = '';
         $bigBall.css('mixBlendMode', '');
+        $bigBall.css('width', '');
+        $bigBall.css('height', '');
+        $smallBall.css('opacity', '1');
         TweenMax.to($bigBall, .3, {
-            scale: 1
+            //scale: 1
         })
     }
 }
 
 
 function whoWeAreBannerRadialAnimation () {
-    $(window).on('resize scroll', 
-        debounce(function () {
-            if ($(window).width() < 768) {
-                return;
-            }
+    $(window).on('resize scroll', function () {
             var elementTop = $('.who-we-are-banner').offset().top;
             var elementBottom = elementTop + $('.who-we-are-banner').outerHeight();
             var viewportTop = $(window).scrollTop();
             var viewportBottom = viewportTop + $(window).height();
 
             var moveTo = (viewportBottom - elementTop) * 100 / $('.who-we-are-banner').height() - (($('.who-we-are-banner-rect').outerWidth()) * 100 / $('.who-we-are-banner').outerWidth());
-            $('.who-we-are-banner-rect').css('left', moveTo / 1.75 + '%')
-        }, 10, true)
-    );
-}
+
+            var isVisible = (viewportBottom - elementTop) > 0 && (viewportTop - elementTop) <= $('.who-we-are-banner').outerHeight();
+            if (isVisible) {
+                var percent = $(window).width() * 100 / ($(window).height() + $('.who-we-are-banner').outerHeight());
+                TweenMax.to($('.who-we-are-banner-rect'), .3, {
+                    x: (((viewportBottom - elementTop) * percent) / 100) - ($('.who-we-are-banner-rect').width() / 2)
+                });
+            }
+        });
+    };
 
 function switchDarkmodeFn () {
     $(window).on('resize scroll', 

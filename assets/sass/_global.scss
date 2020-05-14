@@ -359,6 +359,12 @@ small, .small {
         color: $white_color;
         background-color: $btn_active_color;
     }
+
+    &:disabled, &.disabled {
+        opacity: 0.1;
+        cursor: not-allowed;
+        user-select: none;
+    }
 }
 
 .ag-btn-round {
@@ -455,6 +461,11 @@ small, .small {
             font-weight: normal;
             font-size: 16px;
             line-height: 140%;
+            transition: all 0.1s ease-in-out;
+
+            &:focus {
+                box-shadow: 0px 0px 1px 3px rgba($secondary_color, 0.5);
+            }
 
             @include mq-min-small {
                 font-size: 16.26px;
@@ -470,6 +481,25 @@ small, .small {
             }
             @include mq-min-desktop {
                 font-size: 20px;
+            }
+        }
+
+        .error-msg {
+            color: $danger-color;
+            font-weight: 600;
+            font-size: calc(14px + (16 - 14) * ((100vw - 320px) / (1750 - 320)));
+            display: block;
+            margin-top: 8px;
+        }
+
+        &.has-error {
+
+            .ag-form-input {
+                border-color: $danger_color;
+
+                &:focus {
+                    box-shadow: 0px 0px 1px 3px rgba($danger_color, 0.5);
+                }
             }
         }
     }
