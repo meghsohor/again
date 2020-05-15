@@ -861,6 +861,10 @@ body {
             height: 372px;
             border-radius: 50%;
 
+            @include mq-max-mobile {
+                width: 300px;
+                height: 300px;
+            }
             @include mq-min-tablet {
                 width: 690px;
                 height: 690px;
@@ -884,6 +888,11 @@ body {
                 justify-content: center;
                 border-radius: 50%;
 
+                @include mq-max-mobile {
+                    height: calc(100% - 130px);
+                    width: calc(100% - 130px);
+                }
+
                 @include mq-min-tablet {
                     width: 414px;
                     height: 414px;
@@ -900,6 +909,10 @@ body {
                 }
 
                 img {
+                    @include mq-max-mobile {
+                        width: 100px;
+                    }
+
                     @include mq-min-tablet {
                         width: 245px;
                     }
