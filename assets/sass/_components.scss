@@ -680,13 +680,17 @@ body {
         height: 150px;
         background-color: $brand_pink;
         border-radius: 50%;
-        display: flex;
+        display: none;
         justify-content: center;
         align-items: center;
         user-select: none;
         pointer-events: none;
         z-index: 2;
         transition: opacity 0.25s ease-in-out;
+
+        @include mq-min-tablet-landscape {
+            display: flex;
+        }
 
         &.fixed {
             position: fixed;

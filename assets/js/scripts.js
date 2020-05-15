@@ -92,8 +92,10 @@ function sticyHeaderFn() {
     var previousScroll = 0,
         targetHeight = $('header').height() ;
 
-    $(window).scroll(function () {
+    $(window).scroll(function (e) {
         if ($('header').hasClass('open-menu')) {
+            console.log(e);
+            e.preventDefault();
             return;
         }
         var currentScroll = $(this).scrollTop();
@@ -303,6 +305,7 @@ function dragScrollFn () {
     var slider = '.ag-carousel-items'; 
     var sliderIndicator = '.ag-carousel-marker';
     var isMouseDown = false;
+    var isTouchDevice = navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0;
     var startX;
     var scrollLeft;
     var paddingLeft = $('.ag-container').offset().left;
@@ -311,6 +314,14 @@ function dragScrollFn () {
     $(window).on('resize', function () {
         $(sliderIndicator).width(Math.floor($(sliderIndicator).parent().width() / $(slider).children().length));
     });
+
+    //Hiding the drag icon if touch-screen device
+    if (isTouchDevice) {
+        $('.ag-carousel-cursor').css('display', 'none');
+    }
+    else {
+        $('.ag-carousel-cursor').css('display', '');
+    }
 
     //Setting the left-padding 
     $(slider).css('padding-left', paddingLeft + 'px');
@@ -321,32 +332,32 @@ function dragScrollFn () {
     });
 
 
-    $(sliderParent).on('mousedown touchstart', function (e) {
+    $(sliderParent).on('pointerdown', function (e) {
         isMouseDown = true;
         startX = e.pageX - $(slider)[0].offsetLeft;
         scrollLeft = $(slider)[0].scrollLeft;
         $(this).css('cursor', 'grabbing');
     });
 
-    $(sliderParent).on('mouseup touchend', function () {
+    $(sliderParent).on('pointerup', function () {
         isMouseDown = false;
         $(this).css('cursor', '');
     });
-    $(sliderParent).on('mouseleave', function () {
+    $(sliderParent).on('pointerleave', function () {
         isMouseDown = false;
         $('.ag-carousel-cursor.fixed').css('visibility', 'hidden');
         $('.cursor').css('display', 'block');
         $(this).css('cursor', '');
     });
 
-    $(sliderParent).on('mouseenter', function (e) {
+    $(sliderParent).on('pointerenter', function (e) {
         setTimeout(function() {
             $('.ag-carousel-cursor.fixed').css('visibility', 'visible');
         }, 200);
         $('.cursor').css('display', 'none');
     });
 
-    $(sliderParent).on('mousemove touchmove', function (e) {
+    $(sliderParent).on('pointermove', function (e) {
         var carouselCursor = $('.ag-carousel-cursor.fixed');
         TweenMax.to(carouselCursor, .2, {
             x: e.clientX - carouselCursor.width() / 2,
@@ -368,6 +379,9 @@ function dragScrollFn () {
         var sliderMovedPercentage;
         var markerPosition;
 
+        if (isTouchDevice) {
+            walk = walk * 25;
+        }
 
         TweenMax.to($(slider), .7, {
             scrollLeft: scrollLeft - walk,

@@ -2087,9 +2087,7 @@ body {
   height: 150px;
   background-color: #E86DBD;
   border-radius: 50%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: none;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -2104,6 +2102,14 @@ body {
   z-index: 2;
   -webkit-transition: opacity 0.25s ease-in-out;
   transition: opacity 0.25s ease-in-out;
+}
+
+@media (min-width: 1024px) {
+  .ag-carousel .ag-carousel-cursor {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
 }
 
 .ag-carousel .ag-carousel-cursor.fixed {
