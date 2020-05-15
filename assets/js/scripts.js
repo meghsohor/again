@@ -57,6 +57,7 @@ function mobileMenuInit() {
             $('.ag-menu-toggler').addClass('open');
             $('header').addClass('open-menu');
             $('body').addClass('no-scroll');
+            $('header::before').css('height', 1000);
             setTimeout(function () {
                 $('.ag-nav').addClass('open');
             }, 100);

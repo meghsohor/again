@@ -1648,8 +1648,6 @@ header:before {
 header.open-menu {
   height: 100%;
   max-height: 100vh;
-  overflow: auto;
-  padding-top: 32px;
 }
 
 header.open-menu:before {
@@ -1665,6 +1663,12 @@ header.open-menu:before {
   }
 }
 
+header.open-menu .ag-container {
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
 header.open-menu .ag-logo .ag-logo-primary {
   display: block;
 }
@@ -1677,6 +1681,7 @@ header.open-menu .ag-nav {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  padding: 32px 0;
 }
 
 header .ag-header-nav-btn {

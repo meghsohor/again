@@ -333,8 +333,6 @@ header {
     &.open-menu {
         height: 100%;
         max-height: 100vh;
-        overflow: auto;
-        padding-top: 32px;
 
         &:before {
             transform: scaleX(1);
@@ -344,6 +342,12 @@ header {
             .ag-container {
                 align-items: start;
             }
+        }
+
+        .ag-container {
+            height: 100%;
+            overflow-x: hidden;
+            overflow-y: auto;
         }
 
 
@@ -358,6 +362,7 @@ header {
 
         .ag-nav {
             display: flex;
+            padding: 32px 0;
         }
     }
 
