@@ -443,10 +443,10 @@ body {
             transform: translate(-50%, -50%);
         } */
         video {
-            min-height: 100vh;
-            min-width: 100vw;
-            width: auto;
-            height: auto;
+            width: 100vw;
+            height: 56.25vw;
+            min-height: 112vh;
+            min-width: 189.77vh;
             position: absolute;
             top: 50%;
             left: 50%;
