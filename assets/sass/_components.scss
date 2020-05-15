@@ -68,7 +68,6 @@ body.loading {
         position: fixed;
         top: 0;
         left: 0;
-        background-color: $brand_pink;
         border-radius: 50%;
         z-index: 10;
         transition: width 0.25s ease-in-out, height 0.25s ease-in-out,;
@@ -80,10 +79,14 @@ body.loading {
         &[class*="big"] {
             width: 30px;
             height: 30px;
+            transform: scale(0);
+            background: transparent;
+            border: 2px solid $brand_pink;
         }
         &[class*="small"] {
             width: 15px;
             height: 15px;
+            background-color: $brand_pink;
         }
     }
 }
@@ -133,6 +136,7 @@ body.sticky-header {
 
 body.no-scroll {
     overflow: hidden;
+    max-height: 100vh;
 }
 
 header {
@@ -210,10 +214,6 @@ header {
                     line-height: 140%;
                     padding: 8px 12px;
                     margin: 0 12px;
-
-                    @include mq-max-tablet {
-                        font-size: 38px;
-                    }
                 }
             }
 
@@ -223,7 +223,7 @@ header {
                 width: 100%;
                 width: 100%;
                 flex-direction: column;
-                align-items: unset;
+                align-items: flex-start;
                 visibility: hidden;
                 transform: translateY(-15%);
                 transition: all 0.5s ease;
@@ -240,6 +240,7 @@ header {
                     .ag-nav-link {
                         color: $primary_color;
                         font-size: 57.43px;
+                        font-size: calc(38px + (57.43 - 38) * ((100vw - 320px) / (1024 - 320)));
                         line-height: 125%;
                         margin: 0;
                         padding-left: 0;
@@ -331,6 +332,9 @@ header {
 
     &.open-menu {
         height: 100%;
+        max-height: 100vh;
+        overflow: auto;
+        padding-top: 32px;
 
         &:before {
             transform: scaleX(1);
@@ -362,7 +366,11 @@ header {
         font-size: 24px;
         line-height: 125%;
         color: $primary_color;
+        background: none;
         margin-top: 40px;
+        box-shadow: none;
+        border: 0 none;
+        display: inline-block;
 
         @include mq-min-tablet {
             font-size: 32px;
@@ -419,11 +427,21 @@ body {
         background-repeat: no-repeat;
         background-position: center;
 
-        iframe {
+        /* iframe {
             width: 100vw;
-            height: 56.25vw; /* Given a 16:9 aspect ratio, 9/16*100 = 56.25 */
+            height: 56.25vw;
             min-height: 112vh;
-            min-width: 189.77vh; /* Given a 16:9 aspect ratio, 16/9*100 = 177.77 */
+            min-width: 189.77vh;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        } */
+        video {
+            min-height: 100vh;
+            min-width: 100vw;
+            width: auto;
+            height: auto;
             position: absolute;
             top: 50%;
             left: 50%;
@@ -465,6 +483,7 @@ body {
     .ag-masthead-title {
         cursor: default;
         margin: auto 0;
+        font-size: calc(30px + (76.3 - 30) * ((100vw - 320px) / (1750 - 320)));
         /* width: 90%;
         max-width: 1062px; */
 
@@ -582,7 +601,8 @@ body {
 
         .who-we-are-banner-heading {
             color: $white_color;
-            font-size: 38.8874px;
+            font-size: calc(30px + (78.6199 - 30) * ((100vw - 320px) / (1750 - 320)));
+            //font-size: 38.8874px;
             font-weight: bold;
             line-height: 125%;
             text-align: center;
@@ -593,7 +613,7 @@ body {
             width: 100%;
             text-shadow: 0px 6.09354px 36.5612px rgba(0, 0, 0, 0.15);
 
-            @include mq-min-tablet {
+            /* @include mq-min-tablet {
                 font-size: 38.6606px;
             }
 
@@ -603,7 +623,7 @@ body {
 
             @include mq-min-desktop {
                 font-size: 78.6199px;
-            }
+            } */
         }
 
         .who-we-are-banner-rect {
@@ -617,6 +637,11 @@ body {
             background: #E86DBD;
             mix-blend-mode: lighten;
             opacity: 0.75;
+
+            @include mq-max-mobile {
+                width: 100px;
+                height: 100px;
+            }
 
             @include mq-max-tablet {
                 left:50% !important;
@@ -1152,6 +1177,7 @@ body:not(.dark) {
         .feature-grid-bracket {
             display: flex;
             flex-direction: column;
+            align-items: center;
             height: 90%;
             margin: auto 0;
             margin-left: 10px;
@@ -1159,6 +1185,14 @@ body:not(.dark) {
             .feature-grid-bracket-left-top,
             .feature-grid-bracket-right-bottom {
                 flex: auto;
+
+                @include mq-max-mobile {
+                    width: 20px;
+                }
+                
+                img {
+                    display: block;
+                }
             }
 
             .feature-grid-bracket-left-top {
@@ -1178,18 +1212,22 @@ body:not(.dark) {
                 white-space: nowrap;
                 writing-mode: vertical-rl;
                 text-align: center;
-                transform: rotate(180deg) translateX(-22px);
+                transform: rotate(180deg) translateX(-10px);
                 padding: 25px 0;
             }
 
             @include mq-min-tablet {
                 flex-direction: row;
+                align-items: unset;
+                justify-content: center;
                 height: auto;
                 margin: auto;
                 margin-top: 10px;
                 width: 90%;
 
                 .feature-grid-bracket-left-top {
+                    max-width: 312px;
+
                     img:first-child {
                         display: block;
                         width: 100%;
@@ -1199,6 +1237,7 @@ body:not(.dark) {
                     }
                 }
                 .feature-grid-bracket-right-bottom {
+                    max-width: 312px;
 
                     img:first-child {
                         display: block;
