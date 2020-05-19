@@ -36,13 +36,6 @@
     display: block;
 }
 
-.md-block {
-
-    @include mq-min-tablet-landscape {
-        display: block;
-    }
-}
-
 .d-none {
     display: none !important;
 }

@@ -424,6 +424,12 @@ small, .small {
             display: none;
         }
     }
+
+    &.link-external {
+        &:before {
+            width: calc(100% - 27px);
+        }
+    }
 }
 
 .link-external {
@@ -431,9 +437,10 @@ small, .small {
     display: inline-block;
 
     &:after {
-        margin-left: 10.5px;
-        font-family: IcoFont!important;
+        margin-left: 8px;
+        font-family: IcoFont !important;
         content: "\ef1f";
+        font-size: 14px;
     }
 }
 
@@ -502,5 +509,15 @@ small, .small {
                 }
             }
         }
+    }
+}
+
+/*--------- Fade In on Scroll -----------*/
+.scroll-fade {
+    opacity: 0;
+    transition:  opacity 0.4s ease;
+
+    &.fade-in {
+        opacity: 1;
     }
 }

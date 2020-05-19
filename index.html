@@ -13,12 +13,16 @@
     <meta property="og:url" content="" />
     <meta property="og:site_name" content="Document" />
 
+    <link rel="icon" type="image/png" href="favicon.png">
+
     <link rel="stylesheet" href="assets/icofont/icofont.min.css">
+    <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="assets/css/owl.theme.default.min.css">
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body class="loading">
     <div class="ag-loader">
-        <span>a</span>
+        <img src="assets/img/logo_chalk.svg" alt="">
     </div>
 
     <div class="cursor">
@@ -28,7 +32,7 @@
 
     <header>
         <div class="ag-container">
-            <a href="javascript:void(0)" class="ag-logo">
+            <a href="javascript:void(0)" class="ag-logo hoverable" data-target="masthead">
                 <img class="ag-logo-primary" src="assets/img/again-logo.svg" alt="Branding">
                 <img class="ag-logo-white" src="assets/img/again-logo-white.svg" alt="Branding">
             </a>
@@ -55,7 +59,7 @@
         </div>
     </header>
 
-    <section class="ag-masthead full-view-height text-white">
+    <section id="masthead" class="ag-masthead full-view-height text-white">
         <div class="ag-masthead-video-wrapper">
             <video src="assets/video/masthead-video.mp4" autoplay loop></video>
             <!-- <iframe src="https://player.vimeo.com/video/364894512?background=1&autoplay=1&loop=1&byline=0&title=0"
@@ -64,8 +68,8 @@
             <div class="ag-masthead-video-overlay2"></div>
         </div>
         <div class="ag-container pos-rel">
-            <h1 class="ag-masthead-title">Unleash Recurring Growth <span class="md-block"></span> Through 
-                <span class="typing-txt hoverable" 
+            <h1 class="ag-masthead-title">Unleash Recurring <span class="md-break"></span> Growth <span class="lg-break"></span> Through 
+                <span class="typing-txt" 
                         data-period="2000"
                         data-rotate='[ "Deeper Experiences", "Igniting Curiosity", "Strategic Thinking", "Challenging Convention"]'>
                 </span>
@@ -79,67 +83,96 @@
         <div class="ag-container">
             <div class="ag-row">
                 <div class="ag-col-md-6">
-                    <h3 class="text-primary section-heading">Is your brand ready for recurring growth?</h3>
+                    <h3 class="text-primary section-heading scroll-fade">Is your brand ready for recurring growth?</h3>
                 </div>
-                <div class="ag-col-md-6">
+                <div class="ag-col-md-6 scroll-fade">
                     <p>Understanding your customers is key to creating experiences that deliver returns, again and again.</p>
                     <p>That's where we come in. We specialise in experience optimisation for brands with recurring revenue models, helping you obtain predictable, stable revenue.</p>
-                    <p>We partner with curious and ambitious brands that want to experiment and optimise to unlock their
-                    recurring revenue potential.</p>
+                    <p class="m-0">We partner with curious and ambitious brands that want to experiment and optimise to unlock their recurring revenue potential.</p>
                     <a class="copy-link link-underline hoverable" href="javascript:void(0)">Ready to go deeper?</a>
                 </div>
             </div>
 
             <div class="who-we-are-banner">
-                <img src="assets/img/who-we-are-banner.jpg" alt="Who we are">
-                <div class="who-we-are-banner-heading">Unleash Your Brand’s Potential</div>
+                <img src="assets/img/again_rtgdeeper.jpg" alt="Who we are">
+                <div class="who-we-are-banner-heading">Unleash Your <span class="sm-break"></span> Brand’s <span class="sm-break"></span> Potential</div>
                 <span class="who-we-are-banner-rect"></span>
             </div>
-        </div>
 
-        <div class="ag-carousel">
-            <div class="ag-carousel-cursor fixed">
-                <div class="circle"></div>
-                <div class="text text-white copy">Drag</div>
-            </div>
-            <div class="ag-carousel-cursor initial">
-                <div class="circle"></div>
-                <div class="text text-white copy">Drag</div>
-            </div>
-            <div class="ag-carousel-items">
-                <div class="ag-carousel-item">
-                    <img class="ag-carousel-item-logo" src="assets/img/hearst.svg" alt="Hearst Magazine">
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                        industry's standard
-                        dummy text ever since the 1500s</p>
-                    <span class="small-link">Firstname Lastname, Job Title</span>
+            <div class="ag-carousel">
+                <div class="ag-carousel-items">
+                    <div class="ag-carousel-item">
+                        <img class="ag-carousel-item-logo dark-logo" src="assets/img/hearst_logo_dark.png" alt="Hearst Magazine">
+                        <img class="ag-carousel-item-logo light-logo" src="assets/img/hearst_logo_light.png" alt="Hearst Magazine">
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+                            industry's standard
+                            dummy text ever since the 1500s</p>
+                        <span class="small-link">Firstname Lastname, Job Title</span>
+                    </div>
+            
+                    <div class="ag-carousel-item">
+                        <img class="ag-carousel-item-logo dark-logo" src="assets/img/shelter_logo_dark.png" alt="Shelter">
+                        <img class="ag-carousel-item-logo light-logo" src="assets/img/shelter_logo_light.png" alt="Shelter">
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+                            industry's standard
+                            dummy text ever since the 1500s</p>
+                        <span class="small-link">Firstname Lastname, Job Title</span>
+                    </div>
+            
+                    <div class="ag-carousel-item">
+                        <img class="ag-carousel-item-logo dark-logo" src="assets/img/wsj_logo_dark.png" alt="Wall Street Journal">
+                        <img class="ag-carousel-item-logo light-logo" src="assets/img/wsj_logo_light.png" alt="Wall Street Journal">
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+                            industry's standard
+                            dummy text ever since the 1500s</p>
+                        <span class="small-link">Firstname Lastname, Job Title</span>
+                    </div>
+                    <div class="ag-carousel-item">
+                        <img class="ag-carousel-item-logo dark-logo" src="assets/img/118_logo_dark.png" alt="118money">
+                        <img class="ag-carousel-item-logo light-logo" src="assets/img/118_logo_light.png" alt="118money">
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+                            industry's standard
+                            dummy text ever since the 1500s</p>
+                        <span class="small-link">Firstname Lastname, Job Title</span>
+                    </div>
                 </div>
-        
-                <div class="ag-carousel-item">
-                    <img class="ag-carousel-item-logo" src="assets/img/shelter.svg" alt="Shelter">
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                        industry's standard
-                        dummy text ever since the 1500s</p>
-                    <span class="small-link">Firstname Lastname, Job Title</span>
+                <div class="owl-carousel">
+                    <div class="ag-carousel-item">
+                        <img class="ag-carousel-item-logo dark-logo" src="assets/img/hearst_logo_dark.png" alt="Hearst Magazine">
+                        <img class="ag-carousel-item-logo light-logo" src="assets/img/hearst_logo_light.png" alt="Hearst Magazine">
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+                            industry's standard
+                            dummy text ever since the 1500s</p>
+                        <span class="small-link">Firstname Lastname, Job Title</span>
+                    </div>
+                
+                    <div class="ag-carousel-item">
+                        <img class="ag-carousel-item-logo dark-logo" src="assets/img/shelter_logo_dark.png" alt="Shelter">
+                        <img class="ag-carousel-item-logo light-logo" src="assets/img/shelter_logo_light.png" alt="Shelter">
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+                            industry's standard
+                            dummy text ever since the 1500s</p>
+                        <span class="small-link">Firstname Lastname, Job Title</span>
+                    </div>
+                
+                    <div class="ag-carousel-item">
+                        <img class="ag-carousel-item-logo dark-logo" src="assets/img/wsj_logo_dark.png" alt="Wall Street Journal">
+                        <img class="ag-carousel-item-logo light-logo" src="assets/img/wsj_logo_light.png" alt="Wall Street Journal">
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+                            industry's standard
+                            dummy text ever since the 1500s</p>
+                        <span class="small-link">Firstname Lastname, Job Title</span>
+                    </div>
+                    <div class="ag-carousel-item">
+                        <img class="ag-carousel-item-logo dark-logo" src="assets/img/118_logo_dark.png" alt="118money">
+                        <img class="ag-carousel-item-logo light-logo" src="assets/img/118_logo_light.png" alt="118money">
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+                            industry's standard
+                            dummy text ever since the 1500s</p>
+                        <span class="small-link">Firstname Lastname, Job Title</span>
+                    </div>
                 </div>
-        
-                <div class="ag-carousel-item">
-                    <img class="ag-carousel-item-logo" src="assets/img/wsj.svg" alt="Wall Street Journal">
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                        industry's standard
-                        dummy text ever since the 1500s</p>
-                    <span class="small-link">Firstname Lastname, Job Title</span>
-                </div>
-                <div class="ag-carousel-item">
-                    <img class="ag-carousel-item-logo" src="assets/img/118mc.svg" alt="118mc">
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                        industry's standard
-                        dummy text ever since the 1500s</p>
-                    <span class="small-link">Firstname Lastname, Job Title</span>
-                </div>
-            </div>
-            <div class="ag-carousel-marker-wrapper">
-                <span class="ag-carousel-marker"></span>
+
             </div>
         </div>
     </section>
@@ -147,9 +180,9 @@
     <section class="color-transition evolve-section bg-white pos-rel z-2">
         <div class="ag-container">
             <div class="evolve-section-logo-area">
-                <div class="bg-radial">
+                <!-- <div class="bg-radial">
                     <svg class="svgdark" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1040 1040"><defs><style>.cls-1{fill:url(#linear-gradient);}</style><linearGradient id="linear-gradient" x1="152.3" y1="152.3" x2="887.7" y2="887.7" gradientUnits="userSpaceOnUse"><stop offset="0"/><stop offset="1" stop-opacity="0"/></linearGradient></defs><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><path class="cls-1" d="M520,207a313,313,0,1,1-221.32,91.68A310.91,310.91,0,0,1,520,207M520,0C232.81,0,0,232.81,0,520s232.81,520,520,520,520-232.81,520-520S807.19,0,520,0Z"/></g></g></svg>
-                </div>
+                </div> -->
                 <div class="evolve-section-logo-container pos-rel">
                     <div class="evolve-section-logo">
                         <img class="dark-visible" src="assets/img/again-logo-white.svg" alt="">
@@ -157,7 +190,7 @@
                     </div>
                 </div>
             </div>
-            <div class="evolve-section-text-area">
+            <div class="evolve-section-text-area scroll-fade">
                 <h3 class="section-title">Evolve to innovate</h3>
                 <p>We’ve been in the game for a long time. 17 years in fact. If that’s taught us one thing,
                     it’s what to do when confronted with a challenge: <a class="copy-link link-underline link-external hoverable"
@@ -224,7 +257,7 @@
             </div>
 
             <div class="feature-list-container">
-                <div class="ag-row feature-list-item">
+                <div class="ag-row feature-list-item scroll-fade">
                     <div class="ag-col-md-6">
                         <h5 class="text-primary feature-list-item-title">
                             <span class="feature-list-item-index">1</span>
@@ -254,7 +287,7 @@
                     </div>
                 </div>
 
-                <div class="ag-row feature-list-item">
+                <div class="ag-row feature-list-item scroll-fade">
                     <div class="ag-col-md-6">
                         <h5 class="text-primary feature-list-item-title">
                             <span class="feature-list-item-index">2</span>
@@ -283,7 +316,7 @@
                     </div>
                 </div>
 
-                <div class="ag-row feature-list-item">
+                <div class="ag-row feature-list-item scroll-fade">
                     <div class="ag-col-md-6">
                         <h5 class="text-primary feature-list-item-title">
                             <span class="feature-list-item-index">3</span>
@@ -313,7 +346,7 @@
                     </div>
                 </div>
 
-                <div class="ag-row feature-list-item">
+                <div class="ag-row feature-list-item scroll-fade">
                     <div class="ag-col-md-6">
                         <h5 class="text-primary feature-list-item-title">
                             <span class="feature-list-item-index">3</span>
@@ -345,12 +378,12 @@
         </div>
     </section>
 
-    <section id="how-we-think" class="how-we-think bg-white pos-rel z-2">
+    <section class="how-we-think bg-white pos-rel z-2">
         <div class="rotate-banner">
             <span class="rotate-banner-text">see what’s on our mind</span>
         </div>
 
-        <div class="ag-container">
+        <div id="how-we-think" class="ag-container">
             <h3 class="text-primary section-heading">See what’s on our mind...</h3>
 
             <div class="ag-row">
@@ -491,8 +524,9 @@
         </div>
     </section>
 
-    <script src="assets/js/jquery-3.2.1.min.js"></script>
+    <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/TweenMax.min.js"></script>
+    <script src="assets/js/owl.carousel.min.js"></script>
     
     <script src="assets/js/scripts.js"></script>
 </body>

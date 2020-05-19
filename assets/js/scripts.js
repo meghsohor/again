@@ -19,7 +19,7 @@ function debounce(func, wait, immediate) {
 $(window).on('load', function () {
     setTimeout(function () {
         $('body').removeClass('loading');
-    }, 800);
+    }, 500);
 });
 
 $(document).ready(function () {
@@ -31,13 +31,43 @@ $(document).ready(function () {
     mouseHoverEffectFn();
     whoWeAreBannerRadialAnimation();
     switchDarkmodeFn();
-    dragScrollFn();
+    
+    scrollFadeinFn();
+    //dragScrollFn();
+    if ($(window).width() < 1024) {
+        startCarousel();
+    } else {
+        $('.owl-carousel').addClass('off');
+    }
 
 });
 
 $(window).resize(function () {
     mouseHoverEffectFn();
+
+    if ($(window).width() < 1024) {
+        startCarousel();
+    } else {
+        $('.owl-carousel').addClass('off');
+    }
 });
+
+function startCarousel() {
+    $(".owl-carousel").owlCarousel({
+        margin: 50,
+        responsive: {
+            0: {
+                items: 1
+            },
+            768: {
+                items: 2
+            },
+            1024: {
+                items: 3
+            }
+        }
+    });
+}
 
 
 function mobileMenuInit() {
@@ -113,12 +143,20 @@ function sticyHeaderFn() {
 }
 
 function scrollToFn () {
+    var scrollSpeed;
+    var scrollTo;
     $('[data-target]').on('click', function () {
         var target = $(this).data('target');
         if (target !== undefined) {
+            if (target == 'masthead') {
+                scrollTo = 0;
+            } else {
+                scrollTo = $("#" + target).offset().top;
+            }
+            scrollSpeed = $("#" + target).offset().top > 1500 ? 1500 : $("#" + target).offset().top ;
             $('html, body').animate({
-                scrollTop: $("#" + target).offset().top
-            }, 1500);
+                scrollTop: scrollTo
+            }, scrollSpeed);
         }
     });
 }
@@ -197,33 +235,25 @@ function mouseHoverEffectFn () {
         return;
     }
 
-    /* const $bigBall = document.querySelector('.cursor__ball--big');
-    const $smallBall = document.querySelector('.cursor__ball--small');
-    const $hoverables = document.querySelectorAll('.hoverable'); */
     var $bigBall = $('.cursor-ball-big');
     var $smallBall = $('.cursor-ball-small');
 
-    // Listeners
-    //document.body.addEventListener('mousemove', onMouseMove);
     $('body').on('mousemove', onMouseMove);
     $('.hoverable').on('mouseenter', onMouseHover);
     $('.hoverable').on('mouseleave', onMouseHoverOut);
-    /* for (let i = 0; i < $hoverables.length; i++) {
-        $hoverables[i].addEventListener('mouseenter', onMouseHover);
-        $hoverables[i].addEventListener('mouseleave', onMouseHoverOut);
-    } */
+
 
     // Move the cursor
     function onMouseMove(e) {
-        TweenMax.to($bigBall, .1, {
+        TweenMax.to($bigBall, .2, {
             x: e.clientX - $bigBall.width() / 2,
             y: e.clientY - $bigBall.height() / 2,
             transformOrigin: 'center',
         })
-        TweenMax.to($smallBall, .1, {
+        /* TweenMax.to($smallBall, .1, {
             x: e.clientX - 5,
             y: e.clientY - 7
-        })
+        }) */
     }
 
     // Hover an element
@@ -240,20 +270,24 @@ function mouseHoverEffectFn () {
             $bigBall.css('width', scaleTo + 'px');
             $bigBall.css('height', scaleTo + 'px');
         }
-        $smallBall.css('opacity', '0');
-        TweenMax.to($bigBall, .3, {
+        $bigBall.css('background-color', '#E86DBD');
+        $bigBall.css('mix-blend-mode', 'multiply');
+        //$smallBall.css('opacity', '0');
+        /* TweenMax.to($bigBall, .3, {
             scale: 1,
             transformOrigin: 'center'
-        });
+        }); */
     }
     function onMouseHoverOut(e) {
         $bigBall.css('width', '');
         $bigBall.css('height', '');
-        $smallBall.css('opacity', '1');
-        TweenMax.to($bigBall, .3, {
+        $bigBall.css('background-color', 'transparent');
+        $bigBall.css('mix-blend-mode', '');
+        //$smallBall.css('opacity', '1');
+        /* TweenMax.to($bigBall, .3, {
             scale: 0,
             transformOrigin: 'center'
-        })
+        }); */
     }
 }
 
@@ -271,22 +305,23 @@ function whoWeAreBannerRadialAnimation () {
             if (isVisible) {
                 var percent = $(window).width() * 100 / ($(window).height() + $('.who-we-are-banner').outerHeight());
                 TweenMax.to($('.who-we-are-banner-rect'), .3, {
-                    x: (((viewportBottom - elementTop) * percent) / 100) - ($('.who-we-are-banner-rect').width() / 2)
+                    x: (((viewportBottom - elementTop) * percent) / 100) - ($('.who-we-are-banner-rect').width() / 2),
+                    y: ($('.who-we-are-banner').height() / 2) - ($('.who-we-are-banner-rect').height() / 2)
                 });
             }
         });
     };
 
 function switchDarkmodeFn () {
-    $(window).on('resize scroll', 
+    $(window).on('resize scroll load', 
         debounce(function () {
             var $element = $('.color-transition');
             var $window = $(window);
 
             var startAt = $window.scrollTop() + $window.height();
-            var endAt = $element.offset().top + ($element.height() / 1.5);
+            var endAt = $element.offset().top + ($element.height() / 1.25);
 
-            var isVisible = startAt > $element.offset().top + ($element.height() / 4);
+            var isVisible = startAt > $element.offset().top + ($element.height() / 6);
             var isPast = $window.scrollTop() < endAt;
 
             if (isVisible && isPast) {
@@ -308,7 +343,6 @@ function dragScrollFn () {
     var isTouchDevice = navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0;
     var startX;
     var scrollLeft;
-    var paddingLeft = $('.ag-container').offset().left;
 
     $(sliderIndicator).width(Math.floor($(sliderIndicator).parent().width() / $(slider).children().length));
     $(window).on('resize', function () {
@@ -322,14 +356,6 @@ function dragScrollFn () {
     else {
         $('.ag-carousel-cursor').css('display', '');
     }
-
-    //Setting the left-padding 
-    $(slider).css('padding-left', paddingLeft + 'px');
-    $(window).on('resize', function () {
-        //Setting the left-padding 
-        paddingLeft = $('.ag-container').offset().left;
-        $(slider).css('padding-left', paddingLeft + 'px');
-    });
 
 
     $(sliderParent).on('pointerdown', function (e) {
@@ -389,7 +415,7 @@ function dragScrollFn () {
             onUpdate: function () {
                 //Moving the SLider marker
                 sliderScrollLeft = $(slider)[0].scrollLeft;
-                sliderMovedPercentage = Math.ceil(sliderScrollLeft * 100 / (sliderScrolWidth - (sliderWidth + paddingLeft)));
+                sliderMovedPercentage = Math.ceil(sliderScrollLeft * 100 / (sliderScrolWidth - sliderWidth));
                 markerPosition = ($(sliderIndicator).parent().width() - $(sliderIndicator).width()) * sliderMovedPercentage / 100;
                 TweenMax.to($(sliderIndicator), .2, {
                     x: markerPosition,
@@ -412,4 +438,23 @@ function dragScrollFn () {
     });
 
 
+}
+
+/*----------------- Fade in element when the element visible in the viewport ------------------*/
+function scrollFadeinFn () {
+
+    $(window).scroll(function () {
+        $('.scroll-fade').each(function () {
+
+            var bottom_of_object = $(this).offset().top + $(this).height();
+            var bottom_of_window = $(window).scrollTop() + $(window).height();
+            if (bottom_of_window > bottom_of_object) {
+
+                $(this).addClass('fade-in');
+
+            }
+
+        });
+
+    });
 }
