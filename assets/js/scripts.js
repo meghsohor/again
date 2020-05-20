@@ -99,6 +99,7 @@ function mobileMenuInit() {
             $('.ag-nav').removeClass('open');
             $('.ag-menu-toggler').removeClass('open');
             $('header').removeClass('open-menu');
+            $('body').removeClass('no-scroll');
         }
     });
 }
@@ -154,9 +155,20 @@ function scrollToFn () {
                 scrollTo = $("#" + target).offset().top;
             }
             scrollSpeed = $("#" + target).offset().top > 1500 ? 1500 : $("#" + target).offset().top ;
-            $('html, body').animate({
-                scrollTop: scrollTo
-            }, scrollSpeed);
+            if ($(window).width() > 1024) {
+                $('html, body').animate({
+                    scrollTop: scrollTo
+                }, scrollSpeed);
+            } else {
+                $('html, body').animate({
+                    scrollTop: scrollTo
+                }, 0);
+
+                $('body').removeClass('no-scroll');
+                $('header').removeClass('open-menu');
+                $('header nav').removeClass('open');
+                $('.ag-menu-toggler').removeClass('open');
+            }
         }
     });
 }

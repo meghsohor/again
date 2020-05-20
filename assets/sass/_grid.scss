@@ -4,8 +4,12 @@
 
 .ag-container {
     width: 90%;
-    max-width: 1400px;
     margin: 0 auto;
+
+    @include mq-min-desktop {
+        width: 100%;
+        max-width: 1400px;
+    }
 }
 
 /*-----------------------------------------------

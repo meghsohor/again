@@ -335,24 +335,13 @@ small, .small {
 .ag-btn {
     font-weight: 600;
     font-size: 14px;
+    font-size: calc(14.63px + (16 - 14.63) * ((100vw - 320px) / (1750 - 320)));
     line-height: 140%;
     padding: 15px 25px;
     border: 0 none;
 
-    @include mq-min-small {
-        font-size: 14.13px;
-    }
-    @include mq-min-mobile {
+    @include mq-max-tablet {
         font-size: 14.63px;
-    }
-    @include mq-min-tablet {
-        font-size: 14.98px;
-    }
-    @include mq-min-tablet-landscape {
-        font-size: 15.57px;
-    }
-    @include mq-min-desktop {
-        font-size: 16px;
     }
 
     &:active, &.active {
@@ -388,6 +377,11 @@ small, .small {
 .ag-btn-info {
     color: $white_color;
     background-color: $secondary_color;
+}
+
+.ag-btn-white {
+    color: $primary_color;
+    background-color: $white_color;
 }
 
 
@@ -464,13 +458,14 @@ small, .small {
             padding: 12px 24px;
             color: $primary_color;
             background-color: $white_color;
-            border: 2px solid #D4D9E1;
+            border: 2px solid $pale_blue;
             font-weight: normal;
             font-size: 16px;
             line-height: 140%;
             transition: all 0.1s ease-in-out;
 
             &:focus {
+                border-color: $primary_color;
                 box-shadow: 0px 0px 1px 3px rgba($secondary_color, 0.5);
             }
 
@@ -509,6 +504,12 @@ small, .small {
                 }
             }
         }
+
+    }
+
+    .privacy-txt {
+        margin-top: 28px;
+        margin-bottom: 28px;
     }
 }
 
