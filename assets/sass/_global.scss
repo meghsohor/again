@@ -515,8 +515,11 @@ small, .small {
 
 /*--------- Fade In on Scroll -----------*/
 .scroll-fade {
-    opacity: 0;
-    transition:  opacity 0.4s ease;
+    
+    @include mq-min-tablet-landscape {
+        opacity: 0;
+        transition:  opacity 0.4s ease;
+    }
 
     &.fade-in {
         opacity: 1;

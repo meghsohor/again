@@ -18,7 +18,7 @@ function debounce(func, wait, immediate) {
 
 $(window).on('load', function () {
     setTimeout(function () {
-        $('body').removeClass('loading');
+        $('body').removeClass('loading').removeClass('no-scroll');
     }, 500);
 });
 
@@ -34,18 +34,25 @@ $(document).ready(function () {
     
     scrollFadeinFn();
     //dragScrollFn();
-    if ($(window).width() < 1024) {
+    scrollHideMastheadFn();
+
+    if (window.innerWidth < 1024) {
         startCarousel();
     } else {
         $('.owl-carousel').addClass('off');
     }
+
+    //Preventing Image downloads
+    $("body").on("contextmenu", "img", function (e) {
+        return false;
+    });
 
 });
 
 $(window).resize(function () {
     mouseHoverEffectFn();
 
-    if ($(window).width() < 1024) {
+    if (window.innerWidth < 1024) {
         startCarousel();
     } else {
         $('.owl-carousel').addClass('off');
@@ -155,7 +162,7 @@ function scrollToFn () {
                 scrollTo = $("#" + target).offset().top;
             }
             scrollSpeed = $("#" + target).offset().top > 1500 ? 1500 : $("#" + target).offset().top ;
-            if ($(window).width() > 1024) {
+            if (window.innerWidth > 1024) {
                 $('html, body').animate({
                     scrollTop: scrollTo
                 }, scrollSpeed);
@@ -243,7 +250,7 @@ window.onload = function () {
 /*----------------- Mouse Hover animation ------------------*/
 
 function mouseHoverEffectFn () {
-    if ($(window).width() < 1024) {
+    if (window.innerWidth < 1024) {
         return;
     }
 
@@ -275,15 +282,13 @@ function mouseHoverEffectFn () {
         var targetHeight = isButton ? $(target).outerHeight() : $(target).css('line-height');
         targetHeight = isButton ? targetHeight : targetHeight.substring(0, targetHeight.length - 2);
         var scaleTo = isButton ? (targetHeight * 1.1) : (targetHeight * 2);
-        if (target.nodeName.toLowerCase() === 'img') {
+        if (target.nodeName.toLowerCase() === 'img' || $(this).hasClass('single-post-item')) {
             $bigBall.css('width', '100px');
             $bigBall.css('height', '100px');
         } else {
             $bigBall.css('width', scaleTo + 'px');
             $bigBall.css('height', scaleTo + 'px');
         }
-        $bigBall.css('background-color', '#E86DBD');
-        $bigBall.css('mix-blend-mode', 'multiply');
         //$smallBall.css('opacity', '0');
         /* TweenMax.to($bigBall, .3, {
             scale: 1,
@@ -293,8 +298,6 @@ function mouseHoverEffectFn () {
     function onMouseHoverOut(e) {
         $bigBall.css('width', '');
         $bigBall.css('height', '');
-        $bigBall.css('background-color', 'transparent');
-        $bigBall.css('mix-blend-mode', '');
         //$smallBall.css('opacity', '1');
         /* TweenMax.to($bigBall, .3, {
             scale: 0,
@@ -338,8 +341,12 @@ function switchDarkmodeFn () {
 
             if (isVisible && isPast) {
                 $('body').addClass('dark');
+                /* $('.ag-carousel-item-img .dark-logo').css('display', 'none');
+                $('.ag-carousel-item-img .light-logo').fadeIn(700); */
             } else {
                 $('body').removeClass('dark');
+                /* $('.ag-carousel-item-img .light-logo').css('display', 'none');
+                $('.ag-carousel-item-img .dark-logo').fadeIn(700); */
             }
             /* console.log(isVisible);
             console.log(isPast); */
@@ -455,8 +462,28 @@ function dragScrollFn () {
 /*----------------- Fade in element when the element visible in the viewport ------------------*/
 function scrollFadeinFn () {
 
-    $(window).scroll(function () {
+    $(window).on('scroll resize', function () {
         $('.scroll-fade').each(function () {
+            if (window.innerWidth < 1024) {
+                return false
+            }
+
+            var bottom_of_object = $(this).offset().top + ($(this).height() / 2);
+            var bottom_of_window = $(window).scrollTop() + $(window).height();
+            if (bottom_of_window > bottom_of_object) {
+
+                $(this).addClass('fade-in');
+
+            }
+
+        });
+
+    });
+    $(document).ready(function () {
+        $('.scroll-fade').each(function () {
+            if (window.innerWidth < 1024) {
+                return false
+            }
 
             var bottom_of_object = $(this).offset().top + $(this).height();
             var bottom_of_window = $(window).scrollTop() + $(window).height();
@@ -467,6 +494,22 @@ function scrollFadeinFn () {
             }
 
         });
+
+    });
+}
+
+/*----------------- Hide Masthead ------------------*/
+function scrollHideMastheadFn() {
+
+    $(window).on('scroll', function () {
+        var mastHead = $('#masthead');
+        var bottom_of_object = mastHead.height();
+        var bottom_of_window = $(window).scrollTop() + $(window).height();
+        if (bottom_of_window > (bottom_of_object * 2)) {
+            mastHead.css('visibility', 'hidden');
+        } else {
+            mastHead.css('visibility', '');
+        }
 
     });
 }

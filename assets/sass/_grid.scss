@@ -3,13 +3,9 @@
 -----------------------------------------------*/
 
 .ag-container {
+    max-width: 1400px;
     width: 90%;
     margin: 0 auto;
-
-    @include mq-min-desktop {
-        width: 100%;
-        max-width: 1400px;
-    }
 }
 
 /*-----------------------------------------------

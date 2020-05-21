@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="assets/css/owl.theme.default.min.css">
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
-<body class="loading">
+<body class="loading no-scroll">
     <div class="ag-loader">
         <img src="assets/img/logo_chalk.svg" alt="">
     </div>
@@ -75,7 +75,10 @@
                 </span>
             </h1>
 
-            <a href="javascript:void(0)" class="ag-masthead-scroll-link hoverable" data-target="who-we-are">Find out how</a>
+            <div class="ag-masthead-scroll-link-container hoverable" data-target="who-we-are">
+                <span class="ag-masthead-scroll-link-animation"></span>
+                <a href="javascript:void(0)" class="ag-masthead-scroll-link">Find out how</a>
+            </div>
         </div>
     </section>
 
@@ -99,41 +102,44 @@
 
             <div class="who-we-are-banner">
                 <img src="assets/img/again_rtgdeeper.jpg" alt="Who we are">
-                <div class="who-we-are-banner-heading">Unleash Your <span class="sm-break"></span> Brand’s <span class="sm-break"></span> Potential</div>
+                <div class="who-we-are-banner-heading">Unleash Your <span class="sm-break"></span> Brand’s Potential</div>
                 <span class="who-we-are-banner-rect"></span>
             </div>
 
             <div class="ag-carousel">
-                <div class="ag-carousel-items">
+                <div class="ag-carousel-items scroll-fade">            
                     <div class="ag-carousel-item">
-                        <img class="ag-carousel-item-logo dark-logo" src="assets/img/hearst_logo_dark.png" alt="Hearst Magazine">
-                        <img class="ag-carousel-item-logo light-logo" src="assets/img/hearst_logo_light.png" alt="Hearst Magazine">
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                            industry's standard
-                            dummy text ever since the 1500s</p>
-                        <span class="small-link">Firstname Lastname, Job Title</span>
-                    </div>
-            
+                        <div class="ag-carousel-item-img">
+                            <img class="ag-carousel-item-logo dark-logo" src="assets/img/shelter_logo_dark-lg.png" alt="Shelter">
+                            <img class="ag-carousel-item-logo light-logo" src="assets/img/shelter_logo_light-lg.png" alt="Shelter">
+                        </div>
+                        <p>Again are invaluable. The +14% uplift in donations YoY (from the quick fixes alone) meant that the project paid for
+                        itself many times over.</p>
+                        <span class="small-link">Eoghan Beecher, Shelter UK</span>
+                    </div>            
                     <div class="ag-carousel-item">
-                        <img class="ag-carousel-item-logo dark-logo" src="assets/img/shelter_logo_dark.png" alt="Shelter">
-                        <img class="ag-carousel-item-logo light-logo" src="assets/img/shelter_logo_light.png" alt="Shelter">
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                            industry's standard
-                            dummy text ever since the 1500s</p>
-                        <span class="small-link">Firstname Lastname, Job Title</span>
-                    </div>
-            
-                    <div class="ag-carousel-item">
-                        <img class="ag-carousel-item-logo dark-logo" src="assets/img/wsj_logo_dark.png" alt="Wall Street Journal">
-                        <img class="ag-carousel-item-logo light-logo" src="assets/img/wsj_logo_light.png" alt="Wall Street Journal">
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                            industry's standard
-                            dummy text ever since the 1500s</p>
-                        <span class="small-link">Firstname Lastname, Job Title</span>
+                        <div class="ag-carousel-item-img">
+                            <img class="ag-carousel-item-logo dark-logo" src="assets/img/wsj_logo_dark-lg.png" alt="Wall Street Journal">
+                            <img class="ag-carousel-item-logo light-logo" src="assets/img/wsj_logo_light-lg.png" alt="Wall Street Journal">
+                        </div>
+                        <p>“They will uncover the things you never knew you needed to know about your customers. They are, quite simply, the best
+                        partner I've ever had.”</p>
+                        <span class="small-link">Peter Gray, Wall Street Journal</span>
                     </div>
                     <div class="ag-carousel-item">
-                        <img class="ag-carousel-item-logo dark-logo" src="assets/img/118_logo_dark.png" alt="118money">
-                        <img class="ag-carousel-item-logo light-logo" src="assets/img/118_logo_light.png" alt="118money">
+                        <div class="ag-carousel-item-img">
+                            <img class="ag-carousel-item-logo dark-logo" src="assets/img/118_logo_dark-lg.png" alt="118money">
+                            <img class="ag-carousel-item-logo light-logo" src="assets/img/118_logo_light-lg.png" alt="118money">
+                        </div>
+                        <p>Their team of experts has allowed our business to be more nimble, responsive and to create more fulfilling experiences
+                        throughout our acquisition flow.</p>
+                        <span class="small-link">Firstname Lastname, 118 Money</span>
+                    </div>
+                    <div class="ag-carousel-item">
+                        <div class="ag-carousel-item-img">
+                            <img class="ag-carousel-item-logo dark-logo" src="assets/img/hearst_logo_dark-lg.png" alt="Hearst Magazine">
+                            <img class="ag-carousel-item-logo light-logo" src="assets/img/hearst_logo_light-lg.png" alt="Hearst Magazine">
+                        </div>
                         <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
                             industry's standard
                             dummy text ever since the 1500s</p>
@@ -142,39 +148,45 @@
                 </div>
                 <div class="owl-carousel">
                     <div class="ag-carousel-item">
-                        <img class="ag-carousel-item-logo dark-logo" src="assets/img/hearst_logo_dark.png" alt="Hearst Magazine">
-                        <img class="ag-carousel-item-logo light-logo" src="assets/img/hearst_logo_light.png" alt="Hearst Magazine">
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                            industry's standard
-                            dummy text ever since the 1500s</p>
-                        <span class="small-link">Firstname Lastname, Job Title</span>
-                    </div>
-                
-                    <div class="ag-carousel-item">
-                        <img class="ag-carousel-item-logo dark-logo" src="assets/img/shelter_logo_dark.png" alt="Shelter">
-                        <img class="ag-carousel-item-logo light-logo" src="assets/img/shelter_logo_light.png" alt="Shelter">
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                            industry's standard
-                            dummy text ever since the 1500s</p>
-                        <span class="small-link">Firstname Lastname, Job Title</span>
-                    </div>
-                
-                    <div class="ag-carousel-item">
-                        <img class="ag-carousel-item-logo dark-logo" src="assets/img/wsj_logo_dark.png" alt="Wall Street Journal">
-                        <img class="ag-carousel-item-logo light-logo" src="assets/img/wsj_logo_light.png" alt="Wall Street Journal">
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                            industry's standard
-                            dummy text ever since the 1500s</p>
-                        <span class="small-link">Firstname Lastname, Job Title</span>
+                        <div class="ag-carousel-item-img">
+                            <img class="ag-carousel-item-logo dark-logo" src="assets/img/shelter_logo_dark-lg.png" alt="Shelter">
+                            <img class="ag-carousel-item-logo light-logo" src="assets/img/shelter_logo_light-lg.png" alt="Shelter">
+                        </div>
+                        <p>Again are invaluable. The +14% uplift in donations YoY (from the quick fixes alone) meant that the project paid
+                            for
+                            itself many times over.</p>
+                        <span class="small-link">Eoghan Beecher, Shelter UK</span>
                     </div>
                     <div class="ag-carousel-item">
-                        <img class="ag-carousel-item-logo dark-logo" src="assets/img/118_logo_dark.png" alt="118money">
-                        <img class="ag-carousel-item-logo light-logo" src="assets/img/118_logo_light.png" alt="118money">
+                        <div class="ag-carousel-item-img">
+                            <img class="ag-carousel-item-logo dark-logo" src="assets/img/wsj_logo_dark-lg.png" alt="Wall Street Journal">
+                            <img class="ag-carousel-item-logo light-logo" src="assets/img/wsj_logo_light-lg.png" alt="Wall Street Journal">
+                        </div>
+                        <p>“They will uncover the things you never knew you needed to know about your customers. They are, quite simply, the
+                            best
+                            partner I've ever had.”</p>
+                        <span class="small-link">Peter Gray, Wall Street Journal</span>
+                    </div>
+                    <div class="ag-carousel-item">
+                        <div class="ag-carousel-item-img">
+                            <img class="ag-carousel-item-logo dark-logo" src="assets/img/118_logo_dark-lg.png" alt="118money">
+                            <img class="ag-carousel-item-logo light-logo" src="assets/img/118_logo_light-lg.png" alt="118money">
+                        </div>
+                        <p>Their team of experts has allowed our business to be more nimble, responsive and to create more fulfilling
+                            experiences
+                            throughout our acquisition flow.</p>
+                        <span class="small-link">Firstname Lastname, 118 Money</span>
+                    </div>
+                    <!-- <div class="ag-carousel-item">
+                        <div class="ag-carousel-item-img">
+                            <img class="ag-carousel-item-logo dark-logo" src="assets/img/hearst_logo_dark-lg.png" alt="Hearst Magazine">
+                            <img class="ag-carousel-item-logo light-logo" src="assets/img/hearst_logo_light-lg.png" alt="Hearst Magazine">
+                        </div>
                         <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
                             industry's standard
                             dummy text ever since the 1500s</p>
                         <span class="small-link">Firstname Lastname, Job Title</span>
-                    </div>
+                    </div> -->
                 </div>
 
             </div>
@@ -387,49 +399,49 @@
                 <div class="ag-col-sm-6">
                     <a href="javascript:void(0)" class="single-post-item hoverable">
                         <div class="single-post-item-thumbnail">
-                            <img class="hoverable" src="assets/img/post-thumbnail-1.jpg" alt="Again Blog Post">
+                            <img src="assets/img/post-thumbnail-1.jpg" alt="Again Blog Post">
                         </div>
-                        <div class="small text-default single-post-item-category-date hoverable">
+                        <div class="small text-default single-post-item-category-date">
                             <span>Customer Experience</span> | <span>July 26</span>
                         </div>
-                        <h6 class="text-primary single-post-item-title hoverable">Latest news article headline.</h6>
-                        <span class="item-cursor hoverable"></span>
+                        <h6 class="text-primary single-post-item-title">Latest news article headline.</h6>
+                        <span class="item-cursor"></span>
                     </a>
                 </div>
                 <div class="ag-col-sm-6">
                     <a href="javascript:void(0)" class="single-post-item hoverable">
                         <div class="single-post-item-thumbnail">
-                            <img class="hoverable" src="assets/img/post-thumbnail-2.jpg" alt="Again Blog Post">
+                            <img src="assets/img/post-thumbnail-2.jpg" alt="Again Blog Post">
                         </div>
-                        <div class="small text-default single-post-item-category-date hoverable">
+                        <div class="small text-default single-post-item-category-date">
                             <span>Customer Experience</span> | <span>July 26</span>
                         </div>
-                        <h6 class="text-primary single-post-item-title hoverable">Latest news article headline.</h6>
-                        <span class="item-cursor hoverable"></span>
+                        <h6 class="text-primary single-post-item-title">Latest news article headline.</h6>
+                        <span class="item-cursor"></span>
                     </a>
                 </div>
                 <div class="ag-col-sm-6">
                     <a href="javascript:void(0)" class="single-post-item hoverable">
                         <div class="single-post-item-thumbnail">
-                            <img class="hoverable" src="assets/img/post-thumbnail-3.jpg" alt="Again Blog Post">
+                            <img src="assets/img/post-thumbnail-3.jpg" alt="Again Blog Post">
                         </div>
-                        <div class="small text-default single-post-item-category-date hoverable">
+                        <div class="small text-default single-post-item-category-date">
                             <span>Customer Experience</span> | <span>July 26</span>
                         </div>
-                        <h6 class="text-primary single-post-item-title hoverable">Latest news article headline.</h6>
-                        <span class="item-cursor hoverable"></span>
+                        <h6 class="text-primary single-post-item-title">Latest news article headline.</h6>
+                        <span class="item-cursor"></span>
                     </a>
                 </div>
                 <div class="ag-col-sm-6">
                     <a href="javascript:void(0)" class="single-post-item hoverable">
                         <div class="single-post-item-thumbnail">
-                            <img class="hoverable" src="assets/img/post-thumbnail-4.jpg" alt="Again Blog Post">
+                            <img src="assets/img/post-thumbnail-4.jpg" alt="Again Blog Post">
                         </div>
-                        <div class="small text-default single-post-item-category-date hoverable">
+                        <div class="small text-default single-post-item-category-date">
                             <span>Customer Experience</span> | <span>July 26</span>
                         </div>
-                        <h6 class="text-primary single-post-item-title hoverable">Latest news article headline.</h6>
-                        <span class="item-cursor hoverable"></span>
+                        <h6 class="text-primary single-post-item-title">Latest news article headline.</h6>
+                        <span class="item-cursor"></span>
                     </a>
                 </div>
             </div>
@@ -437,36 +449,37 @@
 
     </section>
 
+    <!-- know more section -->
     <section class="know-more bg-white pos-rel z-2">
         <div class="ag-container">
             <h3 class="text-primary section-heading">Curious to know more?</h3>
 
             <div class="collapsible-section">
-                <div class="collapsible-item open">
-                    <div class="collapsible-item-header copy-link">Do you still work with brands outside of recurring revenue and subscription models?</div>
+                <div class="collapsible-item">
+                    <div class="collapsible-item-header copy-link hoverable">Do you still work with brands outside of recurring revenue and subscription models?</div>
                     <div class="collapsible-item-content copy">
                         Of course, we’ve been doing it for over 17 years! We’re experts across all eCommerce sectors, but we’re specialists in
                         recurring revenue and subscription with 85% of our clients in this sector.
-                        <br>
+                        <br><br>
                         Our method focuses on satisfying customers across the entire lifecycle - not just one interaction. We help all brands,
                         whether they are FMCG, publishing or travel, retain, engage and ultimately, connect to their customers.
                     </div>
                 </div>
                 <div class="collapsible-item">
-                    <div class="collapsible-item-header copy-link">What experience do you have in specific verticals?</div>
+                    <div class="collapsible-item-header copy-link hoverable">What experience do you have in specific verticals?</div>
                     <div class="collapsible-item-content copy">
                         Throughout our history, we’ve worked in many verticals and continue to do so today, across charities, publishing,
                         travel, SaaS and more.
-                        <br>
+                        <br><br>
                         Many of the world’s leading brands in publishing trust us. Particularly brands with recurring revenue models, in the
                         subscription, membership, license and contract areas.
                     </div>
                 </div>
                 <div class="collapsible-item">
-                    <div class="collapsible-item-header copy-link">How do I get in touch with you about working together?</div>
+                    <div class="collapsible-item-header copy-link hoverable">How do I get in touch with you about working together?</div>
                     <div class="collapsible-item-content copy">
                         You can use the contact form at the bottom of this page to send us a message and we’ll get right back to you.
-                        <br>
+                        <br> <br>
                         But we love to start off by asking the right questions with <a class="copy-link link-underline link-external hoverable" href="//docs.google.com/forms/d/1DgBJNzQT-UJIBUhV1gvKJDyq5grlTCL6qgYnrWt4iMg/edit" target="_blank" rel="noopener">our questionnaire</a>, if you have the time. This helps with our
                         discovery phase, ensuring we start off immediately asking the right questions and discovering the answers together. Then
                         we’ll be in touch!
@@ -517,9 +530,9 @@
                     </form> -->
                 
                 
-                    <!-- SharpSpring Form for Contact Us  -->
+                    <!-- SharpSpring Form for UK Contact Form  -->
                     <script type="text/javascript">
-                        var ss_form = { 'account': 'MzawMDEzMDExBgA', 'formID': 'M09KNTE0NEvWNbM0NtM1sUw007U0MTTXNTJKtkw1NDY2SjIxAgA' };
+                        var ss_form = { 'account': 'MzawMDEzMDExBgA', 'formID': 'MzA2SjVNNLfQNU1MNdM1MTNK0rUwNTPSTTUztkwzNALCZHMA' };
                         ss_form.width = '100%';
                         ss_form.height = '1000';
                         ss_form.domain = 'app-3QNACE8C9E.marketingautomation.services';
@@ -540,9 +553,9 @@
                 </div>
                 <div class="ag-col-sm-6">
                     <div class="socials">
-                        <a href="javascript:void(0)"><span class="icofont-facebook"></span></a>
-                        <a href="javascript:void(0)"><span class="icofont-twitter"></span></a>
-                        <a href="javascript:void(0)"><span class="icofont-linkedin"></span></a>
+                        <a href="javascript:void(0)"><span class="icofont-facebook hoverable"></span></a>
+                        <a href="javascript:void(0)"><span class="icofont-twitter hoverable"></span></a>
+                        <a href="javascript:void(0)"><span class="icofont-linkedin hoverable"></span></a>
                     </div>
                 </div>
             </div>
