@@ -126,6 +126,10 @@ body.sticky-header {
 
         .ag-nav .ag-nav-menu .ag-nav-link {
             color: $midnight_blue_color;
+
+            &:before {
+                background-color: $pale_blue;
+            }
         }
 
         .ag-header-nav-btn {
@@ -247,7 +251,7 @@ header {
                             left: 12px;
                             width: calc(100% - 24px);
                             height: 1px;
-                            background-color: $pale_blue;
+                            background-color: $btn_active_color;
                             transform: scaleX(0);
                             transform-origin: left center;
                             transition: transform 0.25s ease;
@@ -592,18 +596,15 @@ body {
             opacity: 0.4;
             animation: scrollDown 2s ease 1s infinite;
         }
-        &:after {
+        i {
             position: absolute;
-            top: 0;
-            left: 0;
-            content: '';
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            background-image: url('../img/down-arrow.svg');
-            background-size: 20px;
-            background-position: center 17px;
-            background-repeat: no-repeat;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 21px;
+            list-style: 125%;
             animation: scrollDown2 2s ease 1s infinite;
         }
     }
@@ -719,6 +720,18 @@ body {
         margin-top: 48px;
         margin-bottom: 48px;
 
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: $midnight_blue_color;
+            mix-blend-mode: screen;
+            opacity: 0.25;
+        }
+
         @include mq-min-tablet {
             margin-top: 64px;
             margin-bottom: 64px;
@@ -815,24 +828,16 @@ body {
         } */
 
         @include mq-min-tablet-landscape {
-            display: flex;
-            align-items: stretch;
-            justify-content: space-between;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 7%;
             margin-bottom: 0;
 
             .ag-carousel-item {
-                max-width: calc(33.33% - 50px);
 
                 &:last-child {
                     display: none;
                 }
-            }
-        }
-
-        @include mq-min-desktop {
-            .ag-carousel-item {
-                width: 330px;
-                max-width: calc(33.33% - 81px);
             }
         }
     }
@@ -844,13 +849,17 @@ body {
         }
 
         .owl-stage {
-            display: flex;
-            align-items: stretch;
+            grid-template-columns: repeat(3, 1fr);
         }
 
         .owl-item {
             display: flex;
             align-items: stretch;
+            padding-right: 7%;
+
+            @include mq-max-tablet {
+                padding-right: 0;
+            }
 
             /* @include mq-max-tablet-landscape {
                 padding-left: 50px;

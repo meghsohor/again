@@ -61,7 +61,7 @@ $(window).resize(function () {
 
 function startCarousel() {
     $(".owl-carousel").owlCarousel({
-        margin: 50,
+        //margin: 50,
         responsive: {
             0: {
                 items: 1
@@ -122,7 +122,15 @@ function collapsibleToggleFn () {
             else {
                 $item.removeClass('open');
             }
-        })
+        });
+        
+        setTimeout(function () {
+            if ($('.collapsible-item').hasClass('open')) {
+                $('.collapsible-section').css('min-height', $('.collapsible-section').height());
+            } else {
+                $('.collapsible-section').css('min-height', '');
+            }
+        }, 100)
     })
 }
 
@@ -283,12 +291,14 @@ function mouseHoverEffectFn () {
         targetHeight = isButton ? targetHeight : targetHeight.substring(0, targetHeight.length - 2);
         var scaleTo = isButton ? (targetHeight * 1.1) : (targetHeight * 2);
         if (target.nodeName.toLowerCase() === 'img' || $(this).hasClass('single-post-item')) {
-            $bigBall.css('width', '100px');
-            $bigBall.css('height', '100px');
-        } else {
-            $bigBall.css('width', scaleTo + 'px');
-            $bigBall.css('height', scaleTo + 'px');
+            scaleTo = 100;
         }
+        TweenMax.to($bigBall, .2, {
+            x: e.clientX - $bigBall.width() / 2,
+            y: e.clientY - $bigBall.height() / 2,
+            transformOrigin: 'center',
+            scale: scaleTo / 25
+        })
         //$smallBall.css('opacity', '0');
         /* TweenMax.to($bigBall, .3, {
             scale: 1,
@@ -299,10 +309,10 @@ function mouseHoverEffectFn () {
         $bigBall.css('width', '');
         $bigBall.css('height', '');
         //$smallBall.css('opacity', '1');
-        /* TweenMax.to($bigBall, .3, {
-            scale: 0,
+        TweenMax.to($bigBall, .3, {
+            scale: 1,
             transformOrigin: 'center'
-        }); */
+        });
     }
 }
 

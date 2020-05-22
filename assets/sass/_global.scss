@@ -424,6 +424,12 @@ small, .small {
             width: calc(100% - 27px);
         }
     }
+
+    &.dark-underline {
+        &::before {
+            background-color: $btn_active_color;
+        }
+    }
 }
 
 .link-external {
@@ -483,6 +489,79 @@ small, .small {
             }
             @include mq-min-desktop {
                 font-size: 20px;
+            }
+        }
+
+        .ag-check-input-label {
+            position: relative;
+
+            [type="checkbox"], [type="radio"] {
+                position: absolute;
+                opacity: 0;
+                pointer-events: none;
+            }
+
+            [type="checkbox"]:checked, [type="radio"]:checked {
+                + span {
+                    &:after {
+                        transform: scale(1);
+                    }
+                }
+            }
+            [type="checkbox"]:focus, [type="radio"]:focus {
+                + span {
+                    &:before {
+                        box-shadow: 0px 0px 1px 3px rgba($secondary_color, 0.5);
+                    }
+                }
+            }
+
+            span {
+                position: relative;
+                padding-left: 55px;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                min-height: 40px;
+
+                &:before, &:after {
+                    content: '';
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    z-index: 0;
+                    border-radius: 50%;
+                    transition: .25s ease;
+                }
+
+                &:before {
+                    width: 36px;
+                    height: 36px;
+                    border: 2px solid $primary_color;
+                }
+
+                &:after {
+                    width: 18px;
+                    height: 18px;
+                    top: 9px;
+                    left: 9px;
+                    background: $primary_color;
+                    transform-origin: center;
+                    transform: scale(0);
+                }
+            }
+
+            &.light {
+
+                span {
+
+                    &::before {
+                        border-color: $white_color;
+                    }
+                    &::after {
+                        background-color: $white_color;
+                    }
+                }
             }
         }
 
