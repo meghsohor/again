@@ -719,6 +719,7 @@ body {
         overflow: hidden;
         margin-top: 48px;
         margin-bottom: 48px;
+        display: flex;
 
         &::before {
             content: '';

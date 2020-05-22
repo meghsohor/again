@@ -11,6 +11,12 @@
 /*-----------------------------------------------
     Grid
 -----------------------------------------------*/
+$columns: 12;
+@for $i from 1 through $columns {
+    .columns-#{$i} {
+        width: (100% / $i);
+    }
+}
 .ag-row {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
@@ -22,16 +28,24 @@
         width: 100%;
         min-height: 1px;
         grid-column: span 12;
+    }
 
-        &.ag-col-md-6 {
-            @include mq-min-tablet-landscape {
-                grid-column: span 6;
+    @for $i from 1 through $columns {
+        .ag-col-sm-#{$i} {
+            @include mq-min-tablet {
+                grid-column: span $i;
             }
         }
 
-        &.ag-col-sm-6 {
-            @include mq-min-tablet {
-                grid-column: span 6;
+        .ag-col-md-#{$i} {
+            @include mq-min-tablet-landscape {
+                grid-column: span $i;
+            }
+        }
+
+        .ag-col-lg-#{$i} {
+            @include mq-min-desktop {
+                grid-column: span $i;
             }
         }
     }
