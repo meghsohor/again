@@ -2012,6 +2012,7 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+  opacity: 0.5;
   /* iframe {
             width: 100vw;
             height: 56.25vw;
