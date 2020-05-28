@@ -297,11 +297,9 @@ function mouseHoverEffectFn () {
             scaleTo = 100;
         }
         TweenMax.to($bigBall, .2, {
-            x: e.clientX - $bigBall.width() / 2,
-            y: e.clientY - $bigBall.height() / 2,
-            transformOrigin: 'center',
             scale: scaleTo / 25
-        })
+        });
+        
         //$smallBall.css('opacity', '0');
         /* TweenMax.to($bigBall, .3, {
             scale: 1,
@@ -309,12 +307,12 @@ function mouseHoverEffectFn () {
         }); */
     }
     function onMouseHoverOut(e) {
-        $bigBall.css('width', '');
-        $bigBall.css('height', '');
+        //$bigBall.css('width', '');
+        //$bigBall.css('height', '');
         //$smallBall.css('opacity', '1');
-        TweenMax.to($bigBall, .3, {
-            scale: 1,
-            transformOrigin: 'center'
+        TweenMax.to($bigBall, .2, {
+            scale: 1
+            //transformOrigin: 'center',
         });
     }
 }

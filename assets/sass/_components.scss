@@ -481,7 +481,7 @@ body {
         height: 100%;
         pointer-events: none;
         overflow: hidden;
-        background-image: url('../img/masthead-bg.jpg');
+        background-image: url('./../img/masthead-bg.jpg');
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center;
@@ -736,6 +736,7 @@ body {
         margin-top: 48px;
         margin-bottom: 48px;
         display: flex;
+        flex-direction: column;
 
         &::before {
             content: '';
@@ -752,6 +753,7 @@ body {
 
         >img {
             object-fit: cover;
+            height: auto;
         }
 
         @include mq-min-tablet {
@@ -923,7 +925,6 @@ body {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        user-select: none;
 
         .ag-carousel-item-img {
             margin-bottom: 32px;

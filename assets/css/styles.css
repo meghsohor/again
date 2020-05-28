@@ -2008,7 +2008,7 @@ body {
   height: 100%;
   pointer-events: none;
   overflow: hidden;
-  background-image: url("../img/masthead-bg.jpg");
+  background-image: url("./../img/masthead-bg.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -2365,6 +2365,10 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .who-we-are .who-we-are-banner::before {
@@ -2383,6 +2387,7 @@ body {
 .who-we-are .who-we-are-banner > img {
   -o-object-fit: cover;
      object-fit: cover;
+  height: auto;
 }
 
 @media (min-width: 768px) {
@@ -2590,10 +2595,6 @@ body {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
 }
 
 .ag-carousel .ag-carousel-item .ag-carousel-item-img {
