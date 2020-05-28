@@ -89,11 +89,11 @@ body.loading {
         }
 
         &[class*="big"] {
-            width: 25px;
-            height: 25px;
+            width: 9px;
+            height: 9px;
             //transform: scale(0);
-            background: transparent;
-            border: 2px solid $brand_pink;
+            background: $brand_pink;
+            //border: 2px solid $brand_pink;
         }
         &[class*="small"] {
             display: none;

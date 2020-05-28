@@ -1536,10 +1536,9 @@ body.loading header, body.loading section {
 }
 
 .cursor .cursor-ball[class*="big"] {
-  width: 25px;
-  height: 25px;
-  background: transparent;
-  border: 2px solid #E86DBD;
+  width: 9px;
+  height: 9px;
+  background: #E86DBD;
 }
 
 .cursor .cursor-ball[class*="small"] {
