@@ -241,6 +241,10 @@ header {
                     font-size: calc(14px + (16 - 14) * ((100vw - 320px) / (1750 - 320)));
                     font-weight: 600;
 
+                    @include mq-min-large-desktop {
+                        font-size: 16px;
+                    }
+
                     @include mq-min-tablet-landscape {
                         position: relative;
 
@@ -438,6 +442,10 @@ header {
             color: $white_color;
             transition: all 0.25s ease;
 
+            @include mq-min-large-desktop {
+                font-size: 16px;
+            }
+
             &:hover {
                 color: $primary_color;
                 background-color: $white_color;
@@ -540,6 +548,10 @@ body {
             font-size: 38px;
         }
 
+        @include mq-min-large-desktop {
+            font-size: 76.3px;
+        }
+
         .typing-txt {
             color: $secondary_color;
 
@@ -617,6 +629,10 @@ body {
         font-size: calc(14.13px + (16 - 14.13) * ((100vw - 320px) / (1750 - 320)));
         line-height: 140%;
         font-weight: 600;
+
+        @include mq-min-large-desktop {
+            font-size: 16px;
+        }
     }
 }
 
@@ -731,6 +747,11 @@ body {
             background: $midnight_blue_color;
             mix-blend-mode: screen;
             opacity: 0.25;
+            z-index: 1;
+        }
+
+        >img {
+            object-fit: cover;
         }
 
         @include mq-min-tablet {
@@ -774,6 +795,11 @@ body {
             transform: translate(-50%, -50%);
             width: 100%;
             text-shadow: 0px 6.09354px 36.5612px rgba(0, 0, 0, 0.15);
+            z-index: 3;
+
+            @include mq-min-large-desktop {
+                font-size: 78.6199px;
+            }
 
             .sm-break {
                 display: none;
@@ -794,6 +820,7 @@ body {
             background: #E86DBD;
             mix-blend-mode: lighten;
             opacity: 0.75;
+            z-index: 2;
 
             @include mq-max-tablet {
                 top: 50% !important;
@@ -1150,6 +1177,10 @@ body.dark {
     }
 
     .evolve-section {
+
+        .section-title {
+            color: $white_color;
+        }
 
         .copy-link {
             color: $white_color;
@@ -1557,7 +1588,6 @@ body:not(.dark) {
     }
 
     .rotate-banner-text {
-        //font-size: 49.57px;
         font-size: calc(65px + (180 - 65) * ((100vw - 320px) / (1750 - 320)));
         line-height: 1;
         font-weight: 600;
@@ -1572,15 +1602,9 @@ body:not(.dark) {
                     calc(18ch * 2) 0 currentColor;
         animation: marquee 5s linear infinite;
 
-        /* @include mq-min-tablet {
-            font-size: 54.72px;
+        @include mq-min-large-desktop {
+            font-size: 180px;
         }
-        @include mq-min-tablet-landscape {
-            font-size: 72.97px;
-        }
-        @include mq-min-desktop {
-            font-size: 102px;
-        } */
     }
 }
 

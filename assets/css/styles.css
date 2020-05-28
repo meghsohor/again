@@ -590,128 +590,62 @@ h6, .h6 {
 
 h1, .h1 {
   font-size: calc(48.83px + (76.3 - 48.83) * ((100vw - 320px) / (1750 - 320)));
-  /* font-size: 48.83px;
+}
 
-    @include mq-min-small {
-        font-size: 50.64px;
-    }
-    @include mq-min-mobile {
-        font-size: 57.43px;
-    }
-    @include mq-min-tablet {
-        font-size: 62.35px;
-    }
-    @include mq-min-tablet-landscape {
-        font-size: 70.38px;
-    }
-    @include mq-min-desktop {
-        font-size: 76.3px;
-    } */
+@media (min-width: 1750px) {
+  h1, .h1 {
+    font-size: 76.3px;
+  }
 }
 
 h2, .h2 {
   font-size: calc(39.06px + (61 - 39.06) * ((100vw - 320px) / (1750 - 320)));
-  /* font-size: 39.06px;
+}
 
-    @include mq-min-small {
-        font-size: 40.50px;
-    }
-    @include mq-min-mobile {
-        font-size: 45.95px;
-    }
-    @include mq-min-tablet {
-        font-size: 49.88px;
-    }
-    @include mq-min-tablet-landscape {
-        font-size: 56.28px;
-    }
-    @include mq-min-desktop {
-        font-size: 61px;
-    } */
+@media (min-width: 1750px) {
+  h2, .h2 {
+    font-size: 61px;
+  }
 }
 
 h3, .h3 {
   font-size: calc(31.25px + (48.8 - 31.25) * ((100vw - 320px) / (1750 - 320)));
-  /* font-size: 31.25px;
+}
 
-    @include mq-min-small {
-        font-size: 32.41px;
-    }
-    @include mq-min-mobile {
-        font-size: 36.76px;
-    }
-    @include mq-min-tablet {
-        font-size: 39.90px;
-    }
-    @include mq-min-tablet-landscape {
-        font-size: 45.02px;
-    }
-    @include mq-min-desktop {
-        font-size: 48.8px;
-    } */
+@media (min-width: 1750px) {
+  h3, .h3 {
+    font-size: 48.8px;
+  }
 }
 
 h4, .h4 {
   font-size: calc(25px + (39.1 - 25) * ((100vw - 320px) / (1750 - 320)));
-  /* font-size: 25px;
+}
 
-    @include mq-min-small {
-        font-size: 25.92px;
-    }
-    @include mq-min-mobile {
-        font-size: 29.40px;
-    }
-    @include mq-min-tablet {
-        font-size: 31.92px;
-    }
-    @include mq-min-tablet-landscape {
-        font-size: 36.01px;
-    }
-    @include mq-min-desktop {
-        font-size: 39.1px;
-    } */
+@media (min-width: 1750px) {
+  h4, .h4 {
+    font-size: 39.1px;
+  }
 }
 
 h5, .h5 {
   font-size: calc(20px + (31.3 - 20) * ((100vw - 320px) / (1750 - 320)));
-  /* font-size: 20px;
+}
 
-    @include mq-min-small {
-        font-size: 20.74px;
-    }
-    @include mq-min-mobile {
-        font-size: 23.52px;
-    }
-    @include mq-min-tablet {
-        font-size: 25.54px;
-    }
-    @include mq-min-tablet-landscape {
-        font-size: 28.81px;
-    }
-    @include mq-min-desktop {
-        font-size: 31.3px;
-    } */
+@media (min-width: 1750px) {
+  h5, .h5 {
+    font-size: 31.3px;
+  }
 }
 
 h6, .h6 {
   font-size: calc(18px + (25 - 18) * ((100vw - 320px) / (1750 - 320)));
-  /* font-size: 18px;
+}
 
-    @include mq-min-small {
-        font-size: 18.46px;
-    }
-    @include mq-min-mobile {
-        font-size: 20.19px;
-    }
-    @include mq-min-tablet {
-        font-size: 21.45px;
-    }
-    @include mq-min-tablet-landscape {
-        font-size: 23.48px;
-    }
-    @include mq-min-desktop {
-        font-size: 25px;
-    } */
+@media (min-width: 1750px) {
+  h6, .h6 {
+    font-size: 25px;
+  }
 }
 
 p, .copy {
@@ -719,21 +653,12 @@ p, .copy {
   font-size: calc(16px + (20 - 16) * ((100vw - 320px) / (1750 - 320)));
   line-height: 140%;
   margin-top: 0;
-  /* @include mq-min-small {
-        font-size: 16.26px;
-    }
-    @include mq-min-mobile {
-        font-size: 17.25px;
-    }
-    @include mq-min-tablet {
-        font-size: 17.97px;
-    }
-    @include mq-min-tablet-landscape {
-        font-size: 19.13px;
-    }
-    @include mq-min-desktop {
-        font-size: 20px;
-    } */
+}
+
+@media (min-width: 1750px) {
+  p, .copy {
+    font-size: 20px;
+  }
 }
 
 .copy-link {
@@ -741,42 +666,24 @@ p, .copy {
   font-size: calc(16px + (20 - 16) * ((100vw - 320px) / (1750 - 320)));
   line-height: 140%;
   color: #1E3356;
-  /* @include mq-min-small {
-        font-size: 16.26px;
-    }
-    @include mq-min-mobile {
-        font-size: 17.25px;
-    }
-    @include mq-min-tablet {
-        font-size: 17.97px;
-    }
-    @include mq-min-tablet-landscape {
-        font-size: 19.13px;
-    }
-    @include mq-min-desktop {
-        font-size: 20px;
-    } */
+}
+
+@media (min-width: 1750px) {
+  .copy-link {
+    font-size: 20px;
+  }
 }
 
 small, .small {
   font-weight: normal;
   font-size: calc(14px + (16 - 14) * ((100vw - 320px) / (1750 - 320)));
   line-height: 140%;
-  /* @include mq-min-small {
-        font-size: 14.13px;
-    }
-    @include mq-min-mobile {
-        font-size: 14.63px;
-    }
-    @include mq-min-tablet {
-        font-size: 14.98px;
-    }
-    @include mq-min-tablet-landscape {
-        font-size: 15.57px;
-    }
-    @include mq-min-desktop {
-        font-size: 16px;
-    } */
+}
+
+@media (min-width: 1750px) {
+  small, .small {
+    font-size: 16px;
+  }
 }
 
 .small-link {
@@ -784,60 +691,36 @@ small, .small {
   font-size: calc(14px + (16 - 14) * ((100vw - 320px) / (1750 - 320)));
   line-height: 140%;
   color: #1E3356;
-  /* @include mq-min-small {
-        font-size: 14.13px;
-    }
-    @include mq-min-mobile {
-        font-size: 14.63px;
-    }
-    @include mq-min-tablet {
-        font-size: 14.98px;
-    }
-    @include mq-min-tablet-landscape {
-        font-size: 15.57px;
-    }
-    @include mq-min-desktop {
-        font-size: 16px;
-    } */
+}
+
+@media (min-width: 1750px) {
+  .small-link {
+    font-size: 16px;
+  }
 }
 
 .small-list {
   font-weight: normal;
   font-size: calc(14px + (16 - 14) * ((100vw - 320px) / (1750 - 320)));
   line-height: 170%;
-  /* @include mq-min-mobile {
-        font-size: 14.63px;
-    }
-    @include mq-min-tablet {
-        font-size: 14.98px;
-    }
-    @include mq-min-tablet-landscape {
-        font-size: 15.57px;
-    }
-    @include mq-min-desktop {
-        font-size: 16px;
-    } */
+}
+
+@media (min-width: 1750px) {
+  .small-list {
+    font-size: 16px;
+  }
 }
 
 .micro {
   font-weight: 800;
   font-size: calc(12px + (12.8 - 12) * ((100vw - 320px) / (1750 - 320)));
   line-height: 140%;
-  /* @include mq-min-small {
-        font-size: 12.05px;
-    }
-    @include mq-min-mobile {
-        font-size: 12.25px;
-    }
-    @include mq-min-tablet {
-        font-size: 12.39px;
-    }
-    @include mq-min-tablet-landscape {
-        font-size: 12.63px;
-    }
-    @include mq-min-desktop {
-        font-size: 12.8px;
-    } */
+}
+
+@media (min-width: 1750px) {
+  .micro {
+    font-size: 12.8px;
+  }
 }
 
 /*-----------------------------------------------
@@ -855,6 +738,12 @@ small, .small {
 @media (max-width: 767.8px) {
   .ag-btn {
     font-size: 14.63px;
+  }
+}
+
+@media (min-width: 1750px) {
+  .ag-btn {
+    font-size: 16px;
   }
 }
 
@@ -1099,6 +988,12 @@ small, .small {
   font-size: calc(14px + (16 - 14) * ((100vw - 320px) / (1750 - 320)));
   display: block;
   margin-top: 8px;
+}
+
+@media (min-width: 1750px) {
+  .ag-form .ag-form-group .error-msg {
+    font-size: 16px;
+  }
 }
 
 .ag-form .ag-form-group.has-error .ag-form-input {
@@ -1487,6 +1382,10 @@ small, .small {
   margin-right: 0 !important;
 }
 
+.mb-1 {
+  margin-bottom: 1rem;
+}
+
 .mb-2 {
   margin-bottom: 2rem;
 }
@@ -1519,6 +1418,11 @@ small, .small {
 /*----- Z-Index --------*/
 .z-2 {
   z-index: 2;
+}
+
+/*----- Font Weight --------*/
+.font-600 {
+  font-weight: 600;
 }
 
 /*-----------------------------------------------
@@ -1823,6 +1727,12 @@ header .ag-container .ag-nav .ag-nav-menu .ag-nav-link {
   font-weight: 600;
 }
 
+@media (min-width: 1750px) {
+  header .ag-container .ag-nav .ag-nav-menu .ag-nav-link {
+    font-size: 16px;
+  }
+}
+
 @media (min-width: 1024px) {
   header .ag-container .ag-nav .ag-nav-menu .ag-nav-link {
     position: relative;
@@ -2051,6 +1961,15 @@ header .ag-header-nav-btn {
     -webkit-transition: all 0.25s ease;
     transition: all 0.25s ease;
   }
+}
+
+@media (min-width: 1024px) and (min-width: 1750px) {
+  header .ag-header-nav-btn {
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 1024px) {
   header .ag-header-nav-btn:hover {
     color: #1E3356;
     background-color: #FFFFFF;
@@ -2175,6 +2094,12 @@ body {
   }
 }
 
+@media (min-width: 1750px) {
+  .ag-masthead .ag-masthead-title {
+    font-size: 76.3px;
+  }
+}
+
 .ag-masthead .ag-masthead-title .typing-txt {
   color: #60b2f3;
 }
@@ -2273,6 +2198,12 @@ body {
   font-size: calc(14.13px + (16 - 14.13) * ((100vw - 320px) / (1750 - 320)));
   line-height: 140%;
   font-weight: 600;
+}
+
+@media (min-width: 1750px) {
+  .ag-masthead .ag-masthead-scroll-link {
+    font-size: 16px;
+  }
 }
 
 @-webkit-keyframes scrollDown {
@@ -2446,6 +2377,12 @@ body {
   background: #26406B;
   mix-blend-mode: screen;
   opacity: 0.25;
+  z-index: 1;
+}
+
+.who-we-are .who-we-are-banner > img {
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 @media (min-width: 768px) {
@@ -2498,6 +2435,13 @@ body {
           transform: translate(-50%, -50%);
   width: 100%;
   text-shadow: 0px 6.09354px 36.5612px rgba(0, 0, 0, 0.15);
+  z-index: 3;
+}
+
+@media (min-width: 1750px) {
+  .who-we-are .who-we-are-banner .who-we-are-banner-heading {
+    font-size: 78.6199px;
+  }
 }
 
 .who-we-are .who-we-are-banner .who-we-are-banner-heading .sm-break {
@@ -2520,6 +2464,7 @@ body {
   background: #E86DBD;
   mix-blend-mode: lighten;
   opacity: 0.75;
+  z-index: 2;
 }
 
 @media (max-width: 767.8px) {
@@ -2976,6 +2921,10 @@ body.dark .who-we-are, body.dark .evolve-section {
 
 body.dark .who-we-are .ag-carousel-item .small-link {
   color: #D4D9E1;
+}
+
+body.dark .evolve-section .section-title {
+  color: #FFFFFF;
 }
 
 body.dark .evolve-section .copy-link {
@@ -3485,15 +3434,12 @@ body:not(.dark) .dark-hidden {
   text-shadow: 18ch 0 currentColor, calc(18ch * 2) 0 currentColor;
   -webkit-animation: marquee 5s linear infinite;
           animation: marquee 5s linear infinite;
-  /* @include mq-min-tablet {
-            font-size: 54.72px;
-        }
-        @include mq-min-tablet-landscape {
-            font-size: 72.97px;
-        }
-        @include mq-min-desktop {
-            font-size: 102px;
-        } */
+}
+
+@media (min-width: 1750px) {
+  .rotate-banner .rotate-banner-text {
+    font-size: 180px;
+  }
 }
 
 @-webkit-keyframes marquee {

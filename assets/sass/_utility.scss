@@ -56,6 +56,9 @@
     margin-right: 0 !important;
 }
 
+.mb-1 {
+    margin-bottom: 1rem;
+}
 .mb-2 {
     margin-bottom: 2rem;
 }
@@ -90,4 +93,9 @@
 /*----- Z-Index --------*/
 .z-2 {
     z-index: 2;
+}
+
+/*----- Font Weight --------*/
+.font-600 {
+    font-weight: 600;
 }

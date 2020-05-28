@@ -106,10 +106,14 @@ $mq-mobile: 414px;
 $mq-tablet: 768px;
 $mq-tablet-landscape: 1024px;
 $mq-desktop: 1440px;
+$mq-large-desktop: 1750px;
 
 
 //Mininum Media Queries @Mixin
 
+@mixin mq-min-large-desktop {
+  @media (min-width: $mq-large-desktop) { @content; }
+}
 @mixin mq-min-desktop {
   @media (min-width: $mq-desktop) { @content; }
 }
