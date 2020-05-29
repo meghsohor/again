@@ -150,9 +150,13 @@ function sticyHeaderFn() {
         var currentScroll = $(this).scrollTop();
         if (currentScroll > targetHeight) {
             if (currentScroll > previousScroll) {
-                $('body').removeClass('sticky-header');
+                $('header').slideUp(250);
+                setTimeout(function() {
+                    $('body').removeClass('sticky-header');
+                }, 250)
             } else {
                 $('body').addClass('sticky-header');
+                $('header').slideDown(250);
             }
         } else {
             $('body').removeClass('sticky-header');

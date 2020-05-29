@@ -170,10 +170,7 @@ header {
     left: 0;
     width: 100%;
     z-index: 3;
-    display: flex;
-    align-items: stretch;
     padding-top: 32px;
-    transition: padding 0.25s ease;
 
     @include mq-min-tablet {
         padding-top: 40px;
@@ -183,6 +180,7 @@ header {
     }
 
     .ag-container {
+        height: 100%;
         display: flex;
         align-items: center;
 
@@ -192,23 +190,22 @@ header {
         }
 
         .ag-logo {
-            width: 105px;
-            margin-right: 116px;
+            height: 50px;
+            
 
-            @include mq-max-desktop {
+            @include mq-min-tablet {
+                height: 59px;
+            }
+            @include mq-min-tablet-landscape {
                 margin-right: 52px;
             }
-
-            @include mq-max-tablet-landscape {
-                height: 60px !important;
-            }
-
-            @include mq-max-tablet {
-                height: 50px !important;
+            @include mq-min-desktop {
+                margin-right: 116px;
+                height: 76px;
             }
 
             img {
-                max-height: 100%;
+                height: 100%;
                 width: auto;
             }
 
@@ -278,6 +275,7 @@ header {
                 visibility: hidden;
                 transform: translateY(-15%);
                 transition: all 0.5s ease;
+                margin-top: -60px;
 
                 &.open {
                     visibility: visible;
@@ -383,6 +381,7 @@ header {
     &.open-menu {
         height: 100%;
         max-height: 100vh;
+        transition: padding 0.25s ease;
 
         &:before {
             transform: scaleX(1);
@@ -859,12 +858,14 @@ body {
         } */
 
         @include mq-min-tablet-landscape {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            grid-gap: 7%;
+            display: flex;
+            align-items: stretch;
+            justify-content: space-between;
             margin-bottom: 0;
 
             .ag-carousel-item {
+                flex: auto;
+                max-width: calc(33.33% - 4.66vw);
 
                 &:last-child {
                     display: none;
@@ -967,6 +968,7 @@ body {
 
         p {
             margin-bottom: 24px;
+            max-width: 100%;
 
             @include mq-min-tablet {
                 margin-bottom: 28px;
@@ -1015,26 +1017,8 @@ body {
         position: relative;
 
         @include mq-min-tablet-landscape {
-            order: unset;
+            order: 1;
         }
-
-        /* .bg-radial {
-            display: none;
-
-            @include mq-min-tablet-landscape {
-                display: block ;
-                height: calc(100% + 335px);
-                width: calc(100% + 335px);
-                top: -167px;
-                left: -167px;
-            }
-            @include mq-min-desktop {
-                height: calc(100% + 416px);
-                width: calc(100% + 416px);
-                top: -208px;
-                left: -208px;
-            }
-        } */
 
         .evolve-section-logo-container {
             display: flex;
@@ -1114,6 +1098,7 @@ body {
 
     .evolve-section-text-area {
         padding-bottom: 32px;
+        order: 1;
 
         @include mq-max-tablet-landscape {
             max-width: 690px;
@@ -1125,6 +1110,7 @@ body {
         }
 
         @include mq-min-tablet-landscape {
+            order: 2;
             padding-left: 48px;
             padding-bottom: 0;
         }
@@ -1297,8 +1283,8 @@ body:not(.dark) {
 
         @include mq-min-desktop {
                 padding-top: 96.28px;
-                padding-left: 93px;
-                padding-right: 93px;
+                padding-left: 76.52px;
+                padding-right: 76.52px;
                 padding-bottom: 90.51px;
         }
 
@@ -1312,19 +1298,32 @@ body:not(.dark) {
             max-width: 100%;
 
             @include mq-min-tablet {
-                display: grid;
-                grid-template-columns: 1fr 1fr 1fr 1fr;
-                grid-gap: 24.47px;
+                flex-direction: row;
+                justify-content: space-between;
+                //grid-gap: 24.47px;
                 width: 100%;
                 max-width: 750px;
+
+                .feature-grid-item {
+                    max-width: calc(25% - 17.156px);
+                }
             }
             @include mq-min-tablet-landscape {
-                grid-gap: 30.32px;
+                //grid-gap: 30.32px;
                 max-width: 800px;
+
+                .feature-grid-item {
+                    max-width: calc(25% - 22.68px);
+                }
             }
             @include mq-min-desktop {
-                grid-gap: 37.93px;
+                //grid-gap: 37.93px;
                 max-width: 100%;
+
+                .feature-grid-item {
+                    //max-width: calc(25% - 12.64px);
+                    max-width: calc(25% - 27px);
+                }
             }
 
 
@@ -1602,7 +1601,7 @@ body:not(.dark) {
         cursor: default;
         text-shadow: 18ch 0 currentColor,
                     calc(18ch * 2) 0 currentColor;
-        animation: marquee 5s linear infinite;
+        animation: marquee 10s linear infinite;
 
         @include mq-min-large-desktop {
             font-size: 180px;
@@ -1621,9 +1620,10 @@ body:not(.dark) {
     margin-top: 32px;
 
     .single-post-item-thumbnail {
-        padding-top: 30px;
+        //padding-top: 30px;
         position: relative;
-        padding-bottom: 56.25%;
+        //padding-bottom: 56.25%;
+        padding-bottom: 56.375%;
         overflow: hidden;
 
         img {
@@ -1869,15 +1869,19 @@ body:not(.dark) {
         padding-top: 160px;
     }
 
-    .ag-form {
-        margin-top: 48px;
+    .section-title {
+        margin-bottom: 40px;
 
-        @include mq-min-tablet {
-            margin-top: 64px;
+        @include mq-min-desktop {
+            margin-bottom: 56px;
         }
-        @include mq-min-tablet-landscape {
-            margin-top: 0px;
-        }
+    }
+
+    .contact-info {
+        margin-bottom: 40px;
+    }
+
+    .ag-form {
 
         .ag-btn {
             margin-bottom: 128px;
