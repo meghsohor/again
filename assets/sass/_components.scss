@@ -207,6 +207,7 @@ header {
             img {
                 height: 100%;
                 width: auto;
+                max-width: none;
             }
 
             .ag-logo-primary {
@@ -269,13 +270,12 @@ header {
                 display: none;
                 order: 2;
                 width: 100%;
-                width: 100%;
-                flex-direction: column;
-                align-items: flex-start;
+                min-height: calc(100% - 60px);
+                flex-wrap: wrap;
+                align-items: center;
                 visibility: hidden;
                 transform: translateY(-15%);
                 transition: all 0.5s ease;
-                margin-top: -60px;
 
                 &.open {
                     visibility: visible;
@@ -285,6 +285,8 @@ header {
                 .ag-nav-menu {
                     display: flex;
                     flex-direction: column;
+                    min-width: 100%;
+                    margin-top: auto;
 
                     .ag-nav-link {
                         color: $primary_color;
@@ -294,6 +296,10 @@ header {
                         font-weight: bold;
                         line-height: 125%;
                     }
+                }
+
+                .ag-header-nav-btn {
+                    margin-bottom: auto;
                 }
             }
         }
@@ -531,18 +537,26 @@ body {
         justify-content: center;
         padding-top: 82px;
 
-        @include mq-min-tablet-landscape {
-            padding-top: 140px;
-        }
         @include mq-min-tablet {
             padding-top: 100px;
+        }
+
+        @include mq-min-tablet-landscape {
+            padding-top: 140px;
         }
     }
 
     .ag-masthead-title {
         cursor: default;
-        margin: auto 0;
+        //margin: auto 0;
         font-size: calc(48.83px + (76.3 - 48.83) * ((100vw - 320px) / (1750 - 320)));
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        width: 100%;
+
+        margin-top: 20px;
         
         @include mq-max-tablet {
             font-size: 38px;
@@ -580,6 +594,9 @@ body {
     .ag-masthead-scroll-link-container {
         display: flex;
         margin-bottom: 48px;
+        position: absolute;
+        bottom: 0;
+        left: 0;
 
         @include mq-min-tablet-landscape {
             margin-bottom: 64px;
@@ -735,8 +752,6 @@ body {
         overflow: hidden;
         margin-top: 48px;
         margin-bottom: 48px;
-        display: flex;
-        flex-direction: column;
 
         &::before {
             content: '';
@@ -753,7 +768,7 @@ body {
 
         >img {
             object-fit: cover;
-            height: auto;
+            display: block;
         }
 
         @include mq-min-tablet {
@@ -865,6 +880,7 @@ body {
 
             .ag-carousel-item {
                 flex: auto;
+                width: 100%;
                 max-width: calc(33.33% - 4.66vw);
 
                 &:last-child {
@@ -1261,14 +1277,14 @@ body:not(.dark) {
     }
 
     .feature-grid-container {
-        display: flex;
-        align-items: center;
+        /* display: flex;
+        align-items: center; */
         background: $sky_blue;
         padding: 32px;
         padding-bottom: 42px;
 
         @include mq-min-tablet {
-            flex-direction: column;
+            //flex-direction: column;
             padding-left: 15px;
             padding-right: 15px;
             padding-bottom: 45.25px;
@@ -1288,11 +1304,29 @@ body:not(.dark) {
                 padding-bottom: 90.51px;
         }
 
-        @include mq-max-tablet {
-            justify-content: center;
+        img[class*="methodology"] {
+            display: block;
+            margin: 0 auto;
+
+            &.methodology_desktop {
+                display: none;
+            }
+
+            @include mq-min-tablet {
+                &.methodology_desktop {
+                    display: block;
+                }
+                &.methodology_mobile {
+                    display: none;
+                }
+            }
         }
 
-        .feature-grid {
+        /* @include mq-max-tablet {
+            justify-content: center;
+        } */
+
+        /* .feature-grid {
             display: flex;
             flex-direction: column;
             max-width: 100%;
@@ -1490,7 +1524,7 @@ body:not(.dark) {
                 margin-top: 12.34px;
             }
 
-        }
+        } */
     }
 
     .feature-list-container {
@@ -1601,7 +1635,7 @@ body:not(.dark) {
         cursor: default;
         text-shadow: 18ch 0 currentColor,
                     calc(18ch * 2) 0 currentColor;
-        animation: marquee 10s linear infinite;
+        animation: marquee 13s linear infinite;
 
         @include mq-min-large-desktop {
             font-size: 180px;
