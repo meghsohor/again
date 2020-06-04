@@ -20,6 +20,13 @@ $(window).on('load', function () {
     setTimeout(function () {
         $('body').removeClass('loading').removeClass('no-scroll');
     }, 500);
+
+    //Show Cookie box
+    if ($('.cookie-box').length > 0) {
+        setTimeout(function () {
+            $('.cookie-box').fadeIn();
+        }, 5000)
+    }
 });
 
 $(document).ready(function () {
@@ -48,6 +55,12 @@ $(document).ready(function () {
     });
 
     $(window).on('scroll', function(e) {
+    });
+
+    //Hide Cookie box
+
+    $('.cookie-box .ag-btn').on('click', function () {
+        $('.cookie-box').fadeOut();
     });
 
 });
@@ -140,10 +153,9 @@ function collapsibleToggleFn () {
 function sticyHeaderFn() {
     var previousScroll = 0,
         targetHeight = $('header').height() ;
-    var isTriggered = false;
 
     $(window).scroll(function (e) {
-        if ($('header').hasClass('open-menu') || isTriggered) {
+        if ($('header').hasClass('open-menu')) {
             e.preventDefault();
             return;
         }
@@ -162,11 +174,6 @@ function sticyHeaderFn() {
             $('body').removeClass('sticky-header');
         }
         previousScroll = currentScroll;
-        isTriggered = true;
-        
-        setTimeout(function() {
-            isTriggered = false;
-        }, 100)
     });
 }
 

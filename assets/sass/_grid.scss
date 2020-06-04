@@ -40,5 +40,15 @@
             max-width: calc(50% - 3.5%);
         }
     }
+    .ag-col-md-8 {
+        @include mq-min-tablet-landscape {
+            max-width: calc(66.66% - 3.5%);
+        }
+    }
+    .ag-col-md-4 {
+        @include mq-min-tablet-landscape {
+            max-width: calc(33.33% - 3.5%);
+        }
+    }
 
 }

@@ -806,6 +806,11 @@ small, .small {
   background-color: #FFFFFF;
 }
 
+.ag-btn-primary {
+  color: #FFFFFF;
+  background-color: #1E3356;
+}
+
 /*-----------------------------------------------
     Links
 -----------------------------------------------*/
@@ -1074,6 +1079,18 @@ small, .small {
   }
 }
 
+@media (min-width: 1024px) {
+  .ag-row .ag-col-md-8 {
+    max-width: calc(66.66% - 3.5%);
+  }
+}
+
+@media (min-width: 1024px) {
+  .ag-row .ag-col-md-4 {
+    max-width: calc(33.33% - 3.5%);
+  }
+}
+
 .sr-only {
   text-indent: -9999px;
 }
@@ -1105,6 +1122,10 @@ small, .small {
 
 .text-black {
   color: #000000;
+}
+
+.text-dark-blue {
+  color: #26406B;
 }
 
 /*----- Background Color --------*/
@@ -3654,5 +3675,71 @@ body:not(.dark) .dark-hidden {
 
 .banner-header .banner-header-title {
   margin-bottom: 0;
+}
+
+.cookie-box {
+  display: none;
+  padding: 25px 0 24px 0;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background: #FFFFFF;
+  z-index: 9999;
+  -webkit-box-shadow: 0px 8px 4px rgba(0, 0, 0, 0.1);
+          box-shadow: 0px 8px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+}
+
+.cookie-box .ag-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+@media (min-width: 1024px) {
+  .cookie-box .ag-container {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
+
+.cookie-box .ag-container .cookie-msg {
+  font-size: 12px;
+  line-height: 140%;
+}
+
+.cookie-box .ag-container .cookie-box-buttons {
+  margin-top: 25px;
+}
+
+@media (min-width: 1024px) {
+  .cookie-box .ag-container .cookie-box-buttons {
+    margin-top: 0;
+    margin-left: 8%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
+
+.cookie-box .ag-container .cookie-box-buttons a {
+  white-space: nowrap;
+}
+
+.cookie-box .ag-container .cookie-box-buttons .ag-btn {
+  margin-left: 41px;
 }
 /*# sourceMappingURL=styles.css.map */
