@@ -175,6 +175,21 @@ small, .small {
     }
 }
 
+.ag-list {
+    margin-top: 0;
+
+    li {
+        font-weight: 600;
+        font-size: calc(16px + (20 - 16) * ((100vw - 320px) / (1750 - 320)));
+        line-height: 170%;
+        color: $primary_color;
+
+        @include mq-min-large-desktop {
+            font-size: 20px;
+        }
+    }
+}
+
 
 
 /*-----------------------------------------------

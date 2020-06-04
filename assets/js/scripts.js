@@ -140,10 +140,10 @@ function collapsibleToggleFn () {
 function sticyHeaderFn() {
     var previousScroll = 0,
         targetHeight = $('header').height() ;
+    var isTriggered = false;
 
     $(window).scroll(function (e) {
-        if ($('header').hasClass('open-menu')) {
-            console.log(e);
+        if ($('header').hasClass('open-menu') || isTriggered) {
             e.preventDefault();
             return;
         }
@@ -162,6 +162,11 @@ function sticyHeaderFn() {
             $('body').removeClass('sticky-header');
         }
         previousScroll = currentScroll;
+        isTriggered = true;
+        
+        setTimeout(function() {
+            isTriggered = false;
+        }, 100)
     });
 }
 
@@ -324,6 +329,9 @@ function mouseHoverEffectFn () {
 
 function whoWeAreBannerRadialAnimation () {
     $(window).on('resize scroll', function () {
+            if ($('.who-we-are-banner').length === 0) {
+                return;
+            }
             var elementTop = $('.who-we-are-banner').offset().top;
             var elementBottom = elementTop + $('.who-we-are-banner').outerHeight();
             var viewportTop = $(window).scrollTop();
@@ -347,6 +355,10 @@ function switchDarkmodeFn () {
         debounce(function () {
             var $element = $('.color-transition');
             var $window = $(window);
+
+            if ($element.length === 0) {
+                return;
+            }
 
             var startAt = $window.scrollTop() + $window.height();
             var endAt = $element.offset().top + ($element.height() / 1.25);

@@ -723,6 +723,23 @@ small, .small {
   }
 }
 
+.ag-list {
+  margin-top: 0;
+}
+
+.ag-list li {
+  font-weight: 600;
+  font-size: calc(16px + (20 - 16) * ((100vw - 320px) / (1750 - 320)));
+  line-height: 170%;
+  color: #1E3356;
+}
+
+@media (min-width: 1750px) {
+  .ag-list li {
+    font-size: 20px;
+  }
+}
+
 /*-----------------------------------------------
     Buttons
 -----------------------------------------------*/
@@ -1086,6 +1103,10 @@ small, .small {
   color: #E86DBD;
 }
 
+.text-black {
+  color: #000000;
+}
+
 /*----- Background Color --------*/
 .bg-primary {
   background-color: #1E3356;
@@ -1131,6 +1152,19 @@ small, .small {
 
 .mb-2 {
   margin-bottom: 2rem;
+}
+
+.mb-32px {
+  margin-bottom: 32px;
+}
+
+.mb-64px {
+  margin-bottom: 64px;
+}
+
+/*----- Paddding --------*/
+.pt-100vh {
+  padding-top: 100vh;
 }
 
 /*----- Text-Align --------*/
@@ -1720,10 +1754,6 @@ header .ag-header-nav-btn {
 /*-----------------------------------------------
     Masthead Section
 -----------------------------------------------*/
-body {
-  padding-top: 100vh;
-}
-
 .ag-masthead {
   position: fixed;
   top: 0;
@@ -2666,6 +2696,8 @@ body.dark .who-we-are .ag-carousel-item .small-link {
 
 body.dark .evolve-section .section-title {
   color: #FFFFFF;
+  -webkit-transition: all 0.3s cubic-bezier(0.49, 0.025, 0.65, 0.65);
+  transition: all 0.3s cubic-bezier(0.49, 0.025, 0.65, 0.65);
 }
 
 body.dark .evolve-section .copy-link {
@@ -3146,6 +3178,7 @@ body:not(.dark) .dark-hidden {
           user-select: none;
   cursor: default;
   position: relative;
+  will-change: transform;
   -webkit-animation: marquee 15s linear infinite;
           animation: marquee 15s linear infinite;
 }
@@ -3172,6 +3205,9 @@ body:not(.dark) .dark-hidden {
 
 @media (min-width: 1750px) {
   .rotate-banner .rotate-banner-text {
+    font-size: 180px;
+  }
+  .rotate-banner .rotate-banner-text:before, .rotate-banner .rotate-banner-text:after {
     font-size: 180px;
   }
 }
@@ -3599,5 +3635,24 @@ body:not(.dark) .dark-hidden {
   height: 100%;
   width: auto;
   mix-blend-mode: soft-light;
+}
+
+/*-----------------------------------------------
+    Banner Header Section
+-----------------------------------------------*/
+.banner-header {
+  background-color: #EFF7FE;
+  padding-bottom: 50px;
+}
+
+.banner-header .ag-logo {
+  max-width: 128px;
+  display: inline-block;
+  margin-top: 64px;
+  margin-bottom: 146px;
+}
+
+.banner-header .banner-header-title {
+  margin-bottom: 0;
 }
 /*# sourceMappingURL=styles.css.map */

@@ -21,6 +21,9 @@
 .text-pink {
     color: $brand_pink;
 }
+.text-black {
+    color: #000000;
+}
 
 
 /*----- Background Color --------*/
@@ -61,6 +64,18 @@
 }
 .mb-2 {
     margin-bottom: 2rem;
+}
+
+.mb-32px {
+    margin-bottom: 32px;
+}
+.mb-64px {
+    margin-bottom: 64px;
+}
+
+/*----- Paddding --------*/
+.pt-100vh {
+    padding-top: 100vh;
 }
 
 
