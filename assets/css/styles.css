@@ -1835,6 +1835,7 @@ header .ag-header-nav-btn {
   position: absolute;
   background-color: #1E3356;
   mix-blend-mode: color;
+  opacity: 0.8;
 }
 
 .ag-masthead .ag-masthead-video-wrapper .ag-masthead-video-overlay2 {
