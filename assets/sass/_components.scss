@@ -486,7 +486,7 @@ body {
         height: 100%;
         pointer-events: none;
         overflow: hidden;
-        background-image: url('./../img/masthead-bg.jpg');
+        background-image: url('../img/masthead-bg.jpg');
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center;
@@ -531,10 +531,6 @@ body {
     }
 
     .ag-container {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        justify-content: center;
         padding-top: 82px;
 
         @include mq-min-tablet {
@@ -623,7 +619,8 @@ body {
             background-color: #FFF;
             mix-blend-mode: soft-light;
             opacity: 0.4;
-            animation: scrollDown 2s ease 1s infinite;
+            will-change: transform;
+            animation: scrollDown 2s ease 1s infinite, opacity1 2s ease 1s infinite;
         }
         i {
             position: absolute;
@@ -633,8 +630,9 @@ body {
             align-items: center;
             justify-content: center;
             font-size: 21px;
-            list-style: 125%;
-            animation: scrollDown2 2s ease 1s infinite;
+            line-height: 125%;
+            will-change: transform;
+            animation: scrollDown 2s ease 1s infinite, opacity2 2s ease 1s infinite;
         }
     }
 
@@ -655,22 +653,27 @@ body {
 
 @keyframes scrollDown {
     0% {
-        opacity: 0;
         transform: translateY(-80%);
     }
     60% {
-        opacity: 0.4;
         transform: translateY(0);
     }
 }
-@keyframes scrollDown2 {
+
+@keyframes opacity1 {
     0% {
         opacity: 0;
-        transform: translateY(-80%);
+    }
+    60% {
+        opacity: 0.4;
+    }
+}
+@keyframes opacity2 {
+    0% {
+        opacity: 0;
     }
     60% {
         opacity: 1;
-        transform: translateY(0);
     }
 }
 
@@ -1629,13 +1632,30 @@ body:not(.dark) {
         color: #EFF7FE;
         white-space: nowrap;
         display: inline-block;
-        width: 18ch;
         padding: 0 15px;
         user-select: none;
         cursor: default;
-        text-shadow: 18ch 0 currentColor,
-                    calc(18ch * 2) 0 currentColor;
-        animation: marquee 13s linear infinite;
+        position: relative;
+        animation: marquee 15s linear infinite;
+
+        &:before, &:after {
+            position: absolute;
+            top: 0;
+            content: attr(data-rotate-text);
+            font-size: calc(65px + (180 - 65) * ((100vw - 320px) / (1750 - 320)));
+            line-height: 1;
+            font-weight: 600;
+            color: #EFF7FE;
+            display: inline-block;
+            padding: 0 15px;
+        }
+
+        &:before {
+            left: -100%;
+        }
+        &:after {
+            right: -100%;
+        }
 
         @include mq-min-large-desktop {
             font-size: 180px;

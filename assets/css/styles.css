@@ -538,7 +538,6 @@ body {
 body {
   position: relative;
   color: #516689;
-  background-color: #26406B;
   font-size: 16px;
   font-family: "Gilroy", sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -1750,7 +1749,7 @@ body {
   height: 100%;
   pointer-events: none;
   overflow: hidden;
-  background-image: url("./../img/masthead-bg.jpg");
+  background-image: url("../img/masthead-bg.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -1797,19 +1796,6 @@ body {
 }
 
 .ag-masthead .ag-container {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
   padding-top: 82px;
 }
 
@@ -1919,8 +1905,9 @@ body {
   background-color: #FFF;
   mix-blend-mode: soft-light;
   opacity: 0.4;
-  -webkit-animation: scrollDown 2s ease 1s infinite;
-          animation: scrollDown 2s ease 1s infinite;
+  will-change: transform;
+  -webkit-animation: scrollDown 2s ease 1s infinite, opacity1 2s ease 1s infinite;
+          animation: scrollDown 2s ease 1s infinite, opacity1 2s ease 1s infinite;
 }
 
 .ag-masthead .ag-masthead-scroll-link-animation i {
@@ -1937,9 +1924,10 @@ body {
       -ms-flex-pack: center;
           justify-content: center;
   font-size: 21px;
-  list-style: 125%;
-  -webkit-animation: scrollDown2 2s ease 1s infinite;
-          animation: scrollDown2 2s ease 1s infinite;
+  line-height: 125%;
+  will-change: transform;
+  -webkit-animation: scrollDown 2s ease 1s infinite, opacity2 2s ease 1s infinite;
+          animation: scrollDown 2s ease 1s infinite, opacity2 2s ease 1s infinite;
 }
 
 .ag-masthead .ag-masthead-scroll-link {
@@ -1960,12 +1948,10 @@ body {
 
 @-webkit-keyframes scrollDown {
   0% {
-    opacity: 0;
     -webkit-transform: translateY(-80%);
             transform: translateY(-80%);
   }
   60% {
-    opacity: 0.4;
     -webkit-transform: translateY(0);
             transform: translateY(0);
   }
@@ -1973,40 +1959,48 @@ body {
 
 @keyframes scrollDown {
   0% {
-    opacity: 0;
     -webkit-transform: translateY(-80%);
             transform: translateY(-80%);
+  }
+  60% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+@-webkit-keyframes opacity1 {
+  0% {
+    opacity: 0;
   }
   60% {
     opacity: 0.4;
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
   }
 }
 
-@-webkit-keyframes scrollDown2 {
+@keyframes opacity1 {
   0% {
     opacity: 0;
-    -webkit-transform: translateY(-80%);
-            transform: translateY(-80%);
   }
   60% {
-    opacity: 1;
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
+    opacity: 0.4;
   }
 }
 
-@keyframes scrollDown2 {
+@-webkit-keyframes opacity2 {
   0% {
     opacity: 0;
-    -webkit-transform: translateY(-80%);
-            transform: translateY(-80%);
   }
   60% {
     opacity: 1;
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
+  }
+}
+
+@keyframes opacity2 {
+  0% {
+    opacity: 0;
+  }
+  60% {
+    opacity: 1;
   }
 }
 
@@ -3145,16 +3139,35 @@ body:not(.dark) .dark-hidden {
   color: #EFF7FE;
   white-space: nowrap;
   display: inline-block;
-  width: 18ch;
   padding: 0 15px;
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
   cursor: default;
-  text-shadow: 18ch 0 currentColor, calc(18ch * 2) 0 currentColor;
-  -webkit-animation: marquee 13s linear infinite;
-          animation: marquee 13s linear infinite;
+  position: relative;
+  -webkit-animation: marquee 15s linear infinite;
+          animation: marquee 15s linear infinite;
+}
+
+.rotate-banner .rotate-banner-text:before, .rotate-banner .rotate-banner-text:after {
+  position: absolute;
+  top: 0;
+  content: attr(data-rotate-text);
+  font-size: calc(65px + (180 - 65) * ((100vw - 320px) / (1750 - 320)));
+  line-height: 1;
+  font-weight: 600;
+  color: #EFF7FE;
+  display: inline-block;
+  padding: 0 15px;
+}
+
+.rotate-banner .rotate-banner-text:before {
+  left: -100%;
+}
+
+.rotate-banner .rotate-banner-text:after {
+  right: -100%;
 }
 
 @media (min-width: 1750px) {
