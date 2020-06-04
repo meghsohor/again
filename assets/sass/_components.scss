@@ -516,7 +516,21 @@ header {
             position:absolute;
             background-color:$primary_color;
             mix-blend-mode:color;
-            opacity:0.8;
+
+            @supports (-ms-ime-align:auto) {
+                opacity:0.5;
+            }
+
+            @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+                opacity:0.5;
+            }
+
+            @media not all and (min-resolution:.001dpcm)
+            { @supports (-webkit-appearance:none) and (stroke-color:transparent) {
+                selector { 
+                    opacity:0.5;
+                }
+            }}
         }
         .ag-masthead-video-overlay2 {
             width:100%;
@@ -525,6 +539,21 @@ header {
             background-color:$midnight_blue_color;
             mix-blend-mode:multiply;
             opacity:0.8;
+
+            @supports (-ms-ime-align:auto) {
+                opacity:0.6;
+            }
+
+            @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+                opacity:0.6;
+            }
+
+            @media not all and (min-resolution:.001dpcm)
+            { @supports (-webkit-appearance:none) and (stroke-color:transparent) {
+                selector { 
+                    opacity:0.6;
+                }
+            }}
         }
     }
 
