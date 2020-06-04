@@ -25,7 +25,7 @@ $(window).on('load', function () {
     if ($('.cookie-box').length > 0) {
         setTimeout(function () {
             $('.cookie-box').fadeIn();
-        }, 5000)
+        }, 10000)
     }
 });
 
