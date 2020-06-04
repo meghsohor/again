@@ -527,9 +527,7 @@ header {
 
             @media not all and (min-resolution:.001dpcm)
             { @supports (-webkit-appearance:none) and (stroke-color:transparent) {
-                selector { 
-                    opacity:0.5;
-                }
+                opacity:0.5;
             }}
         }
         .ag-masthead-video-overlay2 {
@@ -550,9 +548,7 @@ header {
 
             @media not all and (min-resolution:.001dpcm)
             { @supports (-webkit-appearance:none) and (stroke-color:transparent) {
-                selector { 
-                    opacity:0.6;
-                }
+                opacity:0.6;
             }}
         }
     }

@@ -1851,7 +1851,7 @@ header .ag-header-nav-btn {
 
 @media not all and (min-resolution: 0.001dpcm) {
   @supports (-webkit-appearance: none) and (stroke-color: transparent) {
-    .ag-masthead .ag-masthead-video-wrapper .ag-masthead-video-overlay selector {
+    .ag-masthead .ag-masthead-video-wrapper .ag-masthead-video-overlay {
       opacity: 0.5;
     }
   }
@@ -1880,7 +1880,7 @@ header .ag-header-nav-btn {
 
 @media not all and (min-resolution: 0.001dpcm) {
   @supports (-webkit-appearance: none) and (stroke-color: transparent) {
-    .ag-masthead .ag-masthead-video-wrapper .ag-masthead-video-overlay2 selector {
+    .ag-masthead .ag-masthead-video-wrapper .ag-masthead-video-overlay2 {
       opacity: 0.6;
     }
   }
