@@ -64,7 +64,7 @@ $(document).ready(function () {
     });
 
     //Form Submit
-    leadFormSubmission();
+    //leadFormSubmission();
 
 });
 
@@ -560,7 +560,6 @@ function leadFormSubmission() {
             url: 'process.php',
             type: 'POST',
             data: formData,
-            dataType: 'json',
             success: function (data) {
                 console.log('Success', data);
             },
