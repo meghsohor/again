@@ -63,6 +63,9 @@ $(document).ready(function () {
         $('.cookie-box').fadeOut();
     });
 
+    //Form Submit
+    leadFormSubmission();
+
 });
 
 $(window).resize(function () {
@@ -545,5 +548,25 @@ function scrollHideMastheadFn() {
             mastHead.css('visibility', '');
         }
 
+    });
+}
+
+function leadFormSubmission() {
+    $('#leadform').on('submit', function(event) {
+        event.preventDefault();
+
+        var formData = $(this).serialize();
+        $.ajax({
+            url: 'process.php',
+            type: 'POST',
+            data: formData,
+            dataType: 'json',
+            success: function (data) {
+                console.log('Success', data);
+            },
+            error: function (error) {
+                console.error('Error', error);
+            }
+        });
     });
 }
