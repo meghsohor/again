@@ -142,14 +142,15 @@ function collapsibleToggleFn () {
                 $item.removeClass('open');
             }
         });
-        
-        setTimeout(function () {
-            if ($('.collapsible-item').hasClass('open')) {
+
+        if ($('.collapsible-item').hasClass('open')) {
+            setTimeout(function () {
                 $('.collapsible-section').css('min-height', $('.collapsible-section').height());
-            } else {
-                $('.collapsible-section').css('min-height', '');
-            }
-        }, 100)
+            }, 100)
+            
+        } else {
+            $('.collapsible-section').css('min-height', '');
+        }
     })
 }
 
