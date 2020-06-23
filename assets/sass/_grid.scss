@@ -30,6 +30,11 @@
         flex: 0 0 100%;
     }
 
+    .ag-col-sm-4 {
+        @include mq-min-tablet {
+            max-width: calc(33.33% - 3.5%);
+        }
+    }
     .ag-col-sm-6 {
         @include mq-min-tablet {
             max-width: calc(50% - 3.5%);

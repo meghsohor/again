@@ -585,22 +585,6 @@ header {
             font-size: 76.3px;
         }
 
-        .typing-txt {
-            color: $secondary_color;
-
-            @include mq-max-tablet-landscape {
-                display: block;
-            }
-        }
-
-        .md-break {
-            display: none;
-
-            @include mq-max-tablet-landscape {
-                display: block;
-            }
-        }
-
         .lg-break {
             display: none;
 
@@ -1304,32 +1288,6 @@ body:not(.dark) {
     }
 
     .feature-grid-container {
-        /* display: flex;
-        align-items: center; */
-        background: $sky_blue;
-        padding: 32px;
-        padding-bottom: 42px;
-
-        @include mq-min-tablet {
-            //flex-direction: column;
-            padding-left: 15px;
-            padding-right: 15px;
-            padding-bottom: 45.25px;
-        }
-
-        @include mq-min-tablet-landscape {
-            padding-top: 76.97px;
-            padding-left: 61.18px;
-            padding-right: 61.18px;
-            padding-bottom: 72.36px;
-        }
-
-        @include mq-min-desktop {
-                padding-top: 96.28px;
-                padding-left: 76.52px;
-                padding-right: 76.52px;
-                padding-bottom: 90.51px;
-        }
 
         img[class*="methodology"] {
             display: block;
@@ -1348,210 +1306,6 @@ body:not(.dark) {
                 }
             }
         }
-
-        /* @include mq-max-tablet {
-            justify-content: center;
-        } */
-
-        /* .feature-grid {
-            display: flex;
-            flex-direction: column;
-            max-width: 100%;
-
-            @include mq-min-tablet {
-                flex-direction: row;
-                justify-content: space-between;
-                //grid-gap: 24.47px;
-                width: 100%;
-                max-width: 750px;
-
-                .feature-grid-item {
-                    max-width: calc(25% - 17.156px);
-                }
-            }
-            @include mq-min-tablet-landscape {
-                //grid-gap: 30.32px;
-                max-width: 800px;
-
-                .feature-grid-item {
-                    max-width: calc(25% - 22.68px);
-                }
-            }
-            @include mq-min-desktop {
-                //grid-gap: 37.93px;
-                max-width: 100%;
-
-                .feature-grid-item {
-                    //max-width: calc(25% - 12.64px);
-                    max-width: calc(25% - 27px);
-                }
-            }
-
-
-
-            .feature-grid-item {
-                background: $white_color;
-                border-radius: 5px;
-                padding: 30px 26px 35px;
-                margin-bottom: 45px;
-                position: relative;
-                display: flex;
-
-                &:last-child {
-                    margin-bottom: 0;
-                }
-
-                @include mq-max-tablet {
-                    max-width: 260px;
-                }
-
-                @include mq-min-tablet {
-                    margin-bottom: 0;
-                    flex-direction: column;
-                    text-align: center;
-                    padding-top: 23px;
-                    padding-left: 15px;
-                    padding-right: 15px;
-                    padding-bottom: 30px; 
-
-                    .copy-link {
-                        font-size: 12px;
-                    }
-                    .small {
-                        font-size: 10px;
-                    }
-                }
-
-                @include mq-min-tablet-landscape { 
-                    padding-top: 28.29px;
-                    padding-left: 21.05px;
-                    padding-right: 21.05px;
-                    padding-bottom: 25px;
-
-                    .copy-link {
-                        font-size: 13.1739px;
-                    }
-                    .small {
-                        font-size: 10.5391px;
-                    }
-                }
-
-                @include mq-min-desktop { 
-                    padding-top: 35.38px;
-                    padding-left: 34.36px;
-                    padding-right: 34.36px;
-                    padding-bottom: 64.18px;
-
-                    .copy-link {
-                        font-size: calc(16px + (20 - 16) * ((100vw - 320px) / (1750 - 320)));
-                    }
-                    .small {
-                        font-size: calc(14px + (16 - 14) * ((100vw - 320px) / (1750 - 320)));
-                    }
-                }
-
-                &:after {
-                    content: '';
-                    width: 20px;
-                    height: 20px;
-                    position: absolute;
-                    top: calc(100% + 15px);
-                    left: 0;
-                    right: 0;
-                    margin: 0 auto;
-                    background-image: url('../img/down-arrow-pale-blue.svg');
-                    background-size: contain;
-
-                    @include mq-min-tablet {
-                        width: 13.53px;
-                        height: 12.99px;
-                        top: 50%;
-                        left: calc(100% + 5px);
-                        right: auto;
-                        margin: 0;
-                        transform: translateY(-50%) rotate(-90deg);
-                    }
-
-                    @include mq-min-tablet-landscape {
-                        width: 16.45px;
-                        height: 15.79px;
-                        left: calc(100% + 8px);
-                    }
-                    @include mq-min-desktop {
-                        width: 17.28px;
-                        height: 19.75px;
-                        left: calc(100% + 10px);
-                    }
-                }
-                &:last-child:after {
-                    background: none;
-                }
-
-                .feature-grid-item-index {
-                    font-weight: 600;
-                    color: $brand_blue;
-                    margin-top: -6px;
-
-                    @include mq-min-tablet {
-                        margin-top: 0;
-                        margin-bottom: 15px;
-                    }
-                }
-                &:nth-child(2) .feature-grid-item-index {
-                    color: $brand_pink;
-                }
-                &:nth-child(3) .feature-grid-item-index {
-                    color: $brand_purple;
-                }
-                &:nth-child(4) .feature-grid-item-index {
-                    color: $brand_green;
-                }
-
-                .feature-grid-item-content {
-                    padding-left: 21px;
-
-                    @include mq-min-tablet {
-                        padding-left: 0;
-                    }
-                }
-            }
-        }
-
-
-        .feature-grid-bracket {
-            margin-left: 7px;
-
-            .feature-grid-bracket-bottom {
-                display: none;
-            }
-            .feature-grid-bracket-right {
-                display: block;
-            }
-
-            @include mq-min-tablet {
-                margin-top: 9.86px;
-                margin-left: 0;
-                width: 80%;
-                max-width: 600px;
-
-                .feature-grid-bracket-bottom {
-                    display: block;
-                }
-
-                .feature-grid-bracket-right {
-                    display: none;
-                }
-            }
-
-            @include mq-min-tablet-landscape {
-                max-width: 650px;
-            }
-            @include mq-min-desktop {
-                max-width: 80%;
-                margin-top: 12.34px;
-            }
-
-        } */
     }
 
     .feature-list-container {
@@ -1962,6 +1716,12 @@ body:not(.dark) {
 
     .contact-info {
         margin-bottom: 40px;
+
+        a {
+            display: inline-block;
+            padding-bottom: 2px;
+            border-bottom: 1px solid $btn_active_color;
+        }
     }
 
     .ag-form {
@@ -2010,18 +1770,16 @@ body:not(.dark) {
         a {
             width: 38px;
             height: 38px;
-            background-color: rgba($white_color, 0.1);
             margin-right: 16px;
-            font-size: 1.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: $white-color;
 
             &:last-child {
                 margin-right: 0;
             }
         }
+    }
+
+    .footer-links {
+        margin-bottom: 32px;
     }
 }
 
@@ -2060,7 +1818,12 @@ body:not(.dark) {
     }
 
     .banner-header-title {
+        margin-bottom: 32px;
+    }
+
+    h6 {
         margin-bottom: 0;
+        font-weight: 400;
     }
 }
 
