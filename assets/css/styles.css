@@ -804,11 +804,25 @@ small, .small {
 .ag-btn-white {
   color: #1E3356;
   background-color: #FFFFFF;
+  -webkit-transition: all 0.25s ease;
+  transition: all 0.25s ease;
+}
+
+.ag-btn-white.active, .ag-btn-white:active, .ag-btn-white:hover, .ag-btn-white:focus {
+  color: #FFFFFF;
+  background-color: #1E3356;
 }
 
 .ag-btn-primary {
   color: #FFFFFF;
   background-color: #1E3356;
+  -webkit-transition: all 0.25s ease;
+  transition: all 0.25s ease;
+}
+
+.ag-btn-primary.active, .ag-btn-primary:active, .ag-btn-primary:hover, .ag-btn-primary:focus {
+  color: #1E3356;
+  background-color: #FFFFFF;
 }
 
 /*-----------------------------------------------

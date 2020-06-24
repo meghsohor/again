@@ -248,10 +248,22 @@ small, .small {
 .ag-btn-white {
     color: $primary_color;
     background-color: $white_color;
+    transition: all 0.25s ease;
+
+    &.active, &:active, &:hover, &:focus {
+        color: $white_color;
+        background-color: $primary_color;
+    }
 }
 .ag-btn-primary {
     color: $white_color;
     background-color: $primary_color;
+    transition: all 0.25s ease;
+
+    &.active, &:active, &:hover, &:focus {
+        color: $primary_color;
+        background-color: $white_color;
+    }
 }
 
 
