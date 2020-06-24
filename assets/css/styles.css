@@ -1134,6 +1134,10 @@ small, .small {
   color: #26406B;
 }
 
+.text-danger {
+  color: #F35858;
+}
+
 /*----- Background Color --------*/
 .bg-primary {
   background-color: #1E3356;
