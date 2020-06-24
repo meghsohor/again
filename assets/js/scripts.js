@@ -20,13 +20,6 @@ $(window).on('load', function () {
     setTimeout(function () {
         $('body').removeClass('loading').removeClass('no-scroll');
     }, 500);
-
-    //Show Cookie box
-    if ($('.cookie-box').length > 0) {
-        setTimeout(function () {
-            $('.cookie-box').fadeIn();
-        }, 10000)
-    }
 });
 
 $(document).ready(function () {
@@ -42,6 +35,7 @@ $(document).ready(function () {
     scrollFadeinFn();
     //dragScrollFn();
     scrollHideMastheadFn();
+    checkCookie();
 
     if (window.innerWidth < 1024) {
         startCarousel();
@@ -55,12 +49,6 @@ $(document).ready(function () {
     });
 
     $(window).on('scroll', function(e) {
-    });
-
-    //Hide Cookie box
-
-    $('.cookie-box .ag-btn').on('click', function () {
-        $('.cookie-box').fadeOut();
     });
 
     //Form Submit
@@ -509,5 +497,22 @@ function leadFormSubmission() {
                 console.error('Error', error);
             }
         });
+    });
+}
+
+function checkCookie() {
+    //Hide Cookie box
+    var isSessionDataSet = sessionStorage.getItem("again_cookie_box");
+
+    //Show Cookie box
+    if ((isSessionDataSet === null || isSessionDataSet ===false) && $('.cookie-box').length > 0) {
+        setTimeout(function () {
+            $('.cookie-box').fadeIn();
+        }, 10000)
+    }
+
+    $('.cookie-box-buttons a').on('click', function () {
+        $('.cookie-box').fadeOut();
+        sessionStorage.setItem("again_cookie_box", true);
     });
 }
