@@ -2867,6 +2867,10 @@ body:not(.dark) .dark-hidden {
   }
 }
 
+.what-we-do .feature-grid-container {
+  background-color: #EFF7FE;
+}
+
 .what-we-do .feature-grid-container img[class*="methodology"] {
   display: block;
   margin: 0 auto;
