@@ -3369,7 +3369,10 @@ body:not(.dark) .dark-hidden {
 .contact-us .contact-info a {
   display: inline-block;
   padding-bottom: 2px;
-  border-bottom: 1px solid #7D8CA6;
+}
+
+.contact-us .contact-info a:before {
+  background-color: #7D8CA6;
 }
 
 .contact-us .ag-form .ag-btn {

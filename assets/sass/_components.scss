@@ -1720,7 +1720,11 @@ body:not(.dark) {
         a {
             display: inline-block;
             padding-bottom: 2px;
-            border-bottom: 1px solid $btn_active_color;
+            //border-bottom: 1px solid $btn_active_color;
+
+            &:before {
+                background-color: $btn_active_color;
+            }
         }
     }
 
